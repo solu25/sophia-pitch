@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jenny-pitch",
+      "runtimeExecutable": "/opt/homebrew/bin/npx",
+      "runtimeArgs": ["vite", "--port", "5173"],
+      "cwd": "/Users/jenny/Documents/Claude/jenny/jenny-pitch",
+      "port": 5173
+    }
+  ]
+}

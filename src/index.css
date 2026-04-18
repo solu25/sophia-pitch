@@ -1,0 +1,424 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'BDO Grotesk';
+  src: url('/fonts/BDOGrotesk-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────
+   COLOR SYSTEM
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg: #F5F4F1;          /* Workhorse off-white          */
+  --surface: #FFFFFF;     /* elevated surfaces — cards     */
+  --surface-alt: #E8E7E4; /* secondary surface / off-white 2 */
+
+  /* Borders */
+  --border: rgba(39,39,39,0.1); /* Workhorse border-dark  */
+
+  /* Text */
+  --text: #272727;        /* Workhorse dark */
+  --muted: rgba(39,39,39,0.5);  /* Workhorse: dark at 50% */
+
+  /* Accent */
+  --accent: #8B78FF;      /* purple — primary action */
+  --accent-fg: #FFFFFF;   /* white on purple */
+  --accent-subtle: #EAE8FF; /* light lavender tint */
+}
+
+/* ─────────────────────────────────────────────────────────
+   TYPOGRAPHY SYSTEM  —  Workhorse / 1.26 Major Third
+   ───────────────────────────────────────────────────────── */
+:root {
+  /* ── Families ── */
+  --font-sans:  'BDO Grotesk', system-ui, sans-serif;
+  --font-badge: 'Google Sans Code', monospace;
+
+  /* ── Scale  (Major Third 1.26, base 14 px) ── */
+  --type-h1:    clamp(36px, 4.5vw, 56px);     /* H1                    */
+  --type-h2:    clamp(28px, 3.5vw, 44px);      /* H2                    */
+  --type-h3:    clamp(24px, 2.8vw, 35px);      /* H3                    */
+  --type-h4:    clamp(20px, 2.2vw, 28px);      /* H4                    */
+  --type-h5:    22px;                           /* H5                    */
+  --type-lead:  18px;                           /* lead / intro text     */
+  --type-body:  14px;                           /* body copy             */
+  --type-small: 12px;                           /* small / captions      */
+
+  /* ── Tracking ── */
+  --tracking-h1:     -1.68px;  /* H1                    */
+  --tracking-h2:     -0.88px;  /* H2                    */
+  --tracking-h3:     -0.35px;  /* H3                    */
+  --tracking-h4:     -0.28px;  /* H4                    */
+  --tracking-h5:     -0.22px;  /* H5                    */
+  --tracking-normal:  0;       /* body / lead           */
+  --tracking-badge:   0.96px;  /* badge text             */
+
+  /* ── Leading ── */
+  --leading-h1:    1.15;   /* H1                 */
+  --leading-h2:    1.2;    /* H2 / H3            */
+  --leading-h4:    1.3;    /* H4                 */
+  --leading-h5:    1.4;    /* H5 / badges        */
+  --leading-body:  1.5;    /* body / lead / small */
+
+  /* ── Weights ── */
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  /* ── Border Radius ── */
+  --radius:        12px;    /* default card radius        */
+  --radius-widget: 6px;     /* widget / icon box radius   */
+  --radius-btn:    6px;     /* buttons                    */
+  --radius-sm:     6px;     /* alias                      */
+  --radius-lg:     12px;    /* alias                      */
+
+  /* ── Borders ── */
+  --border-dark: rgba(39,39,39,0.1);
+
+  /* ── Spacing ── */
+  --space-3:  3px;
+  --space-6:  6px;
+  --space-12: 12px;
+  --space-18: 18px;
+  --space-24: 24px;
+  --space-36: 36px;
+  --space-48: 48px;
+  --space-72: 72px;
+
+  /* ── Spacing (extended) ── */
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-144: 144px;
+
+  /* ── Elevation ── */
+  --shadow-glass:  0 4px 12px rgba(0,0,0,0.1);
+  --shadow-widget: 0 4px 24px rgba(39,39,39,0.1);
+
+  /* ── Glass ── */
+  --glass-bg:     rgba(255,255,255,0.7);
+  --glass-stroke: #ffffff;
+  --glass-blur:   6px;
+  --glass-radius: 54px;
+
+  /* ── Dark theme (for dark sections) ── */
+  --dark-bg:          #272727;
+  --dark-bg-deep:     #1a1a1a;
+  --dark-text:        #ffffff;
+  --dark-text-muted:  rgba(255,255,255,0.5);
+  --dark-text-faint:  rgba(255,255,255,0.35);
+  --dark-border:      rgba(255,255,255,0.15);
+  --dark-dot-inactive: rgba(255,255,255,0.08);
+
+  /* ── Accent variants ── */
+  --accent-strong:  rgba(139,120,255,0.8);
+  --accent-medium:  rgba(139,120,255,0.4);
+  --accent-faded:   rgba(139,120,255,0.3);
+
+  /* ── Card ── */
+  --radius-card: 16px;
+
+  /* ── Icon circle (decorative floating badges) ── */
+  --icon-circle-size: 72px;
+
+  /* ── Legacy aliases (map old tokens → Workhorse scale) ── */
+  --font-serif:       var(--font-sans);
+  --type-display:     var(--type-h1);
+  --type-belief:      var(--type-h2);
+  --type-heading:     var(--type-h3);
+  --type-subhead:     var(--type-h4);
+  --type-accent:      var(--type-lead);
+  --type-metric:      var(--type-lead);
+  --type-caption:     var(--type-small);
+  --type-label:       var(--type-small);
+  --type-tag:         var(--type-small);
+  --tracking-tight:   var(--tracking-h1);
+  --tracking-snug:    var(--tracking-h3);
+  --tracking-wide:    var(--tracking-badge);
+  --tracking-label:   var(--tracking-badge);
+  --leading-tight:    var(--leading-h1);
+  --leading-snug:     var(--leading-h2);
+  --leading-loose:    var(--leading-body);
+  --weight-bold:      var(--weight-medium);
+  --weight-black:     var(--weight-medium);
+  --shadow-sm:        var(--shadow-glass);
+  --shadow-md:        var(--shadow-widget);
+  --shadow-lg:        var(--shadow-widget);
+  --shadow-xl:        var(--shadow-widget);
+
+  /* ── Buttons ── */
+  --btn-height:    48px;
+  --btn-height-sm: 36px;
+  --btn-x-padding: 24px;
+  --btn-radius:    200px;    /* fully rounded pill          */
+  --btn-primary-bg:     #272727;
+  --btn-primary-fg:     #FFFFFF;
+  --btn-primary-hover:  #3a3a3a;
+  --btn-glass-bg:       rgba(255,255,255,0.3);
+  --btn-glass-fg:       #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────────────────
+   SCROLL INDICATOR
+   ───────────────────────────────────────────────────────── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.scroll-chevron {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BUTTON HOVER
+   ───────────────────────────────────────────────────────── */
+.btn-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.btn-hover:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+/* ─────────────────────────────────────────────────────────
+   BASE
+   ───────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: var(--type-body);
+    line-height: var(--leading-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+}
+
+/* Nav default position */
+.nav-position-top {
+  top: 0;
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE — Resume page mobile fixes
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Nav — bottom tab bar on mobile */
+  .nav-position-top {
+    top: auto !important;
+  }
+  nav.nav-bar {
+    bottom: 0 !important;
+    border-bottom: none !important;
+    border-top: 1px solid var(--border) !important;
+    padding: var(--space-6) var(--space-12) env(safe-area-inset-bottom, 8px) !important;
+    background: rgba(245, 244, 241, 0.92) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+  }
+  nav.nav-bar .nav-container {
+    justify-content: space-around !important;
+  }
+  nav.nav-bar .nav-container {
+    flex-direction: row !important;
+  }
+  nav.nav-bar .nav-logo {
+    order: -1;
+    flex-direction: column !important;
+    gap: 2px !important;
+    font-size: 10px !important;
+    align-items: center;
+  }
+  nav.nav-bar .nav-logo img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  nav.nav-bar .nav-logo span {
+    font-size: 10px !important;
+  }
+  nav.nav-bar .nav-links {
+    flex: 1;
+    justify-content: space-around !important;
+    gap: 0 !important;
+  }
+  nav.nav-bar .nav-links a {
+    flex-direction: column !important;
+    gap: 2px !important;
+    font-size: 10px !important;
+    align-items: center;
+  }
+  nav.nav-bar .nav-links .nav-cta {
+    background: none !important;
+    color: var(--text) !important;
+    height: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+  nav.nav-bar .nav-icon {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Page bottom padding for bottom nav */
+  body {
+    padding-bottom: 72px;
+  }
+
+  /* Hero — no top nav so reduce top padding */
+  .resume-hero-inner {
+    padding: 48px 20px 48px !important;
+  }
+  .resume-hero-inner > div {
+    gap: 36px !important;
+  }
+
+  /* Fun fact cards */
+  .resume-facts-row {
+    flex-direction: column !important;
+    align-items: stretch;
+    gap: var(--space-12) !important;
+  }
+  .resume-facts-row > .fun-fact-card {
+    width: 100% !important;
+    transform: none !important;
+  }
+  .resume-facts-row .floating-badge {
+    display: none !important;
+  }
+
+  /* Timeline */
+  .resume-timeline-entry {
+    flex-direction: column !important;
+    gap: var(--space-12) !important;
+  }
+  .resume-timeline-entry > div:first-child {
+    width: auto !important;
+  }
+
+  /* Section padding */
+  .resume-section-pad {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Grids */
+  .resume-testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .resume-skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Floating heart on testimonials heading */
+  .floating-heart {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 24px !important;
+    right: -8px !important;
+    top: -16px !important;
+  }
+
+  /* ── Pitch page mobile ── */
+  .hero-container {
+    padding: 0 20px !important;
+  }
+  .hero-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-12) !important;
+  }
+  .differentiators-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .section-pad {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Talkiatry page */
+  .talkiatry-toc-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .talkiatry-how-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .talkiatry-metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Project cards */
+  .project-card {
+    padding: 20px !important;
+  }
+
+  /* CTA buttons */
+  .resume-cta-buttons {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .resume-cta-buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Features grid */
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Summary rows */
+  .summary-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Metrics */
+  .talkiatry-metrics-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .case-study-metrics {
+    flex-direction: column !important;
+  }
+  .case-study-metrics > div {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0 !important;
+  }
+  .case-study-metrics > div:last-child {
+    border-bottom: none;
+  }
+
+  /* AI workflow steps — horizontal scroll on mobile */
+  .ai-workflow-steps {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap !important;
+  }
+}
