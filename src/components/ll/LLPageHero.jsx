@@ -33,7 +33,7 @@ export default function LLPageHero({ companyName, role, oneLiner }) {
             border: '1px solid var(--glass-stroke)', borderRadius: '100px',
             padding: '6px 16px', boxShadow: 'var(--shadow-glass)',
           }}>
-            Jenny Lu × {companyName}
+            Sophia Lu × {companyName}
           </div>
 
           {/* Role as headline */}

@@ -1,13 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
+import { sophia } from '../data/sophia';
 
 const stats = [
-  { value: '384%', label: 'Spend per member lift', source: 'Giant Eagle · myPerks loyalty redesign' },
-  { value: '142', label: 'Person usability study', source: 'Roadrunner · Billing platform overhaul' },
-  { value: '50+', label: 'Component design system', source: 'Roadrunner + Arena Labs' },
+  { verb: 'Grew', value: '5,000+', label: 'Subscribers grown', source: 'Harvey PMMCA · newsletter funnel' },
+  { verb: 'Reached', value: '36K+', label: 'Impressions on one post', source: 'LinkedIn · vibe coding for designers' },
+  { verb: 'Shipped', value: '20×', label: 'Faster biz dev research', source: 'Scout · AI research agent' },
 ];
-
-const companies = ['Giant Eagle', 'Roadrunner', 'Arena Labs', 'MegPrime'];
 
 export default function Hero() {
   const [visible, setVisible] = useState(false);
@@ -53,9 +52,8 @@ export default function Hero() {
       ref={sectionRef}
       style={{
         background: 'linear-gradient(180deg, rgba(139,120,255,0.35) 0%, rgba(139,120,255,0.18) 40%, rgba(139,120,255,0.06) 65%, var(--bg) 90%)',
-        paddingTop: 'calc(56px + 80px)',
-        paddingBottom: '80px',
-        minHeight: '100vh',
+        paddingTop: 'calc(56px + 64px)',
+        paddingBottom: '64px',
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -104,10 +102,10 @@ export default function Hero() {
             border: '1px solid var(--glass-stroke)', borderRadius: '100px',
             padding: '6px 16px', boxShadow: 'var(--shadow-glass)',
           }}>
-            Freelance Product Designer
+            {sophia.title}
           </div>
 
-          {/* Headline */}
+          {/* Headline — pulls from sophia.tagline, renders line breaks */}
           <h1 style={{
             fontFamily: 'var(--font-sans)',
             fontSize: 'var(--type-h1)',
@@ -116,36 +114,20 @@ export default function Hero() {
             letterSpacing: 'var(--tracking-h1)',
             color: 'var(--text)',
             margin: 0,
+            whiteSpace: 'pre-line',
           }}>
-            Research to design to code. One person, no handoff.
+            {sophia.tagline}
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle — pulls from sophia.summary */}
           <p style={{
             color: 'var(--muted)', fontSize: 'var(--type-lead)',
-            lineHeight: 'var(--leading-body)', margin: 0, maxWidth: '480px',
+            lineHeight: 'var(--leading-body)', margin: 0,
+            whiteSpace: 'nowrap',
           }}>
-            AI-first design process. I run my own studies, own the design system, and ship production React with Claude Code.
+            {sophia.summary}
           </p>
 
-          {/* CTA */}
-          <a
-            className="btn-hover"
-            href="https://cal.com/jennylu98/30"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              backgroundColor: 'var(--btn-primary-bg)', color: 'var(--btn-primary-fg)',
-              fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-              padding: '0 var(--btn-x-padding)', height: 'var(--btn-height)',
-              borderRadius: 'var(--btn-radius)',
-              textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px',
-              marginTop: '4px',
-            }}
-          >
-            <img src="/jenny-avatar.jpg" alt="" style={{ width: '22px', height: '22px', borderRadius: '50%', objectFit: 'cover' }} />
-            Schedule a call
-          </a>
         </div>
 
         {/* Stats row */}
@@ -164,6 +146,20 @@ export default function Hero() {
               padding: 'var(--space-24)',
               display: 'flex', flexDirection: 'column', gap: '4px',
             }}>
+              {s.verb && (
+                <div style={{
+                  fontSize: 'var(--type-small)',
+                  fontFamily: 'var(--font-badge)',
+                  fontWeight: 'var(--weight-medium)',
+                  letterSpacing: 'var(--tracking-badge)',
+                  textTransform: 'uppercase',
+                  color: 'var(--muted)',
+                  lineHeight: 'var(--leading-h5)',
+                  marginBottom: '4px',
+                }}>
+                  {s.verb}
+                </div>
+              )}
               <div style={{
                 fontFamily: 'var(--font-sans)',
                 fontSize: 'var(--type-h2)',
@@ -191,37 +187,6 @@ export default function Hero() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Company logos */}
-        <div style={{
-          display: 'flex', justifyContent: 'center', alignItems: 'center',
-          gap: 'var(--space-36)',
-          transition: 'opacity 0.7s ease 0.35s',
-          opacity: visible ? 1 : 0,
-        }}>
-          {companies.map((name) => (
-            <span key={name} style={{
-              fontSize: 'var(--type-body)',
-              fontWeight: 'var(--weight-medium)',
-              color: 'var(--muted)',
-              letterSpacing: 'var(--tracking-h5)',
-            }}>
-              {name}
-            </span>
-          ))}
-        </div>
-
-        {/* Scroll chevron */}
-        <div style={{
-          position: 'absolute', bottom: '24px', left: '50%',
-          transform: 'translateX(-50%)',
-          transition: 'opacity 0.7s ease 0.5s',
-          opacity: visible ? 1 : 0,
-        }}>
-          <svg className="scroll-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
         </div>
 
       </div>

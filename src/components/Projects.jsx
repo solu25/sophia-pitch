@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 import LLCaseStudy from './ll/LLCaseStudy';
 import TextReveal from './TextReveal';
 
 export default function Projects({ projects }) {
-  const displayProjects = projects || jenny.selectedProjects;
+  const displayProjects = projects || sophia.selectedProjects;
 
   const headerRef = useRef(null);
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -55,7 +55,7 @@ export default function Projects({ projects }) {
               letterSpacing: 'var(--tracking-tight)',
               color: 'var(--text)',
               margin: '0 0 12px',
-              maxWidth: '560px',
+              whiteSpace: 'nowrap',
             }}>
               Full case studies. Every decision explained.
             </h2>

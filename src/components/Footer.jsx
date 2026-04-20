@@ -1,4 +1,4 @@
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 
 export default function Footer() {
   return (
@@ -34,7 +34,7 @@ export default function Footer() {
             color: 'var(--border)',
             margin: 0,
           }}>
-            Jenny Lu
+            Sophia Lu
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
           style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid var(--border)' }}
         >
           <p style={{ color: 'var(--muted)', fontSize: 'var(--type-caption)', margin: 0 }}>
-            © {new Date().getFullYear()} Jenny Lu · Pittsburgh, PA
+            © {new Date().getFullYear()} Sophia Lu · Pittsburgh, PA
           </p>
 
           <div style={{
@@ -53,10 +53,10 @@ export default function Footer() {
           }} />
 
           <a
-            href={`mailto:${jenny.contact.email}`}
+            href={`mailto:${sophia.contact.email}`}
             style={{ color: 'var(--muted)', fontSize: 'var(--type-caption)', textDecoration: 'underline' }}
           >
-            {jenny.contact.email}
+            {sophia.contact.email}
           </a>
 
           <div style={{

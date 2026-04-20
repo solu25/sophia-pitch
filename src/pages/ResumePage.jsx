@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Badge from '../components/Badge';
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 import { HeroVariantA, HeroVariantB, HeroVariantC } from './ResumeHeroVariants';
 
 function SectionLabel({ children }) {
@@ -250,7 +250,7 @@ export default function ResumePage() {
                   textAlign: 'center',
                   maxWidth: '848px',
                 }}>
-                  {jenny.name}
+                  {sophia.name}
                 </h1>
               </div>
               <p style={{
@@ -262,14 +262,14 @@ export default function ResumePage() {
                 textAlign: 'center',
                 maxWidth: '521px',
               }}>
-                Research, design systems, and production code across healthcare, fintech, and consumer.
+                Building the next generation of AI-native marketers.
               </p>
             </div>
 
             {/* Fun fact cards */}
             <div className="resume-facts-row" style={{ display: 'flex', gap: '12px', position: 'relative' }}>
               {[
-                { icon: '🍦', value: 'Ice cream\nshop owner', label: 'Since 2023', rotate: '-2deg' },
+                { icon: '🤖', value: 'AI agent\ncreator', label: '2 production agents shipped', rotate: '-2deg' },
                 { icon: '👩🏻‍💻', value: 'Designer\nwho codes', label: 'Ships production React', rotate: '2deg' },
               ].map((fact, i) => (
                 <div key={i} className="fun-fact-card" style={{
@@ -396,12 +396,12 @@ export default function ResumePage() {
               transition: 'height 0.1s ease-out',
             }} />
 
-            {jenny.experience.map((exp, i) => (
+            {sophia.experience.map((exp, i) => (
               <TimelineEntry
                 key={exp.id}
                 exp={exp}
                 index={i}
-                isLast={i === jenny.experience.length - 1}
+                isLast={i === sophia.experience.length - 1}
               />
             ))}
           </div>
@@ -431,12 +431,12 @@ export default function ResumePage() {
             margin: 0,
             textAlign: 'center',
           }}>
-            People love working with Jenny
+            People love working with Sophia
           </h2>
         </div>
         <div style={{ marginBottom: '48px' }} />
         <div className="resume-testimonials-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
-          {jenny.testimonials.slice(0, 4).map((t, i) => (
+          {sophia.testimonials.slice(0, 4).map((t, i) => (
             <div key={t.id} style={{
               background: i === 0
                 ? 'linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-bg-deep) 100%)'
@@ -468,13 +468,13 @@ export default function ResumePage() {
               )}
               <p style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: i === 0 ? 'var(--type-h4)' : 'var(--type-body)',
-                fontWeight: i === 0 ? 'var(--weight-medium)' : 'var(--weight-normal)',
-                lineHeight: i === 0 ? 'var(--leading-h4)' : 'var(--leading-body)',
-                letterSpacing: i === 0 ? 'var(--tracking-h4)' : 'var(--tracking-normal)',
+                fontSize: 'var(--type-body)',
+                fontWeight: 'var(--weight-normal)',
+                lineHeight: 'var(--leading-body)',
+                letterSpacing: 'var(--tracking-normal)',
                 color: i === 0 ? 'var(--dark-text)' : 'var(--text)',
                 margin: 0,
-                fontStyle: i === 0 ? 'normal' : 'italic',
+                fontStyle: 'normal',
                 position: 'relative', zIndex: 1,
               }}>
                 "{t.quote}"
@@ -552,7 +552,7 @@ export default function ResumePage() {
                 End-to-end product design from research through shipped UI. I own the full loop — studies, systems, and production code.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)' }}>
-                {jenny.skills.design.map(s => (
+                {sophia.skills.design.map(s => (
                   <span key={s} style={{
                     backgroundColor: 'var(--bg)',
                     border: '1px solid var(--border)',
@@ -597,7 +597,7 @@ export default function ResumePage() {
                 The stack and industries I work across — from design tools to production frameworks.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)', marginBottom: 'var(--space-36)' }}>
-                {jenny.skills.tools.map(s => (
+                {sophia.skills.tools.map(s => (
                   <span key={s} style={{
                     backgroundColor: 'var(--bg)',
                     border: '1px solid var(--border)',
@@ -612,7 +612,7 @@ export default function ResumePage() {
                 ))}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)' }}>
-                {jenny.skills.domains.map((s, i) => (
+                {sophia.skills.domains.map((s, i) => (
                   <span key={s} style={{
                     fontSize: 'var(--type-small)',
                     color: 'var(--muted)',
@@ -662,19 +662,114 @@ export default function ResumePage() {
               <p style={{ fontSize: 'var(--type-body)', color: 'var(--dark-text-muted)', lineHeight: 'var(--leading-body)', margin: '0 0 var(--space-36)' }}>
                 Education and leadership beyond design.
               </p>
-              {jenny.education.map((ed, i) => (
+              {sophia.education.map((ed, i) => (
                 <div key={i} style={{ marginBottom: 'var(--space-24)' }}>
                   <div style={{ fontWeight: 'var(--weight-medium)', fontSize: 'var(--type-lead)', color: 'var(--dark-text)' }}>{ed.school}</div>
                   <div style={{ fontSize: 'var(--type-small)', color: 'var(--dark-text-muted)', marginTop: '4px' }}>{ed.degree}</div>
                 </div>
               ))}
-              {jenny.leadership && jenny.leadership.map((l, i) => (
+              {sophia.leadership && sophia.leadership.map((l, i) => (
                 <div key={i} style={{ marginTop: 'var(--space-24)', paddingTop: 'var(--space-24)', borderTop: '1px solid var(--dark-border)' }}>
                   <div style={{ fontWeight: 'var(--weight-medium)', fontSize: 'var(--type-lead)', color: 'var(--dark-text)' }}>{l.role}</div>
                   <div style={{ fontSize: 'var(--type-small)', color: 'var(--dark-text-muted)', marginTop: '4px' }}>{l.company} · {l.period}</div>
                   <p style={{ fontSize: 'var(--type-small)', color: 'var(--dark-text-muted)', marginTop: '12px', lineHeight: 'var(--leading-body)' }}>{l.description}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Founder skills row — Growth & GTM + AI Agents & Automation */}
+        <div className="resume-skills-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', alignItems: 'stretch', marginTop: '16px' }}>
+
+          {/* Growth & GTM Card */}
+          <div style={{
+            backgroundColor: 'var(--surface)',
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+            display: 'flex', flexDirection: 'column',
+          }}>
+            <div style={{ padding: 'var(--space-24)', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: 'var(--space-12)' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" />
+              </svg>
+              <p style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'var(--type-h4)',
+                fontWeight: 'var(--weight-medium)',
+                lineHeight: 'var(--leading-h4)',
+                letterSpacing: 'var(--tracking-h4)',
+                color: 'var(--text)',
+                margin: '0',
+              }}>
+                Growth & GTM
+              </p>
+            </div>
+            <div style={{ padding: 'var(--space-24) var(--space-24) var(--space-24)', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <p style={{ fontSize: 'var(--type-body)', color: 'var(--muted)', lineHeight: 'var(--leading-body)', margin: '0 0 var(--space-36)' }}>
+                Sourcing, closing, and marketing the consultancy — full-stack founder work.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)' }}>
+                {sophia.skills.growth.map(s => (
+                  <span key={s} style={{
+                    backgroundColor: 'var(--bg)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--radius-widget)',
+                    padding: 'var(--space-6) var(--space-12)',
+                    fontSize: 'var(--type-body)',
+                    fontWeight: 'var(--weight-medium)',
+                    color: 'var(--text)',
+                  }}>
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* AI Agents & Automation Card */}
+          <div style={{
+            backgroundColor: 'var(--surface)',
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+            display: 'flex', flexDirection: 'column',
+          }}>
+            <div style={{ padding: 'var(--space-24)', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: 'var(--space-12)' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" /><circle cx="12" cy="5" r="2" /><path d="M12 7v4" /><line x1="8" y1="16" x2="8" y2="16" /><line x1="16" y1="16" x2="16" y2="16" />
+              </svg>
+              <p style={{
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'var(--type-h4)',
+                fontWeight: 'var(--weight-medium)',
+                lineHeight: 'var(--leading-h4)',
+                letterSpacing: 'var(--tracking-h4)',
+                color: 'var(--text)',
+                margin: '0',
+              }}>
+                AI Agents & Automation
+              </p>
+            </div>
+            <div style={{ padding: 'var(--space-24) var(--space-24) var(--space-24)', flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <p style={{ fontSize: 'var(--type-body)', color: 'var(--muted)', lineHeight: 'var(--leading-body)', margin: '0 0 var(--space-36)' }}>
+                Production AI agents and vibe-coded tools shipping real work for clients.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)' }}>
+                {sophia.skills.aiAgents.map(s => (
+                  <span key={s} style={{
+                    backgroundColor: 'var(--bg)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--radius-widget)',
+                    padding: 'var(--space-6) var(--space-12)',
+                    fontSize: 'var(--type-body)',
+                    fontWeight: 'var(--weight-medium)',
+                    color: 'var(--text)',
+                  }}>
+                    {s}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -736,24 +831,6 @@ export default function ResumePage() {
             }}
           >
             {projectsLabel}
-          </a>
-          <a
-            className="btn-hover"
-            href="https://cal.com/jennylu98/30"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: 'var(--text)',
-              fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-              textDecoration: 'none',
-              border: '1px solid var(--border)',
-              padding: '0 var(--btn-x-padding)', height: 'var(--btn-height)',
-              borderRadius: 'var(--btn-radius)',
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-            }}
-          >
-            <img src="/jenny-avatar.jpg" alt="" style={{ width: '22px', height: '22px', borderRadius: '50%', objectFit: 'cover' }} />
-            Schedule a call
           </a>
         </div>
       </div>

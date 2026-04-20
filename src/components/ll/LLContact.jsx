@@ -1,23 +1,23 @@
 import { useRef, useState, useEffect } from 'react';
-import { jenny } from '../../data/jenny';
+import { sophia } from '../../data/sophia';
 
 const cards = [
   {
-    href: '/jenny-lu-resume.pdf',
+    href: '/sophia-lu-resume.pdf',
     external: true,
     label: 'View Resume',
     body: 'Download my full resume — case studies, experience, and skills.',
     icon: 'fa-regular fa-file',
   },
   {
-    href: `https://${jenny.contact.linkedin}`,
+    href: `https://${sophia.contact.linkedin}`,
     external: true,
     label: 'LinkedIn',
     body: 'See my full work history, recommendations, and professional profile.',
     icon: 'fa-brands fa-linkedin',
   },
   {
-    href: 'https://cal.com/jennylu98/30',
+    href: 'https://cal.com/sophialu98/30',
     external: true,
     label: 'Book a Call',
     body: "30 minutes. Come with questions — I'll come with answers.",

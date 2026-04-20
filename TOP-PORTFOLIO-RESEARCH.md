@@ -92,7 +92,7 @@ What separates a strong senior portfolio from a strong mid-level one:
 
 ---
 
-## Applied to Jenny's portfolio
+## Applied to Sophia's portfolio
 
 | Project | Strongest line | Improvement made |
 |---------|---------------|-----------------|

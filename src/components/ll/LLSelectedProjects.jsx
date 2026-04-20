@@ -1,9 +1,9 @@
-import { jenny } from '../../data/jenny';
+import { sophia } from '../../data/sophia';
 import LLCaseStudy from './LLCaseStudy';
 import Eyebrow from './Eyebrow';
 
 export default function LLSelectedProjects({ projectIds }) {
-  const projects = jenny.selectedProjects
+  const projects = sophia.selectedProjects
     .filter(p => projectIds.includes(p.id))
     .sort((a, b) => projectIds.indexOf(a.id) - projectIds.indexOf(b.id));
 

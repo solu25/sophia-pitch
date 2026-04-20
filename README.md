@@ -1,16 +1,29 @@
-# React + Vite
+# Sophia — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site forked from [sophialu89/sophia-pitch](https://github.com/sophialu89/sophia-pitch). React + Vite + Tailwind v4.
 
-Currently, two official plugins are available:
+## Dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+npm run build
+```
 
-## Expanding the ESLint configuration
+## Where content lives
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Everything Sophia-related:** [`src/data/sophia.js`](src/data/sophia.js) — single source of truth. Edit this file first. Every field is a `TODO:` placeholder.
+- **Images:** see [`src/assets/README.md`](src/assets/README.md) for the checklist of images to replace in `public/`.
+- **Hardcoded placeholders to replace in components (search the project):**
+  - `https://cal.com/sophialu98/30` — calendar booking URL (replace with Sophia's real booking link)
+  - `/sophia-avatar.jpg` — avatar image path in `public/`
+  - `/sophia-lu-resume.pdf` — resume PDF path in `public/`
+
+## Deploy
+
+This repo is linked to Vercel. Pushes to `main` auto-deploy.

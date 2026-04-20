@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "jenny-pitch",
+      "name": "sophia-pitch",
       "runtimeExecutable": "/opt/homebrew/bin/npx",
       "runtimeArgs": ["vite", "--port", "5173"],
-      "cwd": "/Users/jenny/Documents/Claude/jenny/jenny-pitch",
+      "cwd": "/Users/sophia/Documents/Claude/sophia/sophia-pitch",
       "port": 5173
     }
   ]

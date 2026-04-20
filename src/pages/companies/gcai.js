@@ -55,7 +55,7 @@ export const gcai = {
         { value: "4→1", label: "Systems consolidated" },
       ],
       testimonial: {
-        quote: "Jenny deeply understands how research and design influence product strategy and flow into achieving measurable objectives.",
+        quote: "Sophia deeply understands how research and design influence product strategy and flow into achieving measurable objectives.",
         name: "Jeffrey Inscho",
         title: "Senior Product Manager · Giant Eagle",
       },
@@ -88,7 +88,7 @@ export const gcai = {
         { value: "~6→1", label: "Minutes per bill" },
       ],
       testimonial: {
-        quote: "Jenny pioneered a design system library that gave our web pages a unified look and feel. She is a force multiplier.",
+        quote: "Sophia pioneered a design system library that gave our web pages a unified look and feel. She is a force multiplier.",
         name: "Michael Quintero",
         title: "Software Engineer · Roadrunner Recycling",
       },

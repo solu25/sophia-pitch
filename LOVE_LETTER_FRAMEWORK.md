@@ -2,7 +2,7 @@
 
 ## The Thesis
 
-Jenny's north star across every page, every project, every letter:
+Sophia's north star across every page, every project, every letter:
 
 > *The brief is never the whole problem.*
 

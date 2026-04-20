@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Nav from '../../components/Nav';
 import { everant } from './everant';
-import { jenny } from '../../data/jenny';
+import { sophia } from '../../data/sophia';
 import LLCaseStudy from '../../components/ll/LLCaseStudy';
 import LLHowIWork from '../../components/ll/LLHowIWork';
 
@@ -251,7 +251,7 @@ export default function EverantPage() {
               textTransform: 'uppercase',
               color: 'var(--muted)',
             }}>
-              Jenny Lu × {everant.name}
+              Sophia Lu × {everant.name}
             </div>
 
             {/* Name */}
@@ -265,7 +265,7 @@ export default function EverantPage() {
               margin: 0,
               textAlign: 'center',
             }}>
-              {jenny.name}
+              {sophia.name}
             </h1>
 
             {/* Role */}
@@ -296,25 +296,6 @@ export default function EverantPage() {
               {everant.oneLiner}
             </p>
 
-            {/* CTA */}
-            <div style={{ marginTop: 'var(--space-12)' }}>
-              <a
-                className="btn-hover"
-                href="https://cal.com/jennylu98/30"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  backgroundColor: 'var(--btn-primary-bg)', color: 'var(--btn-primary-fg)',
-                  fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-                  padding: '0 var(--btn-x-padding)', height: 'var(--btn-height)',
-                  borderRadius: 'var(--btn-radius)',
-                  textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px',
-                }}
-              >
-                <img src="/jenny-avatar.jpg" alt="" style={{ width: '22px', height: '22px', borderRadius: '50%', objectFit: 'cover' }} />
-                Schedule a call
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -419,7 +400,7 @@ export default function EverantPage() {
             Recent projects
           </h2>
           <div>
-            {jenny.selectedProjects
+            {sophia.selectedProjects
               .filter(p => ['roadrunner', 'arenalabs', 'designhub'].includes(p.id))
               .map((project, i) => (
                 <LLCaseStudy key={project.id} project={project} index={i} />
@@ -457,22 +438,6 @@ export default function EverantPage() {
             {everant.close}
           </p>
           <div className="resume-cta-buttons" style={{ display: 'flex', gap: 'var(--space-18)', alignItems: 'center', marginTop: 'var(--space-24)' }}>
-            <a
-              className="btn-hover"
-              href="https://cal.com/jennylu98/30"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                backgroundColor: 'var(--btn-primary-bg)', color: 'var(--btn-primary-fg)',
-                fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-                padding: '0 var(--btn-x-padding)', height: 'var(--btn-height)',
-                borderRadius: 'var(--btn-radius)',
-                textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px',
-              }}
-            >
-              <img src="/jenny-avatar.jpg" alt="" style={{ width: '22px', height: '22px', borderRadius: '50%', objectFit: 'cover' }} />
-              Schedule a call
-            </a>
             <a
               className="btn-hover"
               href="/resume?from=everant"

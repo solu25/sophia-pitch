@@ -1,23 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 
 const cards = [
   {
-    href: 'https://cal.com/jennylu98/30',
-    external: true,
-    label: 'Book a 30-min call',
-    body: "Come with questions — I'll come with answers. No prep needed.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="18" rx="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
-      </svg>
-    ),
-  },
-  {
-    href: `https://${jenny.contact.linkedin}`,
+    href: `https://${sophia.contact.linkedin}`,
     external: true,
     label: 'Connect on LinkedIn',
     body: "Full work history, endorsements, and recommendations from people I've shipped with.",
@@ -183,7 +169,7 @@ export default function ContactSection() {
         margin: '0 auto',
         padding: '0 48px',
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(2, 1fr)',
         gap: '16px',
         marginBottom: '80px',
         position: 'relative',
@@ -209,7 +195,7 @@ export default function ContactSection() {
               gap: '24px',
               textDecoration: 'none',
               boxShadow: 'var(--shadow-glass)',
-              opacity: cardsVisible[i] ? 1 : 0,
+              opacity: 1,
             }}
           >
             <div style={{ color: 'var(--accent)' }}>

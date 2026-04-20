@@ -1,4 +1,4 @@
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 
 const headline = "I research it, design it, and ship it.";
 const subtitle = "Senior Product Designer \u00B7 10+ years \u00B7 Pittsburgh, PA";
@@ -49,7 +49,7 @@ export function HeroVariantA() {
         margin: 'var(--space-18) 0 0 0',
         maxWidth: '640px',
       }}>
-        {jenny.summary}
+        {sophia.summary}
       </p>
 
       {/* Contact row */}
@@ -60,7 +60,7 @@ export function HeroVariantA() {
         marginTop: 'var(--space-24)',
         flexWrap: 'wrap',
       }}>
-        <a href={`mailto:${jenny.contact.email}`} style={{
+        <a href={`mailto:${sophia.contact.email}`} style={{
           fontFamily: 'var(--font-sans)',
           fontSize: 'var(--type-small)',
           color: 'var(--muted)',
@@ -73,10 +73,10 @@ export function HeroVariantA() {
             <rect x="2" y="4" width="20" height="16" rx="2" />
             <path d="M22 4L12 13L2 4" />
           </svg>
-          {jenny.contact.email}
+          {sophia.contact.email}
         </a>
 
-        <a href={`https://${jenny.contact.linkedin}`} target="_blank" rel="noopener noreferrer" style={{
+        <a href={`https://${sophia.contact.linkedin}`} target="_blank" rel="noopener noreferrer" style={{
           fontFamily: 'var(--font-sans)',
           fontSize: 'var(--type-small)',
           color: 'var(--muted)',
@@ -190,7 +190,7 @@ export function HeroVariantB() {
           color: 'var(--muted)',
           margin: 'var(--space-18) 0 0 0',
         }}>
-          {jenny.summary}
+          {sophia.summary}
         </p>
 
         {/* Contact row */}
@@ -201,7 +201,7 @@ export function HeroVariantB() {
           marginTop: 'var(--space-24)',
           flexWrap: 'wrap',
         }}>
-          <a href={`mailto:${jenny.contact.email}`} style={{
+          <a href={`mailto:${sophia.contact.email}`} style={{
             fontFamily: 'var(--font-sans)',
             fontSize: 'var(--type-small)',
             color: 'var(--muted)',
@@ -214,10 +214,10 @@ export function HeroVariantB() {
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M22 4L12 13L2 4" />
             </svg>
-            {jenny.contact.email}
+            {sophia.contact.email}
           </a>
 
-          <a href={`https://${jenny.contact.linkedin}`} target="_blank" rel="noopener noreferrer" style={{
+          <a href={`https://${sophia.contact.linkedin}`} target="_blank" rel="noopener noreferrer" style={{
             fontFamily: 'var(--font-sans)',
             fontSize: 'var(--type-small)',
             color: 'var(--muted)',
@@ -282,7 +282,7 @@ export function HeroVariantB() {
           color: 'var(--text)',
           textAlign: 'center',
         }}>
-          {jenny.name}
+          {sophia.name}
         </div>
 
         <div style={{
@@ -369,7 +369,7 @@ export function HeroVariantC() {
         fontWeight: 'var(--weight-medium)',
         color: 'var(--text)',
       }}>
-        {jenny.name} &middot; Senior Product Designer &middot; 10+ years
+        {sophia.name} &middot; Senior Product Designer &middot; 10+ years
       </span>
 
       {/* Right: actions */}
@@ -378,13 +378,13 @@ export function HeroVariantC() {
         alignItems: 'center',
         gap: 'var(--space-12)',
       }}>
-        <a href={`mailto:${jenny.contact.email}`} style={{
+        <a href={`mailto:${sophia.contact.email}`} style={{
           fontFamily: 'var(--font-sans)',
           fontSize: 'var(--type-small)',
           color: 'var(--muted)',
           textDecoration: 'none',
         }}>
-          {jenny.contact.email}
+          {sophia.contact.email}
         </a>
 
         <button style={{

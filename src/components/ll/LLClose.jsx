@@ -1,4 +1,4 @@
-import { jenny } from '../../data/jenny';
+import { sophia } from '../../data/sophia';
 
 export default function LLClose({ company }) {
   return (
@@ -29,7 +29,7 @@ export default function LLClose({ company }) {
 
       <div className="flex flex-wrap gap-4">
         <a
-          href="https://cal.com/jennylu98/30"
+          href="https://cal.com/sophialu98/30"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -50,7 +50,7 @@ export default function LLClose({ company }) {
           Schedule 30 min →
         </a>
         <a
-          href={`https://${jenny.contact.linkedin}`}
+          href={`https://${sophia.contact.linkedin}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -67,7 +67,7 @@ export default function LLClose({ company }) {
           LinkedIn →
         </a>
         <a
-          href="/jenny-lu-resume.pdf"
+          href="/sophia-lu-resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{

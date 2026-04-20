@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 import TextReveal from './TextReveal';
 
 export default function Differentiators({ differentiators }) {
-  const items = differentiators || jenny.differentiators;
+  const items = differentiators || sophia.differentiators;
   const isJdMode = items.length > 0 && items[0].requirement;
 
   const headerRef = useRef(null);
@@ -66,11 +66,11 @@ export default function Differentiators({ differentiators }) {
               letterSpacing: 'var(--tracking-tight)',
               color: 'var(--text)',
               margin: 0,
-              maxWidth: '560px',
+              whiteSpace: 'nowrap',
             }}>
               {isJdMode
                 ? 'Every line from the job description, answered.'
-                : 'Five things that set me apart.'}
+                : 'Four things that set me apart.'}
             </h2>
           </TextReveal>
         </div>
@@ -108,12 +108,21 @@ export default function Differentiators({ differentiators }) {
                   : {}),
               }}
             >
-              <span style={{
-                color: 'var(--accent)', fontSize: 'var(--type-label)',
-                fontWeight: 'var(--weight-bold)', letterSpacing: 'var(--tracking-label)',
-              }}>
-                {String(i + 1).padStart(2, '0')}
-              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                {d.icon && (
+                  <i
+                    className={d.icon}
+                    aria-hidden="true"
+                    style={{ color: 'var(--accent)', fontSize: '24px', lineHeight: 1 }}
+                  />
+                )}
+                <span style={{
+                  color: 'var(--accent)', fontSize: 'var(--type-label)',
+                  fontWeight: 'var(--weight-bold)', letterSpacing: 'var(--tracking-label)',
+                }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
 
               {isJdMode ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-import { jenny } from '../data/jenny';
+import { sophia } from '../data/sophia';
 import TextReveal from './TextReveal';
 
 export default function Testimonials({ testimonials }) {
-  const items = testimonials || jenny.testimonials;
+  const items = testimonials || sophia.testimonials;
 
   const headerRef = useRef(null);
   const cardsRef = useRef(null);
@@ -53,9 +53,9 @@ export default function Testimonials({ testimonials }) {
             <h2 style={{
               fontFamily: 'var(--font-sans)',
               fontSize: 'var(--type-h2)',
-              fontWeight: 'var(--weight-medium)',
-              lineHeight: 'var(--leading-h2)',
-              letterSpacing: 'var(--tracking-h2)',
+              fontWeight: 'var(--weight-black)',
+              lineHeight: 'var(--leading-tight)',
+              letterSpacing: 'var(--tracking-tight)',
               color: 'var(--text)',
               margin: 0,
               maxWidth: '480px',

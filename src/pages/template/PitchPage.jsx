@@ -6,7 +6,7 @@ import Projects from '../../components/Projects';
 import ContactSection from '../../components/ContactSection';
 import Footer from '../../components/Footer';
 import AIProjects from '../../components/AIProjects';
-import { jenny } from '../../data/jenny';
+import { sophia } from '../../data/sophia';
 
 export default function PitchPage() {
   return (

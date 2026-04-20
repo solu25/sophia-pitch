@@ -2,7 +2,7 @@ export const taxbit = {
   name: "Taxbit",
   role: "Principal Product Designer",
 
-  // Opens on THEIR world, not Jenny's resume
+  // Opens on THEIR world, not Sophia's resume
   opening:
     "Digital asset tax compliance sits at the hardest intersection in fintech: regulatory precision and user experience. The design challenge isn't just making complex workflows functional — it's making tax logic feel like a natural part of the product. That requires a designer who's already lived inside the compliance constraints and knows how to make them invisible.",
 

@@ -1,19 +1,20 @@
 import { useRef, useState, useEffect } from 'react';
 
 const processSteps = [
-  { icon: '/tools/figma.svg', label: 'Figma', detail: 'Design system source of truth' },
-  { icon: 'fa-light fa-link', label: 'Figma MCP', detail: 'Extract tokens as structured data', isFA: true },
-  { icon: '/tools/pencil.svg', label: 'Pencil.dev', detail: 'Sketch layouts + talk to Claude' },
-  { icon: 'fa-light fa-code', label: 'Claude Code', detail: 'Generate production React', isFA: true },
-  { icon: '/tools/react.svg', label: 'React App', detail: 'Ship from one URL' },
+  { icon: 'fa-light fa-magnifying-glass-chart', label: 'Perplexity', detail: 'Research', isFA: true },
+  { icon: '/tools/claude-code.svg', label: 'Claude', detail: 'Synthesize + draft' },
+  { icon: 'fa-light fa-pen-to-square', label: 'Content drafts', detail: 'Hooks + posts', isFA: true },
+  { icon: 'fa-light fa-share-nodes', label: 'Social media', detail: 'LinkedIn + Substack', isFA: true },
+  { icon: 'fa-light fa-filter', label: 'Funnel', detail: 'Landing + email', isFA: true },
+  { icon: 'fa-light fa-bullseye-arrow', label: 'Conversion', detail: 'Buyers + subs', isFA: true },
 ];
 
 const shifts = [
-  { num: '01', label: 'More time thinking, less time pushing pixels', detail: 'I iterate on solutions, not fidelity. The system handles the polish — I focus on whether I\'m solving the right problem.' },
-  { num: '02', label: 'Research synthesis in hours, not days', detail: 'Survey data, interview transcripts, analytics — synthesized in Claude. More time finding insights, less time formatting.' },
-  { num: '03', label: 'Stakeholders react to real products', detail: 'Functional prototypes, not static screens. Feedback shifts from "move this left" to "does this actually work?"' },
-  { num: '04', label: 'Engineers copy code, not interpret specs', detail: 'Tokens go from Figma MCP to production. The conversation shifts to "does this interaction solve the problem."' },
-  { num: '05', label: 'Holistic decisions from one source of truth', detail: 'Research, prototype, design system, usability issues — all in one place. I see patterns I\'d miss across 4 separate tools.' },
+  { num: '01', label: 'Research in hours, not weeks', detail: 'ICP analysis, competitor teardowns, and content gap research pulled through Perplexity and synthesized in Claude. I walk into content planning with real insights, not guesses.' },
+  { num: '02', label: 'Hooks tested before publishing', detail: 'I draft 5–10 hook variations in Claude, stress-test them against past winners, and ship the one most likely to land. My top post hit 36K impressions using this method.' },
+  { num: '03', label: 'Funnels designed, not guessed', detail: 'Landing page copy, email sequences, and CTAs — iterated with Claude until the message matches the buyer\'s mental state.' },
+  { num: '04', label: 'Social-first, content that compounds', detail: 'I build audiences where they already scroll. Short-form for reach and reaction, long-form for trust and depth. Posts that perform once are fine. Systems that keep pulling readers in are better.' },
+  { num: '05', label: 'Conversion is the whole point', detail: 'I don\'t write content to be admired. I write it to move people — from scroll to click, click to subscribe, subscribe to buy. Research, copy, landing page, and analytics all in one loop so nothing gets lost along the way.' },
 ];
 
 export default function AIProjects() {
@@ -64,7 +65,7 @@ export default function AIProjects() {
             textTransform: 'uppercase', lineHeight: 'var(--leading-h5)',
             marginBottom: '24px', display: 'block',
           }}>
-            AI-first design process
+            AI-first marketing process
           </span>
           <h2 style={{
             fontFamily: 'var(--font-sans)',
@@ -76,7 +77,7 @@ export default function AIProjects() {
             margin: '0 auto',
             maxWidth: '650px',
           }}>
-            AI changed how I think, not just how fast I move
+            AI changed how I market, not just how fast I ship
           </h2>
         </div>
 
@@ -187,7 +188,7 @@ export default function AIProjects() {
                 lineHeight: 'var(--leading-body)', margin: '0 0 24px', maxWidth: '640px',
                 fontWeight: 'var(--weight-medium)',
               }}>
-                Starting in Claude changed how I think. Less time formatting, more time finding insights. Less time on fidelity, more time on whether I'm solving the right problem.
+                Starting in Claude and Perplexity changed how I build audiences. Less time staring at blank pages, more time testing what resonates. Less time on tactics, more time on whether I'm reaching the right people.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {shifts.map((step, i) => (

@@ -334,14 +334,22 @@ export default function LLCaseStudy({ project, index }) {
           </div>
         )}
 
-        {/* ── Hero image (scrollable for detailed images like journey maps) ── */}
+        {/* ── Hero image (fits container — no scroll) ── */}
         {project.heroImage && (
-          <ScrollStrip bg="var(--text)">
-            <div style={{ padding: '40px' }}>
-              <img src={project.heroImage} alt={project.title} loading="lazy"
-                style={{ minWidth: '1200px', maxWidth: '2000px', width: '200%', display: 'block', borderRadius: '8px' }} />
-            </div>
-          </ScrollStrip>
+          <div style={{ background: 'var(--text)', padding: '40px', borderRadius: '8px' }}>
+            <img
+              src={project.heroImage}
+              alt={project.title}
+              loading="lazy"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                borderRadius: '8px',
+                objectFit: 'contain',
+              }}
+            />
+          </div>
         )}
 
         {/* ── App screenshots: horizontal scroll strip ── */}

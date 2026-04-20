@@ -41,7 +41,7 @@ export const studio = {
         { value: "15%", label: "Conversion lift (Curbside)" },
       ],
       testimonial: {
-        quote: "Jenny deeply understands how research and design influence product strategy and flow into achieving measurable objectives. Strong UX leadership.",
+        quote: "Sophia deeply understands how research and design influence product strategy and flow into achieving measurable objectives. Strong UX leadership.",
         name: "Jeffrey Inscho",
         title: "Product Manager · REI",
       },
@@ -63,7 +63,7 @@ export const studio = {
         { value: "3", label: "Design system tiers" },
       ],
       testimonial: {
-        quote: "Jenny pioneered a design system library that gave our web pages a unified look and feel. She is a force multiplier and could be an asset to any organization.",
+        quote: "Sophia pioneered a design system library that gave our web pages a unified look and feel. She is a force multiplier and could be an asset to any organization.",
         name: "Michael Quintero",
         title: "Software Engineer · Roadrunner Recycling",
       },

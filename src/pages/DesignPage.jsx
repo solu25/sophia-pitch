@@ -129,7 +129,7 @@ export default function DesignPage() {
             color: 'var(--text)', margin: '0 0 8px',
           }}>Design System</h1>
           <p style={{ color: 'var(--muted)', fontSize: 'var(--type-lead)', margin: '0 0 48px' }}>
-            Components and tokens used across jenny-port.
+            Components and tokens used across sophia-port.
           </p>
 
           {/* ── TOKENS ── */}
@@ -350,7 +350,7 @@ weights: 400 (normal), 500 (medium), 600 (semibold)`}</CodeBlock>
 // Shows fade gradient + "Scroll →" pill when content overflows
 // Detects overflow via IntersectionObserver, hides when scrolled to end
 
-// In jenny.js data:
+// In sophia.js data:
 caseStudy: {
   screens: [{ src, alt, caption }],
   screensType: 'app' | 'flow' | 'before-after' | 'gallery',
@@ -427,7 +427,7 @@ padding: '32px',
 
           <SectionWrapper id="sections-projects" title="LLSelectedProjects">
             <p style={{ color: 'var(--muted)', fontSize: 'var(--type-body)', margin: '0 0 16px' }}>
-              Renders filtered + sorted case study cards from jenny.js. Pass project IDs in display order.
+              Renders filtered + sorted case study cards from sophia.js. Pass project IDs in display order.
             </p>
             <CodeBlock>{`<LLSelectedProjects projectIds={['roadrunner', 'arenalabs', 'navigation', 'myperks']} />`}</CodeBlock>
           </SectionWrapper>

@@ -1,4 +1,4 @@
-# Design System — Jenny Lu Pitch App
+# Design System — Sophia Lu Pitch App
 
 ---
 

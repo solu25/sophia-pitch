@@ -161,7 +161,7 @@ export default function LLHero({ company }) {
           {/* Line break hint — full width invisible element */}
           <span style={{ width: '100%', height: 0, display: 'block' }} aria-hidden="true" />
 
-          <span style={serifWordStyle}>Jenny.</span>
+          <span style={serifWordStyle}>Sophia.</span>
         </div>
 
         {/* Subtitle */}
