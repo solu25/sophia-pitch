@@ -219,6 +219,24 @@
   top: 0;
 }
 
+/* Hero subtitle — single line on desktop, wraps on mobile */
+.hero-subtitle {
+  white-space: nowrap;
+  max-width: 100%;
+}
+.section-h2-nowrap {
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .hero-subtitle,
+  .section-h2-nowrap {
+    white-space: normal;
+  }
+  .hero-subtitle {
+    text-align: center;
+  }
+}
+
 /* ─────────────────────────────────────────────────────────
    RESPONSIVE — Resume page mobile fixes
    ───────────────────────────────────────────────────────── */

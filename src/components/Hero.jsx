@@ -120,10 +120,9 @@ export default function Hero() {
           </h1>
 
           {/* Subtitle — pulls from sophia.summary */}
-          <p style={{
+          <p className="hero-subtitle" style={{
             color: 'var(--muted)', fontSize: 'var(--type-lead)',
             lineHeight: 'var(--leading-body)', margin: 0,
-            whiteSpace: 'nowrap',
           }}>
             {sophia.summary}
           </p>

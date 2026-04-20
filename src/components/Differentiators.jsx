@@ -58,7 +58,7 @@ export default function Differentiators({ differentiators }) {
             {isJdMode ? 'Your requirements. My proof.' : 'Why I\'m different'}
           </span>
           <TextReveal>
-            <h2 style={{
+            <h2 className="section-h2-nowrap" style={{
               fontFamily: 'var(--font-sans)',
               fontSize: 'var(--type-h2)',
               fontWeight: 'var(--weight-black)',
@@ -66,7 +66,6 @@ export default function Differentiators({ differentiators }) {
               letterSpacing: 'var(--tracking-tight)',
               color: 'var(--text)',
               margin: 0,
-              whiteSpace: 'nowrap',
             }}>
               {isJdMode
                 ? 'Every line from the job description, answered.'

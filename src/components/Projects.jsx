@@ -47,7 +47,7 @@ export default function Projects({ projects }) {
             Selected work
           </span>
           <TextReveal>
-            <h2 style={{
+            <h2 className="section-h2-nowrap" style={{
               fontFamily: 'var(--font-sans)',
               fontSize: 'var(--type-h2)',
               fontWeight: 'var(--weight-black)',
@@ -55,7 +55,6 @@ export default function Projects({ projects }) {
               letterSpacing: 'var(--tracking-tight)',
               color: 'var(--text)',
               margin: '0 0 12px',
-              whiteSpace: 'nowrap',
             }}>
               Full case studies. Every decision explained.
             </h2>
