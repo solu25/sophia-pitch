@@ -30,7 +30,7 @@ export const sophia = {
       icon: "fa-light fa-handshake",
       title: "A designer who can sell",
       description:
-        "Most designers can ship pixels. I can source the client, run the sales call, close the retainer, and ship the pixels. Half my pipeline comes from inbound content; the other half from founder-to-founder conversations I run myself.",
+        "Most designers can ship pixels. I can source the client, run the sales call, close the retainer, and ship the pixels.",
     },
     {
       id: "production-code",
@@ -46,7 +46,7 @@ export const sophia = {
       icon: "fa-light fa-megaphone",
       title: "Content that closes clients",
       description:
-        "36K impressions on a single LinkedIn post. 10 long-form Substack articles teaching designers to vibe code. Half my inbound pipeline comes from the audience I built — not cold outreach, not ads.",
+        "36K impressions on a single LinkedIn post. 10 long-form Substack articles teaching designers to vibe code.",
     },
   ],
   selectedProjects: [
