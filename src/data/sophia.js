@@ -58,6 +58,7 @@ export const sophia = {
       tags: ["Marketing Site", "Design System", "Framer", "Animation", "Solo Build"],
       tools: ["Figma", "Framer", "Claude Code"],
       heroImage: "/PMMCA.png",
+      caseStudyPage: "/pmmca",
       headline:
         "Product Marketing Manager Career Accelerator needed branding and strategy help. I designed and shipped the full site — pricing, course tabs, testimonials, FAQ, analytics — with a custom design system and animations, no dev handoff.",
       outcome:

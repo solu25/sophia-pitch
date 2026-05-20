@@ -13,6 +13,7 @@ import KovoPage from './pages/companies/KovoPage';
 import ContraPage from './pages/companies/ContraPage';
 import DesignPage from './pages/DesignPage';
 import ResumePage from './pages/ResumePage';
+import PMMCAPage from './pages/PMMCAPage';
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/contra" element={<ContraPage />} />
         <Route path="/design" element={<DesignPage />} />
         <Route path="/resume" element={<ResumePage />} />
+        <Route path="/pmmca" element={<PMMCAPage />} />
       </Routes>
     </BrowserRouter>
   );

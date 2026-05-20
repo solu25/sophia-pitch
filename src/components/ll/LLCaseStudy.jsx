@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 const toolIcons = {
   'Figma': '/tools/figma.svg',
@@ -250,6 +251,27 @@ export default function LLCaseStudy({ project, index }) {
         ))}
       </div>
 
+      {/* View full case study CTA */}
+      {project.caseStudyPage && (
+        <Link
+          to={project.caseStudyPage}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            alignSelf: 'flex-start',
+            backgroundColor: 'var(--accent)',
+            color: 'var(--accent-fg)',
+            fontSize: 'var(--type-body)',
+            fontWeight: 'var(--weight-medium)',
+            padding: '10px 18px',
+            borderRadius: 'var(--radius-btn)',
+            textDecoration: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          View full case study
+          <i className="fa-light fa-arrow-right" />
+        </Link>
+      )}
 
     </div>
   );
