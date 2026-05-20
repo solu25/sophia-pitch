@@ -223,6 +223,15 @@
 .hero-subtitle {
   max-width: 100%;
 }
+/* Hero tagline — single line on desktop, wraps on mobile */
+.hero-tagline {
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .hero-tagline {
+    white-space: normal;
+  }
+}
 .section-h2-nowrap {
   white-space: nowrap;
 }

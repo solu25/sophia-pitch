@@ -105,8 +105,8 @@ export default function Hero() {
             {sophia.title}
           </div>
 
-          {/* Headline — pulls from sophia.tagline, renders line breaks */}
-          <h1 style={{
+          {/* Headline — pulls from sophia.tagline */}
+          <h1 className="hero-tagline" style={{
             fontFamily: 'var(--font-sans)',
             fontSize: 'var(--type-h1)',
             fontWeight: 'var(--weight-medium)',
@@ -114,7 +114,6 @@ export default function Hero() {
             letterSpacing: 'var(--tracking-h1)',
             color: 'var(--text)',
             margin: 0,
-            whiteSpace: 'pre-line',
           }}>
             {sophia.tagline}
           </h1>
