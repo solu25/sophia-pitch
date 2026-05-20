@@ -6,10 +6,10 @@
 
 export const sophia = {
   name: "Sophia Lu",
-  title: "SL Lab",
-  tagline: "Welcome to my experiment lab.",
+  title: "Sophia's Product Interface LAB",
+  tagline: "Welcome to the execution lab.",
   summary:
-    "Experimenting with AI in everyday life to save you (and me) time.",
+    "Where design systems meet AI engineering. Testing interface ideas, building frontends, and deploying autonomous workflows in real-time.",
   contact: {
     email: "lusophia95@gmail.com",
     linkedin: "linkedin.com/in/sophialu520",

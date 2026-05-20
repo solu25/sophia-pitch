@@ -3,9 +3,9 @@ import gsap from 'gsap';
 import { sophia } from '../data/sophia';
 
 const stats = [
-  { verb: 'Grew', value: '5,000+', label: 'Subscribers grown', source: 'Harvey PMMCA · newsletter funnel' },
-  { verb: 'Reached', value: '36K+', label: 'Impressions on one post', source: 'LinkedIn · vibe coding for designers' },
-  { verb: 'Shipped', value: '20×', label: 'Faster biz dev research', source: 'Scout · AI research agent' },
+  { verb: 'Grew', value: '5,000+', label: 'Subscribers grown', source: 'Growth Funnel Strategy & Conversion Architecture' },
+  { verb: 'Reached', value: '36K+', label: 'Impressions on one post', source: 'Technical Branding & AI-Native Workflow Design' },
+  { verb: 'Shipped', value: '20×', label: 'Faster biz dev research', source: 'Autonomous Infrastructure / Deployed Local Agent' },
 ];
 
 export default function Hero() {
