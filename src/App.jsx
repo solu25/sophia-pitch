@@ -14,6 +14,7 @@ import ContraPage from './pages/companies/ContraPage';
 import DesignPage from './pages/DesignPage';
 import ResumePage from './pages/ResumePage';
 import PMMCAPage from './pages/PMMCAPage';
+import ScoutPage from './pages/ScoutPage';
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/design" element={<DesignPage />} />
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/pmmca" element={<PMMCAPage />} />
+        <Route path="/scout" element={<ScoutPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -91,6 +91,7 @@ export const sophia = {
       tags: ["AI Agent", "Internal Tool", "Sales Ops", "Automation", "0→1"],
       tools: ["Claude Code", "Railway", "Telegram", "MCP", "Python", "OpenClaw"],
       heroImage: "/ScoutImage.png",
+      caseStudyPage: "/scout",
       headline:
         "Finding the right startups to pitch was eating a full day every week. I built Scout — an AI research agent — to do it in minutes and flag only the founders worth a real conversation.",
       outcome:
