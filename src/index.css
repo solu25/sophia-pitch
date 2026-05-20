@@ -219,9 +219,8 @@
   top: 0;
 }
 
-/* Hero subtitle — single line on desktop, wraps on mobile */
+/* Hero subtitle — wraps to fit the centered container */
 .hero-subtitle {
-  white-space: nowrap;
   max-width: 100%;
 }
 .section-h2-nowrap {
