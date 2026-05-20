@@ -19,34 +19,34 @@ export const sophia = {
     {
       id: "ai-agents",
       number: "01",
-      icon: "fa-light fa-robot",
-      title: "Most designers talk about AI. I ship it.",
+      icon: "fa-light fa-bolt",
+      title: "Turning AI concepts into working layouts, fast.",
       description:
-        "One agent is live through OpenClaw doing research for clients. One on the way — a content generator for LinkedIn.",
+        "You don't have time for slow, theoretical wireframes. I specialize in taking raw AI features and quickly translating them into clean, usable layouts. I help you get new ideas out of Figma and onto the screen in days, not months.",
     },
     {
       id: "designer-sells",
       number: "02",
-      icon: "fa-light fa-handshake",
-      title: "A designer who can sell",
+      icon: "fa-light fa-chart-line",
+      title: "Business and growth strategy.",
       description:
-        "Most designers can ship pixels. I can source the client, run the sales call, close the retainer, and ship the pixels.",
+        "I don't just focus on how an app looks; I focus on how a business runs. I help founders map out pricing pages, find friction points where users get confused, and design the product to drive actual retention and cash flow.",
     },
     {
       id: "production-code",
       number: "03",
       icon: "fa-light fa-code",
-      title: "Ships production code — no dev handoff",
+      title: "Clean layout code, no dev handoff.",
       description:
-        "React and Framer components go straight to prod. No \"here's a Figma file, good luck implementing it.\" The design is the ship.",
+        "I don't just hand over a static picture of a design and leave the hard work to your developers. I turn my layouts into clean, responsive HTML and Tailwind components that are ready to drop straight into your team's repository.",
     },
     {
       id: "content-closes",
       number: "04",
-      icon: "fa-light fa-megaphone",
-      title: "Content that closes clients",
+      icon: "fa-light fa-tower-broadcast",
+      title: "Building an audience and distribution.",
       description:
-        "36K impressions on a single LinkedIn post. 10 long-form Substack articles teaching designers to vibe code.",
+        "A beautiful product is useless if nobody knows it exists. I know how to get eyes on a project. I write newsletters, create content that drives real traffic, and build automated systems to help attract and onboard your users.",
     },
   ],
   selectedProjects: [

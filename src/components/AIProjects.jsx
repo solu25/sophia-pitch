@@ -1,20 +1,19 @@
 import { useRef, useState, useEffect } from 'react';
 
 const processSteps = [
-  { icon: 'fa-light fa-magnifying-glass-chart', label: 'Perplexity', detail: 'Research', isFA: true },
-  { icon: '/tools/claude-code.svg', label: 'Claude', detail: 'Synthesize + draft' },
-  { icon: 'fa-light fa-pen-to-square', label: 'Content drafts', detail: 'Hooks + posts', isFA: true },
-  { icon: 'fa-light fa-share-nodes', label: 'Social media', detail: 'LinkedIn + Substack', isFA: true },
-  { icon: 'fa-light fa-filter', label: 'Funnel', detail: 'Landing + email', isFA: true },
-  { icon: 'fa-light fa-bullseye-arrow', label: 'Conversion', detail: 'Buyers + subs', isFA: true },
+  { icon: 'fa-light fa-magnifying-glass-chart', label: 'Research', detail: 'Perplexity + NotebookLM', isFA: true },
+  { icon: 'fa-light fa-lightbulb', label: 'Brainstorm', detail: 'Gemini + ChatGPT', isFA: true },
+  { icon: 'fa-light fa-pencil', label: 'Sketch', detail: 'Pen + paper', isFA: true },
+  { icon: 'fa-light fa-code', label: 'Vibe code', detail: 'Live prototype', isFA: true },
+  { icon: 'fa-light fa-rocket', label: 'Ship', detail: 'GitHub + Vercel', isFA: true },
 ];
 
 const shifts = [
-  { num: '01', label: 'Research in hours, not weeks', detail: 'ICP analysis, competitor teardowns, and content gap research pulled through Perplexity and synthesized in Claude. I walk into content planning with real insights, not guesses.' },
-  { num: '02', label: 'Hooks tested before publishing', detail: 'I draft 5–10 hook variations in Claude, stress-test them against past winners, and ship the one most likely to land. My top post hit 36K impressions using this method.' },
-  { num: '03', label: 'Funnels designed, not guessed', detail: 'Landing page copy, email sequences, and CTAs — iterated with Claude until the message matches the buyer\'s mental state.' },
-  { num: '04', label: 'Social-first, content that compounds', detail: 'I build audiences where they already scroll. Short-form for reach and reaction, long-form for trust and depth. Posts that perform once are fine. Systems that keep pulling readers in are better.' },
-  { num: '05', label: 'Conversion is the whole point', detail: 'I don\'t write content to be admired. I write it to move people — from scroll to click, click to subscribe, subscribe to buy. Research, copy, landing page, and analytics all in one loop so nothing gets lost along the way.' },
+  { num: '01', label: 'Research & aggregation', detail: 'I drop initial product ideas, competitor data, and user requirements into Perplexity and NotebookLM. I use AI to instantly sort through the noise and isolate the exact information that matters most.' },
+  { num: '02', label: 'Brainstorming the core logic', detail: 'I talk through that raw research with Gemini and ChatGPT to ruthlessly cut out product bloat. We bounce ideas back and forth to find the absolute sharpest, highest-leverage user loop, turning scattered data into a tight feature plan.' },
+  { num: '03', label: 'Paper sketching', detail: 'Once the logic makes sense, I get away from the screen. I use a notepad and pencil to rapidly map out the physical wireframes, layouts, and navigation paths so we can align on the core interface structure instantly.' },
+  { num: '04', label: 'Live vibe coding', detail: 'I skip traditional, static design tools and jump straight into the editor. Using AI-native development workflows, I rapidly translate our paper layouts into a living, clickable browser prototype so we can feel the interactions in real time.' },
+  { num: '05', label: 'Tailwind polish & deployment', detail: 'Once the layout functionality is locked, I use Claude to clean up the frontend architecture—refining the Tailwind styles, perfecting the padding, and fixing dark mode. Then I push the clean code straight to GitHub and deploy it live on Vercel.' },
 ];
 
 export default function AIProjects() {
@@ -65,7 +64,7 @@ export default function AIProjects() {
             textTransform: 'uppercase', lineHeight: 'var(--leading-h5)',
             marginBottom: '24px', display: 'block',
           }}>
-            AI-first marketing process
+            AI-native design process
           </span>
           <h2 style={{
             fontFamily: 'var(--font-sans)',
@@ -77,7 +76,7 @@ export default function AIProjects() {
             margin: '0 auto',
             maxWidth: '650px',
           }}>
-            AI changed how I market, not just how fast I ship
+            An AI-native design process, built for venture speed.
           </h2>
         </div>
 
@@ -181,14 +180,14 @@ export default function AIProjects() {
                 fontWeight: 'var(--weight-medium)', letterSpacing: 'var(--tracking-badge)',
                 display: 'block', marginBottom: '16px',
               }}>
-                WHAT ACTUALLY CHANGES
+                MY WORKFLOW
               </span>
               <p style={{
                 color: 'var(--text)', fontSize: 'var(--type-body)',
                 lineHeight: 'var(--leading-body)', margin: '0 0 24px', maxWidth: '640px',
                 fontWeight: 'var(--weight-medium)',
               }}>
-                Starting in Claude and Perplexity changed how I build audiences. Less time staring at blank pages, more time testing what resonates. Less time on tactics, more time on whether I'm reaching the right people.
+                I don't follow the slow, traditional design agency pipeline. Instead, I use an AI-native design thinking process built for venture speed. By leveraging AI to automate the heavy lifting of research, logic mapping, and layout generation, I can compress weeks of static prototyping into hours of real, functional code.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {shifts.map((step, i) => (
