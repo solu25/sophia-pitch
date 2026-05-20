@@ -9,11 +9,11 @@ const processSteps = [
 ];
 
 const shifts = [
-  { num: '01', label: 'Research & aggregation', detail: 'I drop initial product ideas, competitor data, and user requirements into Perplexity and NotebookLM. I use AI to instantly sort through the noise and isolate the exact information that matters most.' },
-  { num: '02', label: 'Brainstorming the core logic', detail: 'I talk through that raw research with Gemini and ChatGPT to ruthlessly cut out product bloat. We bounce ideas back and forth to find the absolute sharpest, highest-leverage user loop, turning scattered data into a tight feature plan.' },
-  { num: '03', label: 'Paper sketching', detail: 'Once the logic makes sense, I get away from the screen. I use a notepad and pencil to rapidly map out the physical wireframes, layouts, and navigation paths so we can align on the core interface structure instantly.' },
-  { num: '04', label: 'Live vibe coding', detail: 'I skip traditional, static design tools and jump straight into the editor. Using AI-native development workflows, I rapidly translate our paper layouts into a living, clickable browser prototype so we can feel the interactions in real time.' },
-  { num: '05', label: 'Tailwind polish & deployment', detail: 'Once the layout functionality is locked, I use Claude to clean up the frontend architecture—refining the Tailwind styles, perfecting the padding, and fixing dark mode. Then I push the clean code straight to GitHub and deploy it live on Vercel.' },
+  { num: '01', icon: 'fa-light fa-magnifying-glass-chart', label: 'Research & aggregation', detail: 'I drop initial product ideas, competitor data, and user requirements into Perplexity and NotebookLM. I use AI to instantly sort through the noise and isolate the exact information that matters most.' },
+  { num: '02', icon: 'fa-light fa-lightbulb', label: 'Brainstorming the core logic', detail: 'I talk through that raw research with Gemini and ChatGPT to ruthlessly cut out product bloat. We bounce ideas back and forth to find the absolute sharpest, highest-leverage user loop, turning scattered data into a tight feature plan.' },
+  { num: '03', icon: 'fa-light fa-pencil', label: 'Paper sketching', detail: 'Once the logic makes sense, I get away from the screen. I use a notepad and pencil to rapidly map out the physical wireframes, layouts, and navigation paths so we can align on the core interface structure instantly.' },
+  { num: '04', icon: 'fa-light fa-code', label: 'Live vibe coding', detail: 'I skip traditional, static design tools and jump straight into the editor. Using AI-native development workflows, I rapidly translate our paper layouts into a living, clickable browser prototype so we can feel the interactions in real time.' },
+  { num: '05', icon: 'fa-light fa-rocket', label: 'Tailwind polish & deployment', detail: 'Once the layout functionality is locked, I use Claude to clean up the frontend architecture—refining the Tailwind styles, perfecting the padding, and fixing dark mode. Then I push the clean code straight to GitHub and deploy it live on Vercel.' },
 ];
 
 export default function AIProjects() {
@@ -184,8 +184,9 @@ export default function AIProjects() {
               </span>
               <p style={{
                 color: 'var(--text)', fontSize: 'var(--type-body)',
-                lineHeight: 'var(--leading-body)', margin: '0 0 24px', maxWidth: '640px',
+                lineHeight: 'var(--leading-body)', margin: '0 0 24px auto', maxWidth: '640px',
                 fontWeight: 'var(--weight-medium)',
+                textAlign: 'right',
               }}>
                 I don't follow the slow, traditional design agency pipeline. Instead, I use an AI-native design thinking process built for venture speed. By leveraging AI to automate the heavy lifting of research, logic mapping, and layout generation, I can compress weeks of static prototyping into hours of real, functional code.
               </p>
@@ -207,8 +208,10 @@ export default function AIProjects() {
                     <div style={{ flex: 1 }}>
                       <span style={{
                         fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-                        color: 'var(--text)', display: 'block', marginBottom: '4px',
+                        color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px',
+                        marginBottom: '4px',
                       }}>
+                        <i className={step.icon} style={{ fontSize: '16px', color: 'var(--accent)', width: '20px', textAlign: 'center' }} />
                         {step.label}
                       </span>
                       <span style={{
