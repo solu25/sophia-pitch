@@ -184,9 +184,8 @@ export default function AIProjects() {
               </span>
               <p style={{
                 color: 'var(--text)', fontSize: 'var(--type-body)',
-                lineHeight: 'var(--leading-body)', margin: '0 0 24px auto', maxWidth: '640px',
+                lineHeight: 'var(--leading-body)', margin: '0 0 24px',
                 fontWeight: 'var(--weight-medium)',
-                textAlign: 'right',
               }}>
                 I don't follow the slow, traditional design agency pipeline. Instead, I use an AI-native design thinking process built for venture speed. By leveraging AI to automate the heavy lifting of research, logic mapping, and layout generation, I can compress weeks of static prototyping into hours of real, functional code.
               </p>
