@@ -116,6 +116,29 @@ export const sophia = {
         screens: [],
       },
     },
+    {
+      id: "zanshin",
+      company: "Hema Designs / Zanshin",
+      title: "Zanshin — The Anti-Kanban team execution engine.",
+      role: "Founder · Full-Stack Design + Code",
+      tags: ["Micro-SaaS", "Anti-Kanban", "Solo Build", "0→1"],
+      tools: ["Vibe Code", "Wardian", "Supabase", "Gemini", "ChatGPT", "Perplexity", "Vercel"],
+      headline:
+        "Traditional project management tools are where shipping momentum goes to die. I built Zanshin to completely replace messy Kanban columns with a dead-simple daily execution timeline. It strips out the bloat and locks teams onto three things: a flat daily checklist, an integrated feed to instantly showcase shipped code, and a weekly macro-alignment anchor.",
+      outcome: "",
+      metrics: [
+        { value: "100% Native", label: "Designed & coded in-browser" },
+        { value: "Real-Time", label: "Supabase data listeners" },
+        { value: "0 to Alpha", label: "Shipped solo in days" },
+      ],
+      caseStudy: {
+        insight: "",
+        story: [],
+        featuresLabel: "KEY INSIGHTS",
+        features: [],
+        screens: [],
+      },
+    },
   ],
   experience: [
     {
