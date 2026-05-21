@@ -102,6 +102,37 @@ const body = {
   color: 'var(--text)', margin: '0 0 16px', maxWidth: '760px',
 };
 
+function ImageBlock({ src, alt, caption }) {
+  return (
+    <figure style={{ margin: '20px 0 8px' }}>
+      <div style={{
+        borderRadius: 'var(--radius)',
+        overflow: 'hidden',
+        border: '1px solid var(--border)',
+      }}>
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+        />
+      </div>
+      {caption && (
+        <figcaption style={{
+          fontSize: 'var(--type-small)',
+          color: 'var(--muted)',
+          textAlign: 'center',
+          marginTop: '12px',
+          lineHeight: 'var(--leading-body)',
+          fontStyle: 'italic',
+        }}>
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 function ImagePlaceholder({ caption }) {
   return (
     <div style={{
@@ -235,7 +266,19 @@ export default function PMMCAPage() {
                 </li>
               ))}
             </ul>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
+
+            <ImageBlock
+              src="/pmmca-research-1.png"
+              alt="Side-by-side competitive audit of PMM coaching landing pages"
+              caption="Competitive landing page audit — scroll order and section structure mapped across the PMM coaching landscape."
+            />
+            <ImageBlock
+              src="/pmmca-research-2.png"
+              alt="Overlapping annotated breakdowns of competitor PMM landing pages"
+              caption="Per-page annotation work — flagging where competitor pages lead with credentials, bury pricing, or skip segmentation."
+            />
+
+            <p style={{ ...body, fontWeight: 'var(--weight-medium)', marginTop: '32px' }}>
               That gave me the brief in reverse. If competitor pages were leaking buyers at each of those points, PMMCA's job was to close every one of those gaps in scroll order, on a single page.
             </p>
           </div>
