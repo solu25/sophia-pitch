@@ -174,7 +174,6 @@ function ImageBlock({ src, alt, caption }) {
           <img
             src={src}
             alt={alt}
-            onClick={(e) => e.stopPropagation()}
             style={{
               display: 'block',
               margin: '0 auto',
@@ -182,7 +181,7 @@ function ImageBlock({ src, alt, caption }) {
               height: 'auto',
               boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
               borderRadius: 'var(--radius)',
-              cursor: 'default',
+              cursor: 'zoom-out',
             }}
           />
           <button
