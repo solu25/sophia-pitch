@@ -448,6 +448,10 @@ export default function PMMCAPage() {
           <div style={sectionInner}>
             <span style={eyebrow}>05 · Outcomes</span>
             <h2 style={h2}>What it actually did.</h2>
+            <ImageBlock
+              src="/pmmca-outcomes.png"
+              alt="PMMCA outcomes — split title visual summarizing the launch results."
+            />
             <ul style={{
               listStyle: 'none', padding: 0, margin: '8px 0 32px',
               maxWidth: '760px',
