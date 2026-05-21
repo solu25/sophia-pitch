@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -44,16 +45,12 @@ const pageSections = [
     screenshot: 'Screenshot 3 — One Program Three Ways In + Find Your Starting Point tabs.',
   },
   {
-    label: 'Pricing',
-    tagline: 'the close',
+    label: 'Pricing & Comparison',
+    tagline: 'the close + the verifier',
     body: 'Three cards on dark. Career Builder fully filled with the orange accent, the others in white. The full-color treatment isn\'t a "featured" badge — it\'s a visual event. Anchoring at $1,497 makes $997 read as the practical option and $499 read as the easy yes. Founding member bonuses run across all three tiers. The Individual/Teams toggle parks the B2B buyer out of the way of the individual decision.',
     image: { src: '/pmmca-pricing.png', alt: 'PMMCA pricing cards on dark — Career Builder, Job Seeker, Coaching & Community.' },
-  },
-  {
-    label: 'Comparison',
-    tagline: 'for the verifiers',
-    body: "The access rows (1:1 strategy, KPI Toolkit, AMAs, masterclasses, Harvey Bot, community) check across all three tiers. Only the courses themselves differentiate. The honest message: the access is the same — the course content is what you're paying more for.",
-    screenshot: 'Screenshot 5 — Comparison table.',
+    bodyExtra: "For the verifiers, the access rows (1:1 strategy, KPI Toolkit, AMAs, masterclasses, Harvey Bot, community) check across all three tiers. Only the courses themselves differentiate. The honest message: the access is the same — the course content is what you're paying more for.",
+    screenshot: 'Screenshot — Comparison table (coming soon).',
   },
   {
     label: 'Testimonials',
@@ -103,33 +100,113 @@ const body = {
 };
 
 function ImageBlock({ src, alt, caption }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setIsOpen(false); };
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen]);
+
   return (
-    <figure style={{ margin: '20px 0 8px' }}>
-      <div style={{
-        borderRadius: 'var(--radius)',
-        overflow: 'hidden',
-        border: '1px solid var(--border)',
-      }}>
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          style={{ width: '100%', height: 'auto', display: 'block' }}
-        />
-      </div>
-      {caption && (
-        <figcaption style={{
-          fontSize: 'var(--type-small)',
-          color: 'var(--muted)',
-          textAlign: 'center',
-          marginTop: '12px',
-          lineHeight: 'var(--leading-body)',
-          fontStyle: 'italic',
-        }}>
-          {caption}
-        </figcaption>
+    <>
+      <figure style={{ margin: '20px 0 8px' }}>
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          aria-label={`Zoom into image: ${alt}`}
+          style={{
+            display: 'block', width: '100%',
+            padding: 0, border: 'none', background: 'none',
+            cursor: 'zoom-in',
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+            boxShadow: 'none',
+          }}
+        >
+          <div style={{
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+            border: '1px solid var(--border)',
+          }}>
+            <img
+              src={src}
+              alt={alt}
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          </div>
+        </button>
+        {caption && (
+          <figcaption style={{
+            fontSize: 'var(--type-small)',
+            color: 'var(--muted)',
+            textAlign: 'center',
+            marginTop: '12px',
+            lineHeight: 'var(--leading-body)',
+            fontStyle: 'italic',
+          }}>
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+
+      {isOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setIsOpen(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1000,
+            backgroundColor: 'rgba(0,0,0,0.92)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '40px',
+            cursor: 'zoom-out',
+            animation: 'pmmca-lightbox-fade 0.18s ease-out',
+          }}
+        >
+          <img
+            src={src}
+            alt={alt}
+            style={{
+              maxWidth: '100%', maxHeight: '100%',
+              objectFit: 'contain',
+              display: 'block',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+              borderRadius: 'var(--radius)',
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close zoomed image"
+            style={{
+              position: 'absolute', top: 24, right: 24,
+              width: 40, height: 40, borderRadius: '50%',
+              background: 'rgba(255,255,255,0.12)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              color: '#fff', fontSize: 18,
+              cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            ×
+          </button>
+        </div>
       )}
-    </figure>
+      <style>{`
+        @keyframes pmmca-lightbox-fade {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -333,11 +410,20 @@ export default function PMMCAPage() {
                   }}>
                     {s.body}
                   </p>
-                  {s.image ? (
+                  {s.image && (
                     <ImageBlock src={s.image.src} alt={s.image.alt} />
-                  ) : s.screenshot ? (
+                  )}
+                  {s.bodyExtra && (
+                    <p style={{
+                      fontSize: 'var(--type-body)', lineHeight: 'var(--leading-body)',
+                      color: 'var(--text)', margin: '24px 0 0', maxWidth: '720px',
+                    }}>
+                      {s.bodyExtra}
+                    </p>
+                  )}
+                  {s.screenshot && (
                     <ImagePlaceholder caption={s.screenshot} />
-                  ) : null}
+                  )}
                 </div>
               ))}
             </div>
