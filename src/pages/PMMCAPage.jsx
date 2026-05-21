@@ -17,25 +17,25 @@ const pageSections = [
     label: 'Hero',
     tagline: 'open the loop',
     body: '"Stop reacting to your career. Start creating it." The page leads with the buyer\'s fear, not Harvey\'s credential. Harvey appears in the lightning bolt frame as the answer — credentialed without claiming it. "One breakthrough. Three ways to get there." plants the tier system before the buyer sees a price.',
-    screenshot: null,
+    image: { src: '/pmmca-hero.png', alt: 'PMMCA hero section — "Stop reacting. Start creating." with Harvey Lee portrait and lightning bolt.' },
   },
   {
     label: 'Proof',
     tagline: 'clear the believability gate',
     body: "Four stats (80% increased recruiter interest, 100% met career goals, 16-week redundancy to re-employment, 100% recommend) and a logo strip — Amazon, Salesforce, Monday, Frontify, Blink, ProjectWorks, k2view. If the buyer doesn't believe it works, nothing else matters. This section has to clear before the page can do anything.",
-    screenshot: 'Screenshot 2 — Proof stats + logo strip + named breakthroughs section.',
+    image: { src: '/pmmca-proof.png', alt: 'PMMCA Proof section — four percentage stats and a company logo strip.' },
   },
   {
     label: 'Stories',
     tagline: 'make it real',
     body: 'Four named breakthroughs: Sara promoted in 20 weeks, Kristin secured her role in one month, Amit found his best-fit role after a layoff, Dean placed within 12 weeks. Each tagged by outcome category. The buyer starts seeing themselves on the page.',
-    screenshot: null,
+    image: { src: '/pmmca-stories.png', alt: 'PMMCA named breakthroughs section — Sara, Kristin, Amit, Dean with outcome tags.' },
   },
   {
     label: 'Segmentation',
     tagline: 'pick your path',
     body: 'Three cards (Earn the Promotion, Secure Your Next Role, Sharpen Your Edge) with their tier badges. This is the self-identification moment. By the end of this section, the buyer has already mentally chosen — pricing later just confirms it.',
-    screenshot: null,
+    image: { src: '/pmmca-pathways.png', alt: 'PMMCA pathways section — three tier cards: Earn the Promotion, Secure Your Next Role, Sharpen Your Edge.' },
   },
   {
     label: 'Depth on demand',
@@ -47,7 +47,7 @@ const pageSections = [
     label: 'Pricing',
     tagline: 'the close',
     body: 'Three cards on dark. Career Builder fully filled with the orange accent, the others in white. The full-color treatment isn\'t a "featured" badge — it\'s a visual event. Anchoring at $1,497 makes $997 read as the practical option and $499 read as the easy yes. Founding member bonuses run across all three tiers. The Individual/Teams toggle parks the B2B buyer out of the way of the individual decision.',
-    screenshot: 'Screenshot 4 — Pricing cards: Career Builder, Job Seeker, Coaching & Community.',
+    image: { src: '/pmmca-pricing.png', alt: 'PMMCA pricing cards on dark — Career Builder, Job Seeker, Coaching & Community.' },
   },
   {
     label: 'Comparison',
@@ -59,13 +59,13 @@ const pageSections = [
     label: 'Testimonials',
     tagline: 'handle the last objection',
     body: "After pricing, not before. By this point the buyer isn't asking does this work — they're asking are people like me actually doing this. Ashley, Kristin Howland, and others answer that.",
-    screenshot: 'Screenshot 6 — Testimonials section.',
+    image: { src: '/pmmca-testimonials.png', alt: 'PMMCA testimonials section — buyer-perspective quotes after pricing.' },
   },
   {
     label: 'FAQ',
     tagline: 'clear the path to checkout',
     body: "Ten questions handling the practical objections that kill conversions: which path should I choose, can my company pay, how much time per week, what's the money-back guarantee. HTML-rendered answers so Harvey can embed links and lists without coming back to me.",
-    screenshot: 'Screenshot 7 — FAQ accordion.',
+    image: { src: '/pmmca-faq.png', alt: 'PMMCA FAQ accordion section.' },
   },
 ];
 
@@ -224,8 +224,10 @@ export default function PMMCAPage() {
         {/* ── Hero screenshot ── */}
         <section style={{ padding: '48px 0 0' }}>
           <div style={sectionInner}>
-            <ImagePlaceholder
-              caption='Screenshot 1 — Hero: "Stop reacting to your career. Start creating it." with Harvey portrait and lightning bolt.'
+            <ImageBlock
+              src="/pmmca-hero-cover.png"
+              alt="PMMCA Overview page — Harvey Lee Coaching Platform, browser mockup."
+              caption="PMMCA Overview — one landing page selling five tiers, designed and shipped without a developer handoff."
             />
           </div>
         </section>
@@ -331,9 +333,11 @@ export default function PMMCAPage() {
                   }}>
                     {s.body}
                   </p>
-                  {s.screenshot && (
+                  {s.image ? (
+                    <ImageBlock src={s.image.src} alt={s.image.alt} />
+                  ) : s.screenshot ? (
                     <ImagePlaceholder caption={s.screenshot} />
-                  )}
+                  ) : null}
                 </div>
               ))}
             </div>
