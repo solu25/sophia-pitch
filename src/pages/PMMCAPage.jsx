@@ -17,7 +17,7 @@ const pageSections = [
     label: 'Hero',
     tagline: 'open the loop',
     body: '"Stop reacting to your career. Start creating it." The page leads with the buyer\'s fear, not Harvey\'s credential. Harvey appears in the lightning bolt frame as the answer — credentialed without claiming it. "One breakthrough. Three ways to get there." plants the tier system before the buyer sees a price.',
-    image: { src: '/pmmca-hero.png', alt: 'PMMCA hero section — "Stop reacting. Start creating." with Harvey Lee portrait and lightning bolt.' },
+    image: { src: '/pmmca-hero-cover.png', alt: 'PMMCA Overview page — Harvey Lee Coaching Platform, browser mockup.' },
   },
   {
     label: 'Proof',
@@ -225,8 +225,8 @@ export default function PMMCAPage() {
         <section style={{ padding: '48px 0 0' }}>
           <div style={sectionInner}>
             <ImageBlock
-              src="/pmmca-hero-cover.png"
-              alt="PMMCA Overview page — Harvey Lee Coaching Platform, browser mockup."
+              src="/pmmca-hero.png"
+              alt='PMMCA hero — "Stop reacting. Start creating." with Harvey Lee portrait and lightning bolt.'
               caption="PMMCA Overview — one landing page selling five tiers, designed and shipped without a developer handoff."
             />
           </div>
