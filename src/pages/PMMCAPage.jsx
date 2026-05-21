@@ -2,28 +2,78 @@ import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
-const metrics = [
-  { value: '3', label: 'High-ticket buyers closed, wave 1', detail: 'Optimized pricing psychology' },
-  { value: '5,000+', label: 'Active funnel subscribers', detail: 'Natively integrated into the layout' },
-  { value: '0', label: 'Developer handoffs', detail: 'Repository delivered production-ready' },
+const stack = ['Figma', 'Framer', 'Claude Code'];
+
+const researchFindings = [
+  "Most coaching pages led with the coach's credentials, not the buyer's problem.",
+  'Pricing was usually buried below the fold or behind a "book a call" wall.',
+  'Testimonials sat at the top, where they were easy to skim past.',
+  "FAQ pages lived on a separate URL, hidden from buyers who didn't think to look.",
+  'Segmentation was missing — buyers had to figure out for themselves which tier applied to them.',
 ];
 
-const journey = [
+const pageSections = [
   {
-    num: '01',
-    label: 'Acquisition state',
-    detail: 'Public informational pages and structured syllabus previews.',
+    label: 'Hero',
+    tagline: 'open the loop',
+    body: '"Stop reacting to your career. Start creating it." The page leads with the buyer\'s fear, not Harvey\'s credential. Harvey appears in the lightning bolt frame as the answer — credentialed without claiming it. "One breakthrough. Three ways to get there." plants the tier system before the buyer sees a price.',
+    screenshot: null,
   },
   {
-    num: '02',
-    label: 'Transaction state',
-    detail: 'Interactive pricing selectors and optimized checkout states.',
+    label: 'Proof',
+    tagline: 'clear the believability gate',
+    body: "Four stats (80% increased recruiter interest, 100% met career goals, 16-week redundancy to re-employment, 100% recommend) and a logo strip — Amazon, Salesforce, Monday, Frontify, Blink, ProjectWorks, k2view. If the buyer doesn't believe it works, nothing else matters. This section has to clear before the page can do anything.",
+    screenshot: 'Screenshot 2 — Proof stats + logo strip + named breakthroughs section.',
   },
   {
-    num: '03',
-    label: 'Retention state',
-    detail: 'A fully customized, branded Circle community space.',
+    label: 'Stories',
+    tagline: 'make it real',
+    body: 'Four named breakthroughs: Sara promoted in 20 weeks, Kristin secured her role in one month, Amit found his best-fit role after a layoff, Dean placed within 12 weeks. Each tagged by outcome category. The buyer starts seeing themselves on the page.',
+    screenshot: null,
   },
+  {
+    label: 'Segmentation',
+    tagline: 'pick your path',
+    body: 'Three cards (Earn the Promotion, Secure Your Next Role, Sharpen Your Edge) with their tier badges. This is the self-identification moment. By the end of this section, the buyer has already mentally chosen — pricing later just confirms it.',
+    screenshot: null,
+  },
+  {
+    label: 'Depth on demand',
+    tagline: null,
+    body: 'The tabbed "Find Your Starting Point" section lets curious buyers dive into the full curriculum without forcing it on everyone. Career Builder opens by default; the other two are one click away. Skim or read — the buyer chooses.',
+    screenshot: 'Screenshot 3 — One Program Three Ways In + Find Your Starting Point tabs.',
+  },
+  {
+    label: 'Pricing',
+    tagline: 'the close',
+    body: 'Three cards on dark. Career Builder fully filled with the orange accent, the others in white. The full-color treatment isn\'t a "featured" badge — it\'s a visual event. Anchoring at $1,497 makes $997 read as the practical option and $499 read as the easy yes. Founding member bonuses run across all three tiers. The Individual/Teams toggle parks the B2B buyer out of the way of the individual decision.',
+    screenshot: 'Screenshot 4 — Pricing cards: Career Builder, Job Seeker, Coaching & Community.',
+  },
+  {
+    label: 'Comparison',
+    tagline: 'for the verifiers',
+    body: "The access rows (1:1 strategy, KPI Toolkit, AMAs, masterclasses, Harvey Bot, community) check across all three tiers. Only the courses themselves differentiate. The honest message: the access is the same — the course content is what you're paying more for.",
+    screenshot: 'Screenshot 5 — Comparison table.',
+  },
+  {
+    label: 'Testimonials',
+    tagline: 'handle the last objection',
+    body: "After pricing, not before. By this point the buyer isn't asking does this work — they're asking are people like me actually doing this. Ashley, Kristin Howland, and others answer that.",
+    screenshot: 'Screenshot 6 — Testimonials section.',
+  },
+  {
+    label: 'FAQ',
+    tagline: 'clear the path to checkout',
+    body: "Ten questions handling the practical objections that kill conversions: which path should I choose, can my company pay, how much time per week, what's the money-back guarantee. HTML-rendered answers so Harvey can embed links and lists without coming back to me.",
+    screenshot: 'Screenshot 7 — FAQ accordion.',
+  },
+];
+
+const outcomes = [
+  '3 high-ticket buyers closed in the first launch wave.',
+  '5,000+ newsletter subscribers added to the funnel.',
+  '[CONFIRM] average engagement on the page — buyers reading deeply, not bouncing.',
+  'Premium pricing held — Career Builder closed at $1,497 without discounting.',
 ];
 
 // ── shared style fragments ──
@@ -42,10 +92,10 @@ const h2 = {
   margin: '0 0 24px', maxWidth: '760px',
 };
 const h3 = {
-  fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h3)',
-  fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h2)',
-  letterSpacing: 'var(--tracking-h3)', color: 'var(--text)',
-  margin: '0 0 16px',
+  fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h4)',
+  fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h4)',
+  letterSpacing: 'var(--tracking-h4)', color: 'var(--text)',
+  margin: '0 0 12px',
 };
 const body = {
   fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
@@ -60,7 +110,7 @@ function ImagePlaceholder({ caption }) {
       padding: '48px 32px',
       backgroundColor: 'var(--surface-alt)',
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      gap: '12px', margin: '24px 0 8px',
+      gap: '12px', margin: '20px 0 8px',
     }}>
       <i className="fa-light fa-image" style={{ fontSize: '32px', color: 'var(--muted)' }} />
       <span style={{
@@ -68,7 +118,7 @@ function ImagePlaceholder({ caption }) {
         fontWeight: 'var(--weight-medium)', letterSpacing: 'var(--tracking-badge)',
         textTransform: 'uppercase', color: 'var(--muted)',
       }}>
-        Image placeholder
+        Screenshot placeholder
       </span>
       <p style={{
         fontSize: 'var(--type-body)', color: 'var(--muted)',
@@ -112,222 +162,178 @@ export default function PMMCAPage() {
               letterSpacing: 'var(--tracking-h1)', color: 'var(--text)',
               margin: '0 0 20px', maxWidth: '820px',
             }}>
-              PMMCA Platform Architecture
+              PMMCA: A landing page that converts.
             </h1>
             <p style={{
               fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
-              color: 'var(--muted)', margin: 0, maxWidth: '720px',
+              color: 'var(--muted)', margin: '0 0 28px', maxWidth: '720px',
             }}>
-              Compressing an educational ecosystem into an AI-native design system with 0 developer handoffs.
+              PMMCA's Overview page is the landing page — and it's the engine that converts visitors into buyers. 3 high-ticket buyers closed in the first launch wave. 5,000+ subscribers added to the funnel. Premium pricing held without discounting.
             </p>
-          </div>
-        </section>
 
-        {/* ── 01 · EXECUTIVE SUMMARY ── */}
-        <section style={sectionPad}>
-          <div style={sectionInner}>
-            <span style={eyebrow}>01 · Executive summary</span>
-            <h2 style={h2}>A commercial-validated build, top of page.</h2>
-
-            <div style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px',
-              marginBottom: '40px',
-            }} className="pmmca-two-col">
-              <div style={{
-                backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
-                padding: '28px', border: '1px solid var(--border)',
-              }}>
-                <span style={{ ...eyebrow, color: 'var(--text)', marginBottom: '12px' }}>The problem</span>
-                <p style={{ ...body, margin: 0, fontSize: 'var(--type-body)' }}>
-                  High-ticket accelerators suffer from heavy drop-off if the onboarding, checkout, and community experiences feel disconnected or clunky. Traditional design-to-development handoffs take months, stalling launch velocity.
-                </p>
-              </div>
-              <div style={{
-                backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
-                padding: '28px', border: '1px solid var(--border)',
-              }}>
-                <span style={{ ...eyebrow, color: 'var(--accent)', marginBottom: '12px' }}>The solution</span>
-                <p style={{ ...body, margin: 0, fontSize: 'var(--type-body)' }}>
-                  Sketched the entire architecture on paper, then vibe-coded a unified interface connecting the public frontend, multi-tier pricing blocks, and the Circle community platform into one fluid application layout.
-                </p>
-              </div>
-            </div>
-
-            <span style={{ ...eyebrow, color: 'var(--text)', marginBottom: '12px' }}>The outcomes</span>
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px',
-            }} className="pmmca-metrics-grid">
-              {metrics.map((m) => (
-                <div key={m.label} style={{
-                  backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
-                  padding: '24px', border: '1px solid var(--border)',
+            {/* Tech stack chips */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              {stack.map((tech) => (
+                <span key={tech} style={{
+                  display: 'inline-flex', alignItems: 'center',
+                  fontSize: '10px', fontFamily: 'var(--font-badge)',
+                  fontWeight: 'var(--weight-medium)', letterSpacing: '0.5px',
+                  textTransform: 'uppercase', color: 'var(--text)',
+                  backgroundColor: 'var(--surface)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '4px', padding: '5px 10px', lineHeight: 1,
                 }}>
-                  <div style={{
-                    fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h2)',
-                    fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h2)',
-                    letterSpacing: 'var(--tracking-h2)', color: 'var(--text)',
-                    marginBottom: '8px',
-                  }}>
-                    {m.value}
-                  </div>
-                  <div style={{
-                    fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-                    color: 'var(--text)', marginBottom: '4px',
-                  }}>
-                    {m.label}
-                  </div>
-                  <div style={{
-                    fontSize: 'var(--type-small)', color: 'var(--muted)',
-                    lineHeight: 'var(--leading-body)',
-                  }}>
-                    {m.detail}
-                  </div>
-                </div>
+                  {tech}
+                </span>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 02 · PLATFORM ARCHITECTURE ── */}
+        {/* ── Hero screenshot ── */}
+        <section style={{ padding: '48px 0 0' }}>
+          <div style={sectionInner}>
+            <ImagePlaceholder
+              caption='Screenshot 1 — Hero: "Stop reacting to your career. Start creating it." with Harvey portrait and lightning bolt.'
+            />
+          </div>
+        </section>
+
+        {/* ── 01 · THE OPPORTUNITY ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>02 · Platform architecture</span>
-            <h2 style={h2}>The system loop.</h2>
+            <span style={eyebrow}>01 · The opportunity</span>
+            <h2 style={h2}>Bundle five offers into one product, sell them on one page.</h2>
             <p style={body}>
-              To justify a premium tier, the user journey had to feel like a single, seamless web application — not a chaotic mix of random third-party links. I used AI-native workflows to map out a data and interaction loop that bridged three distinct user states.
+              Harvey Lee had the audience, the credibility, and a book. What he didn't have was a way to sell the system. PMMCA bundled five offerings — a $1,497 flagship course, a $997 focused course, a $499/yr coaching and community membership, a Teams program, and founding member perks — into one product. The buyer had to understand all of it quickly enough to commit.
             </p>
+            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
+              A page that just listed tiers would lose people. A page that buried pricing would lose different people. The Overview needed to do both jobs at once — teach the offering and close the sale.
+            </p>
+          </div>
+        </section>
 
-            {/* 3 states */}
-            <div style={{
-              display: 'flex', flexDirection: 'column', gap: '0',
-              borderTop: '1px solid var(--border)', marginTop: '32px',
+        {/* ── 02 · RESEARCH ── */}
+        <section style={sectionPad}>
+          <div style={sectionInner}>
+            <span style={eyebrow}>02 · Research</span>
+            <h2 style={h2}>How other PMM programs were doing it.</h2>
+            <p style={body}>
+              Before designing anything, I audited the competitive landscape — Product Marketing Alliance, Reforge, Maven cohorts, and a handful of independent PMM coaches. A pattern emerged fast.
+            </p>
+            <ul style={{
+              listStyle: 'none', padding: 0, margin: '8px 0 24px',
+              borderLeft: '2px solid var(--accent)', paddingLeft: '20px',
+              maxWidth: '760px',
             }}>
-              {journey.map((step, i) => (
-                <div key={step.num} style={{
-                  display: 'flex', gap: '20px', alignItems: 'flex-start',
-                  padding: '20px 0',
-                  borderBottom: i < journey.length - 1 ? '1px solid var(--border)' : 'none',
+              {researchFindings.map((finding) => (
+                <li key={finding} style={{
+                  fontSize: 'var(--type-body)', color: 'var(--muted)',
+                  lineHeight: 'var(--leading-body)', marginBottom: '12px',
                 }}>
-                  <span style={{
-                    color: 'var(--accent)', fontSize: 'var(--type-small)',
-                    fontFamily: 'var(--font-badge)', fontWeight: 'var(--weight-medium)',
-                    letterSpacing: 'var(--tracking-badge)',
-                    flexShrink: 0, width: '24px', paddingTop: '2px',
-                  }}>
-                    {step.num}
-                  </span>
-                  <div style={{ flex: 1 }}>
-                    <span style={{
-                      fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-                      color: 'var(--text)', display: 'block', marginBottom: '4px',
-                    }}>
-                      {step.label}
-                    </span>
-                    <span style={{
-                      fontSize: 'var(--type-small)', color: 'var(--muted)',
-                      lineHeight: 'var(--leading-body)',
-                    }}>
-                      {step.detail}
-                    </span>
-                  </div>
-                </div>
+                  {finding}
+                </li>
               ))}
-            </div>
+            </ul>
+            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
+              That gave me the brief in reverse. If competitor pages were leaking buyers at each of those points, PMMCA's job was to close every one of those gaps in scroll order, on a single page.
+            </p>
+          </div>
+        </section>
 
-            {/* Flow diagram */}
+        {/* ── 03 · THE THESIS ── */}
+        <section style={sectionPad}>
+          <div style={sectionInner}>
+            <span style={eyebrow}>03 · The thesis</span>
+            <h2 style={h2}>Every section either moves the buyer closer to yes, or eliminates a reason for no.</h2>
+            <p style={body}>
+              A landing page exists to convert. If a section didn't do one of those two things, it didn't belong on the page.
+            </p>
+            <p style={body}>
+              Most landing pages drift into "let me tell you about us" or "here's our philosophy" — sections that flatter the brand but don't move the buyer. We cut all of that.
+            </p>
+          </div>
+        </section>
+
+        {/* ── 04 · WHAT'S ON THE PAGE, AND WHY ── */}
+        <section style={sectionPad}>
+          <div style={sectionInner}>
+            <span style={eyebrow}>04 · What's on the page, and why</span>
+            <h2 style={h2}>A guided tour, top to bottom.</h2>
+
             <div style={{
-              background: 'linear-gradient(180deg, #272727 0%, #1a1a1a 100%)',
-              borderRadius: 'var(--radius)',
-              padding: '32px',
+              display: 'flex', flexDirection: 'column', gap: '40px',
               marginTop: '32px',
-              display: 'flex', flexWrap: 'wrap', alignItems: 'center',
-              justifyContent: 'center', gap: '16px',
             }}>
-              {['Public onboarding engine', 'Interactive pricing matrix', 'Branded Circle platform'].map((node, i, arr) => (
-                <div key={node} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{
-                    backgroundColor: 'rgba(255,255,255,0.06)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                    borderRadius: 'var(--radius-widget)',
-                    padding: '16px 20px',
-                    color: '#ffffff', fontSize: 'var(--type-body)',
-                    fontWeight: 'var(--weight-medium)',
-                    whiteSpace: 'nowrap',
+              {pageSections.map((s) => (
+                <div key={s.label} style={{
+                  borderLeft: '2px solid var(--border)',
+                  paddingLeft: '24px',
+                }}>
+                  <h3 style={h3}>
+                    {s.label}
+                    {s.tagline && (
+                      <span style={{
+                        color: 'var(--muted)',
+                        fontWeight: 'var(--weight-normal)',
+                        fontStyle: 'italic',
+                      }}>
+                        {' '}— {s.tagline}.
+                      </span>
+                    )}
+                  </h3>
+                  <p style={{
+                    fontSize: 'var(--type-body)', lineHeight: 'var(--leading-body)',
+                    color: 'var(--text)', margin: 0, maxWidth: '720px',
                   }}>
-                    {node}
-                  </div>
-                  {i < arr.length - 1 && (
-                    <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '20px' }}>→</span>
+                    {s.body}
+                  </p>
+                  {s.screenshot && (
+                    <ImagePlaceholder caption={s.screenshot} />
                   )}
                 </div>
               ))}
             </div>
 
-            <ImagePlaceholder
-              caption="Architecture flow diagram — a clean user-flow node diagram showing how a user moves from the public site, through the checkout screens, straight into the Circle dashboard. High-level technical map."
-            />
+            <p style={{
+              ...body,
+              marginTop: '48px',
+              fontWeight: 'var(--weight-medium)',
+              fontSize: 'var(--type-lead)',
+            }}>
+              Every section earns its spot. Nothing flatters the brand. Nothing exists to look complete.
+            </p>
           </div>
         </section>
 
-        {/* ── 03 · UX MECHANICS ── */}
+        {/* ── 05 · OUTCOMES ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>03 · UX mechanics & information hierarchy</span>
-            <h2 style={h2}>Designed for human cognitive load, not just aesthetics.</h2>
-
-            {/* Sub: Course tabs */}
-            <h3 style={h3}>Designing for high-ticket trust — course tabs</h3>
-            <p style={body}>
-              When an educational program costs over $1,000, users experience high friction. If the curriculum looks like a massive wall of text, cognitive load spikes, and users bounce.
-            </p>
+            <span style={eyebrow}>05 · Outcomes</span>
+            <h2 style={h2}>What it actually did.</h2>
+            <ul style={{
+              listStyle: 'none', padding: 0, margin: '8px 0 32px',
+              maxWidth: '760px',
+            }}>
+              {outcomes.map((o) => (
+                <li key={o} style={{
+                  fontSize: 'var(--type-body)', color: 'var(--text)',
+                  lineHeight: 'var(--leading-body)', marginBottom: '12px',
+                  paddingLeft: '24px', position: 'relative',
+                }}>
+                  <span style={{
+                    position: 'absolute', left: 0, top: '2px',
+                    color: 'var(--accent)', fontFamily: 'var(--font-badge)',
+                    fontSize: 'var(--type-small)', fontWeight: 'var(--weight-medium)',
+                  }}>
+                    ✓
+                  </span>
+                  {o}
+                </li>
+              ))}
+            </ul>
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              I structured a clean, tabbed layout system for the curriculum modules. Users drill into specific weekly lesson scopes interactively without losing their place on the main page — staying engaged while the premium value is explicitly detailed.
-            </p>
-            <ImagePlaceholder
-              caption="Desktop mockup — close-up UI of the responsive course tabs component, highlighting typography and layout structure when showcasing the curriculum."
-            />
-
-            {/* Sub: Pricing matrix */}
-            <h3 style={{ ...h3, marginTop: '56px' }}>Mitigating checkout friction — the pricing matrix</h3>
-            <p style={body}>
-              The checkout section had to completely neutralize buyer objections at the exact moment of financial commitment.
-            </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              I built a clear, vertical pricing structure that maps out the precise ROI of each tier. Key features are prominently tokenized so users can instantly cross-reference what they're paying for, creating a high-trust path to click "Enroll."
-            </p>
-            <ImagePlaceholder
-              caption="Mobile mockup — the $1,497 / $997 / $499 pricing columns. Proves the layout responds perfectly on small screens."
-            />
-          </div>
-        </section>
-
-        {/* ── 04 · ENGINEERING OVERRIDE ── */}
-        <section style={sectionPad}>
-          <div style={sectionInner}>
-            <span style={eyebrow}>04 · The engineering override</span>
-            <h2 style={h2}>The branded Circle integration.</h2>
-            <p style={body}>
-              Most designers leave the Circle forum looking completely default, breaking the premium look of the brand the second a user logs in.
-            </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              I bypassed the constraints of the standard platform by writing custom CSS layout overrides directly inside the Circle environment. I aligned the typography tokens, refined the padding rules, and styled custom web components inside the forum view. When a user transitions from the main platform into the community dashboard, the visual rhythm remains entirely intact. It feels like an expensive, custom-built application.
-            </p>
-            <ImagePlaceholder
-              caption="Split-screen mockup — public site on the left, logged-in Circle community forum on the right. Visually proves the two platforms match perfectly."
-            />
-          </div>
-        </section>
-
-        {/* ── 05 · TECHNICAL DELIVERY ── */}
-        <section style={sectionPad}>
-          <div style={sectionInner}>
-            <span style={eyebrow}>05 · Technical delivery</span>
-            <h2 style={h2}>Zero-handoff vibe coding.</h2>
-            <p style={body}>
-              Traditional product design drops a static Figma link onto an engineering team, causing layout degradation, broken spacing, and weeks of back-and-forth debugging.
-            </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              By utilizing Claude and Cursor, I translated the approved paper wireframes directly into live, responsive HTML and Tailwind CSS layout components. The entire design system was handed over as a production-ready repository.
+              One page, no separate funnel. Harvey doesn't need a Pricing page, a Curriculum page, a Testimonials page, or an FAQ page. The Overview is the platform — instrumented with GA4 scroll and CTA tracking, tunable in Framer without a designer.
             </p>
           </div>
         </section>
