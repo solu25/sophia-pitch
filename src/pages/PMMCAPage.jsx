@@ -164,36 +164,41 @@ function ImageBlock({ src, alt, caption }) {
           onClick={() => setIsOpen(false)}
           style={{
             position: 'fixed', inset: 0, zIndex: 1000,
-            backgroundColor: 'rgba(0,0,0,0.92)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: '40px',
+            backgroundColor: 'rgba(0,0,0,0.94)',
+            overflowY: 'auto',
             cursor: 'zoom-out',
+            padding: '32px 0',
             animation: 'pmmca-lightbox-fade 0.18s ease-out',
           }}
         >
           <img
             src={src}
             alt={alt}
+            onClick={(e) => e.stopPropagation()}
             style={{
-              maxWidth: '100%', maxHeight: '100%',
-              objectFit: 'contain',
               display: 'block',
+              margin: '0 auto',
+              width: 'min(96vw, 1800px)',
+              height: 'auto',
               boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
               borderRadius: 'var(--radius)',
+              cursor: 'default',
             }}
           />
           <button
             type="button"
-            onClick={() => setIsOpen(false)}
+            onClick={(e) => { e.stopPropagation(); setIsOpen(false); }}
             aria-label="Close zoomed image"
             style={{
-              position: 'absolute', top: 24, right: 24,
-              width: 40, height: 40, borderRadius: '50%',
-              background: 'rgba(255,255,255,0.12)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              color: '#fff', fontSize: 18,
+              position: 'fixed', top: 24, right: 24,
+              width: 44, height: 44, borderRadius: '50%',
+              background: 'rgba(255,255,255,0.14)',
+              border: '1px solid rgba(255,255,255,0.22)',
+              color: '#fff', fontSize: 20,
               cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
             }}
           >
             ×
