@@ -2,58 +2,49 @@ import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
-const impactCards = [
-  {
-    label: 'The stack',
-    detail: 'OpenClaw framework, Python, Railway environment, Claude Code, Telegram webhooks.',
-  },
-  {
-    label: 'The UX focus',
-    detail: 'Information design, prompt layout tokenization, cognitive load reduction.',
-  },
-  {
-    label: 'The outcome',
-    detail: 'Shifted from evaluating "50 unorganized startup links" to reading "5 hyper-niche, ranked product briefs" directly on a mobile screen.',
-  },
+const stack = ['OpenClaw', 'Railway', 'Telegram', 'Tavily', 'Firecrawl', 'Claude API'];
+
+const icpRules = [
+  'Seed to Series A founders, where design quality is a real differentiator.',
+  'Strong founder presence on LinkedIn or in product communities.',
+  'Existing website that we can actually evaluate (no stealth-mode shells).',
+  'Industries where good UX is a competitive moat, not a checkbox.',
+  'Red flags around personal surveillance, unconnected individuals, and confidence claims that don\'t match source quality.',
 ];
 
-const metrics = [
-  { value: '10 hrs → 30 min', label: 'Weekly research time', detail: 'Reclaimed deep work block' },
-  { value: '~500 hrs', label: 'Reclaimed per year', detail: 'Compound time savings' },
-  { value: '50 → 5', label: 'Maybes to strong fits', detail: 'Ranked, with reasons' },
+const stackList = [
+  { name: 'OpenClaw', detail: 'as the agent framework.' },
+  { name: 'Railway', detail: 'for cloud hosting so Scout runs whether my laptop is open or not.' },
+  { name: 'Telegram', detail: 'as the interface — I can talk to Scout from my phone, my desk, the ice cream shop.' },
+  { name: 'Tavily + Firecrawl', detail: 'Tavily for web search, Firecrawl for deeper page crawling.' },
+  { name: 'Claude', detail: 'as the model under the hood.' },
 ];
 
-const logicTree = [
-  {
-    num: '01',
-    label: 'Crawl',
-    detail: 'Defined seed-funding API endpoints to pull the latest venture announcements.',
-  },
-  {
-    num: '02',
-    label: 'Filter',
-    detail: 'Companies sorted by precise parameters — team sizes under 20, non-technical founders, missing design architecture.',
-  },
-  {
-    num: '03',
-    label: 'Query',
-    detail: 'Secondary data layers to pull founder background details and public tech stacks.',
-  },
+const architecture = [
+  { file: 'SOUL.md', detail: "Scout's personality and tone." },
+  { file: 'IDENTITY.md', detail: 'Who Scout is and what role she plays.' },
+  { file: 'BOOTSTRAP.md', detail: 'Session startup logic.' },
+  { file: 'USER.md', detail: 'Who I am, how I work, what I care about.' },
+  { file: 'AGENTS.md', detail: 'The ICP, the scoring criteria, the red lines, the workflow.' },
+  { file: 'TOOLS.md', detail: 'How Scout uses Tavily and Firecrawl.' },
+  { file: 'HEARTBEAT.md', detail: 'The scheduled tasks that run without me asking.' },
+  { file: 'BRIEFING_TEMPLATE.md', detail: 'The exact format every research output follows.' },
 ];
 
-const tokens = [
-  {
-    label: 'The title block',
-    detail: 'Company name + funding tier + immediate link.',
-  },
-  {
-    label: 'The signal metric',
-    detail: 'A single line explaining the exact design vulnerability — e.g. "Onboarding drop-off point detected."',
-  },
-  {
-    label: 'The contextual bullet',
-    detail: 'A maximum of two highly targeted, data-backed reasons why this founder needs execution help right now.',
-  },
+const heartbeatRules = [
+  'Pulls from four sources — Tavily x2, Firecrawl on TechCrunch with Tavily fallback, Twitter signals.',
+  "72-hour announcement window so I'm catching news fresh.",
+  '10 startups maximum per digest so it stays scannable.',
+  "30-day no-repeat rule logged to memory so the same founder doesn't get re-surfaced.",
+];
+
+const outcomes = [
+  '8 hours → 20 minutes per research session.',
+  '4x more founders qualified per week — capacity went from 10 to 40+.',
+  '100% consistent scoring — every founder evaluated against the same criteria, every time.',
+  'Zero manual tab-switching — Scout handles Sales Navigator, websites, LinkedIn, news, funding announcements.',
+  'Built and deployed in one day — OpenClaw to Railway to Telegram, no infrastructure team.',
+  "Personalized to Hema — Scout doesn't just retrieve, she reasons the way we reason.",
 ];
 
 // ── shared style fragments ──
@@ -71,6 +62,12 @@ const h2 = {
   letterSpacing: 'var(--tracking-h2)', color: 'var(--text)',
   margin: '0 0 24px', maxWidth: '760px',
 };
+const h3 = {
+  fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h4)',
+  fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h4)',
+  letterSpacing: 'var(--tracking-h4)', color: 'var(--text)',
+  margin: '32px 0 12px',
+};
 const body = {
   fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
   color: 'var(--text)', margin: '0 0 16px', maxWidth: '760px',
@@ -84,7 +81,7 @@ function ImagePlaceholder({ caption }) {
       padding: '48px 32px',
       backgroundColor: 'var(--surface-alt)',
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      gap: '12px', margin: '24px 0 8px',
+      gap: '12px', margin: '20px 0 8px',
     }}>
       <i className="fa-light fa-image" style={{ fontSize: '32px', color: 'var(--muted)' }} />
       <span style={{
@@ -92,7 +89,7 @@ function ImagePlaceholder({ caption }) {
         fontWeight: 'var(--weight-medium)', letterSpacing: 'var(--tracking-badge)',
         textTransform: 'uppercase', color: 'var(--muted)',
       }}>
-        Image placeholder
+        Screenshot placeholder
       </span>
       <p style={{
         fontSize: 'var(--type-body)', color: 'var(--muted)',
@@ -105,45 +102,22 @@ function ImagePlaceholder({ caption }) {
   );
 }
 
-function NumberedList({ items }) {
+function BulletList({ items }) {
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'column', gap: '0',
-      borderTop: '1px solid var(--border)', marginTop: '24px',
+    <ul style={{
+      listStyle: 'none', padding: 0, margin: '8px 0 24px',
+      borderLeft: '2px solid var(--accent)', paddingLeft: '20px',
+      maxWidth: '760px',
     }}>
-      {items.map((step, i) => (
-        <div key={step.num || step.label} style={{
-          display: 'flex', gap: '20px', alignItems: 'flex-start',
-          padding: '20px 0',
-          borderBottom: i < items.length - 1 ? '1px solid var(--border)' : 'none',
+      {items.map((item) => (
+        <li key={item} style={{
+          fontSize: 'var(--type-body)', color: 'var(--muted)',
+          lineHeight: 'var(--leading-body)', marginBottom: '12px',
         }}>
-          {step.num && (
-            <span style={{
-              color: 'var(--accent)', fontSize: 'var(--type-small)',
-              fontFamily: 'var(--font-badge)', fontWeight: 'var(--weight-medium)',
-              letterSpacing: 'var(--tracking-badge)',
-              flexShrink: 0, width: '24px', paddingTop: '2px',
-            }}>
-              {step.num}
-            </span>
-          )}
-          <div style={{ flex: 1 }}>
-            <span style={{
-              fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-              color: 'var(--text)', display: 'block', marginBottom: '4px',
-            }}>
-              {step.label}
-            </span>
-            <span style={{
-              fontSize: 'var(--type-small)', color: 'var(--muted)',
-              lineHeight: 'var(--leading-body)',
-            }}>
-              {step.detail}
-            </span>
-          </div>
-        </div>
+          {item}
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 
@@ -171,172 +145,276 @@ export default function ScoutPage() {
             >
               <i className="fa-light fa-arrow-left" /> Back to portfolio
             </Link>
-            <span style={{ ...eyebrow, color: 'var(--accent)' }}>Case study · Scout</span>
+            <span style={{ ...eyebrow, color: 'var(--accent)' }}>Case study · Scout AI</span>
             <h1 style={{
               fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h1)',
               fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h1)',
               letterSpacing: 'var(--tracking-h1)', color: 'var(--text)',
               margin: '0 0 20px', maxWidth: '820px',
             }}>
-              Scout: Designing the UX of autonomous AI pipelines.
+              Scout AI: The research agent that does in 20 minutes what used to take a full day.
             </h1>
             <p style={{
               fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
-              color: 'var(--muted)', margin: 0, maxWidth: '720px',
+              color: 'var(--muted)', margin: '0 0 28px', maxWidth: '720px',
             }}>
-              How I used OpenClaw, Python, and information design to compress 10 hours of manual research into a beautiful 30-minute notification stream.
+              Scout is a hyper-personalized AI research agent I built to vet startup founders for Hema Designs' outreach pipeline. Built in a day. Live on Telegram. Cut research time from 8 hours to 20 minutes. 4x more founders qualified per week.
+            </p>
+
+            {/* Tech stack chips */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              {stack.map((tech) => (
+                <span key={tech} style={{
+                  display: 'inline-flex', alignItems: 'center',
+                  fontSize: '10px', fontFamily: 'var(--font-badge)',
+                  fontWeight: 'var(--weight-medium)', letterSpacing: '0.5px',
+                  textTransform: 'uppercase', color: 'var(--text)',
+                  backgroundColor: 'var(--surface)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '4px', padding: '5px 10px', lineHeight: 1,
+                }}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Hero screenshot ── */}
+        <section style={{ padding: '48px 0 0' }}>
+          <div style={sectionInner}>
+            <ImagePlaceholder
+              caption="Screenshot 1 — Telegram conversation with Scout delivering a research briefing."
+            />
+          </div>
+        </section>
+
+        {/* ── 01 · THE PROBLEM ── */}
+        <section style={sectionPad}>
+          <div style={sectionInner}>
+            <span style={eyebrow}>01 · The problem</span>
+            <h2 style={h2}>Biz dev research was killing momentum.</h2>
+            <p style={body}>
+              Every lead meant opening Sales Navigator, clicking through the founder's profile, pulling up their website, evaluating whether the design was strong or weak, checking ICP fit, ranking the lead, and deciding whether to reach out. For ten founders, that ate a full day. Clicking, scrolling, tab switching, copy-pasting, ranking — and at the end of it, not a single message had gone out.
+            </p>
+            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
+              The bottleneck wasn't outreach. It was the research happening before the outreach.
             </p>
           </div>
         </section>
 
-        {/* ── 01 · ENGINEERING & DESIGN IMPACT ── */}
+        {/* ── 02 · THE INSIGHT ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>01 · Engineering & design impact</span>
-            <h2 style={h2}>An autonomous pipeline, designed end to end.</h2>
+            <span style={eyebrow}>02 · The insight</span>
+            <h2 style={h2}>Two jobs collapsed into one — and research was crowding everything else out.</h2>
+            <p style={body}>
+              If something could handle the research completely, the human time could go entirely to conversations. That's the job an agent could actually do.
+            </p>
+            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
+              But only if it was tuned to us. Generic research tools spit out generic summaries. What Hema Designs needed was a research agent that thought about leads the way we think about leads.
+            </p>
+          </div>
+        </section>
 
+        {/* ── 03 · WHY HYPER-PERSONALIZATION ── */}
+        <section style={sectionPad}>
+          <div style={sectionInner}>
+            <span style={eyebrow}>03 · Why hyper-personalization mattered</span>
+            <h2 style={h2}>Scout knows exactly what we are looking for.</h2>
+            <p style={body}>
+              The thing that makes Scout different from any off-the-shelf AI research tool is that Scout knows exactly what we are looking for. Not what a generic SDR would want. Not what a recruiter would want. What Hema specifically needs to evaluate a founder.
+            </p>
+            <p style={body}>
+              That meant encoding our ICP into the agent itself.
+            </p>
+            <BulletList items={icpRules} />
+            <p style={body}>
+              And it meant encoding <em>how</em> we score, not just what we look for. Scout doesn't just retrieve information — it pressure-tests every founder against the same criteria every time. The output is a briefing that maps directly to whether Sophia should reach out, in what tone, with what hook.
+            </p>
+
+            {/* Comparison block: Generic vs Scout */}
             <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px',
-              marginBottom: '40px',
-            }} className="scout-impact-grid">
-              {impactCards.map((c) => (
-                <div key={c.label} style={{
-                  backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
-                  padding: '24px', border: '1px solid var(--border)',
+              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px',
+              marginTop: '24px',
+            }} className="scout-compare-grid">
+              <div style={{
+                backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
+                padding: '24px', border: '1px solid var(--border)',
+              }}>
+                <span style={{ ...eyebrow, color: 'var(--muted)', marginBottom: '12px' }}>Generic agent</span>
+                <p style={{
+                  color: 'var(--muted)', fontSize: 'var(--type-body)',
+                  lineHeight: 'var(--leading-body)', margin: 0, fontStyle: 'italic',
                 }}>
-                  <span style={{ ...eyebrow, color: 'var(--accent)', marginBottom: '12px' }}>{c.label}</span>
-                  <p style={{
-                    color: 'var(--text)', fontSize: 'var(--type-body)',
-                    lineHeight: 'var(--leading-body)', margin: 0,
-                  }}>
-                    {c.detail}
-                  </p>
-                </div>
-              ))}
+                  "This founder raised $3M from Sequoia."
+                </p>
+              </div>
+              <div style={{
+                backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
+                padding: '24px', border: '1px solid var(--accent)',
+              }}>
+                <span style={{ ...eyebrow, color: 'var(--accent)', marginBottom: '12px' }}>Scout</span>
+                <p style={{
+                  color: 'var(--text)', fontSize: 'var(--type-body)',
+                  lineHeight: 'var(--leading-body)', margin: 0, fontStyle: 'italic',
+                }}>
+                  "Raised $3M from Sequoia, website is a templated Webflow build with weak hierarchy, LinkedIn shows active product thinking, design is the obvious wedge — score: high."
+                </p>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <span style={{ ...eyebrow, color: 'var(--text)', marginBottom: '12px' }}>The metrics</span>
+        {/* ── 04 · THE BUILD ── */}
+        <section style={sectionPad}>
+          <div style={sectionInner}>
+            <span style={eyebrow}>04 · The build</span>
+            <h2 style={h2}>One day, eight files, end-to-end.</h2>
+
+            <h3 style={h3}>The stack</h3>
             <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px',
-            }} className="scout-metrics-grid">
-              {metrics.map((m) => (
-                <div key={m.label} style={{
-                  backgroundColor: 'var(--surface)', borderRadius: 'var(--radius)',
-                  padding: '24px', border: '1px solid var(--border)',
+              display: 'flex', flexDirection: 'column',
+              borderTop: '1px solid var(--border)', marginTop: '16px',
+            }}>
+              {stackList.map((s, i) => (
+                <div key={s.name} style={{
+                  display: 'flex', gap: '24px', alignItems: 'baseline',
+                  padding: '16px 0',
+                  borderBottom: i < stackList.length - 1 ? '1px solid var(--border)' : 'none',
                 }}>
-                  <div style={{
-                    fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h3)',
-                    fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h2)',
-                    letterSpacing: 'var(--tracking-h3)', color: 'var(--text)',
-                    marginBottom: '8px',
+                  <span style={{
+                    flexShrink: 0, minWidth: '160px',
+                    fontFamily: 'var(--font-badge)', fontSize: 'var(--type-body)',
+                    fontWeight: 'var(--weight-medium)', color: 'var(--text)',
                   }}>
-                    {m.value}
-                  </div>
-                  <div style={{
-                    fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-                    color: 'var(--text)', marginBottom: '4px',
-                  }}>
-                    {m.label}
-                  </div>
-                  <div style={{
-                    fontSize: 'var(--type-small)', color: 'var(--muted)',
+                    {s.name}
+                  </span>
+                  <span style={{
+                    fontSize: 'var(--type-body)', color: 'var(--muted)',
                     lineHeight: 'var(--leading-body)',
                   }}>
-                    {m.detail}
-                  </div>
+                    {s.detail}
+                  </span>
                 </div>
               ))}
             </div>
+
+            <h3 style={h3}>The architecture</h3>
+            <p style={body}>
+              Eight markdown configuration files, each doing one job.
+            </p>
+            <div style={{
+              display: 'flex', flexDirection: 'column',
+              borderTop: '1px solid var(--border)', marginTop: '16px',
+            }}>
+              {architecture.map((a, i) => (
+                <div key={a.file} style={{
+                  display: 'flex', gap: '24px', alignItems: 'baseline',
+                  padding: '14px 0',
+                  borderBottom: i < architecture.length - 1 ? '1px solid var(--border)' : 'none',
+                }}>
+                  <span style={{
+                    flexShrink: 0, minWidth: '200px',
+                    fontFamily: 'var(--font-badge)', fontSize: 'var(--type-body)',
+                    fontWeight: 'var(--weight-medium)', color: 'var(--accent)',
+                  }}>
+                    {a.file}
+                  </span>
+                  <span style={{
+                    fontSize: 'var(--type-body)', color: 'var(--text)',
+                    lineHeight: 'var(--leading-body)',
+                  }}>
+                    {a.detail}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <p style={{ ...body, marginTop: '32px', fontWeight: 'var(--weight-medium)' }}>
+              The USER.md/AGENTS.md split is the architectural decision that makes Scout work. USER.md is about me. AGENTS.md is about how Scout reasons. Separating them means I can change how I work without retraining Scout, and I can refine Scout's reasoning without rewriting my own context.
+            </p>
           </div>
         </section>
 
-        {/* ── 02 · THE PRODUCT PROBLEM ── */}
+        {/* ── 05 · THE HEARTBEAT ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>02 · The product problem</span>
-            <h2 style={h2}>The "wall of text" friction.</h2>
+            <span style={eyebrow}>05 · The heartbeat</span>
+            <h2 style={h2}>Research that comes to me.</h2>
             <p style={body}>
-              Every product designer knows that user experience isn't just about buttons — it's about data consumption. My personal workflow bottleneck was tracking early-stage startups that needed immediate UX/UI design system support.
+              The most powerful piece of Scout isn't on-demand research. It's the Daily Funding Digest — a heartbeat that runs at 8am ET every morning and delivers ten freshly-funded startups directly to Telegram, already filtered against the ICP.
             </p>
-            <p style={body}>
-              Manually parsing venture funding feeds, cross-referencing engineering team counts on LinkedIn, and scanning founder bios was eating a full day of deep work every single week. When I tried to automate this using basic AI scripts, the outcome was unreadable. The script spat out long, unstructured paragraphs of raw text. The cognitive load was just as high as doing the manual research.
-            </p>
+            <h3 style={h3}>How it works</h3>
+            <BulletList items={heartbeatRules} />
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              I needed to engineer a tool that solved the data pipe and the visual layout simultaneously.
+              The shift is that I'm no longer chasing leads. Leads show up. The first thing I see when I open my phone in the morning is ten founders I should consider reaching out to today, each already scored.
             </p>
-          </div>
-        </section>
-
-        {/* ── 03 · ENGINEERING THE BACKEND ── */}
-        <section style={sectionPad}>
-          <div style={sectionInner}>
-            <span style={eyebrow}>03 · Engineering the agent backend</span>
-            <h2 style={h2}>The logic pipe.</h2>
-            <p style={body}>
-              Before styling the data, I built the engine. Using Claude Code and the OpenClaw framework, I scripted an autonomous background worker written in Python and deployed it to Railway to run on a weekly cron schedule.
-            </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              The backend algorithm follows a highly structured logic tree.
-            </p>
-            <NumberedList items={logicTree} />
-
             <ImagePlaceholder
-              caption="Backend architecture map — a premium dark-mode system flowchart showing the pipeline from raw data feeds → OpenClaw parsing → Python sorting modules → the scoring engine."
+              caption="Screenshot 2 — A morning Daily Funding Digest in Telegram."
             />
           </div>
         </section>
 
-        {/* ── 04 · INFORMATION ARCHITECTURE ── */}
+        {/* ── 06 · OUTCOMES ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>04 · Information architecture</span>
-            <h2 style={h2}>Prompting as a layout system.</h2>
-            <p style={body}>
-              This is where the UX strategy took over. I treated the LLM's final processing layer exactly like a UI component library.
-            </p>
-            <p style={body}>
-              Instead of letting the model output freeform prose, I structured its prompt parameters using markdown design rules. I tokenized the output fields so the agent was forced to sort its findings into rigid visual hierarchies.
-            </p>
-            <NumberedList items={tokens} />
-
+            <span style={eyebrow}>06 · The outcomes</span>
+            <h2 style={h2}>What it actually did.</h2>
+            <ul style={{
+              listStyle: 'none', padding: 0, margin: '8px 0 32px',
+              maxWidth: '760px',
+            }}>
+              {outcomes.map((o) => (
+                <li key={o} style={{
+                  fontSize: 'var(--type-body)', color: 'var(--text)',
+                  lineHeight: 'var(--leading-body)', marginBottom: '12px',
+                  paddingLeft: '24px', position: 'relative',
+                }}>
+                  <span style={{
+                    position: 'absolute', left: 0, top: '2px',
+                    color: 'var(--accent)', fontFamily: 'var(--font-badge)',
+                    fontSize: 'var(--type-small)', fontWeight: 'var(--weight-medium)',
+                  }}>
+                    ✓
+                  </span>
+                  {o}
+                </li>
+              ))}
+            </ul>
             <ImagePlaceholder
-              caption='Prompt engineering layout comparison — split-screen graphic. Left: messy, default, unreadable AI paragraph labeled "Standard AI output." Right: clean, beautifully tabbed, structured markdown labeled "Engineered information architecture."'
+              caption="Screenshot 3 — Architecture diagram or file structure (sketch placeholder)."
             />
           </div>
         </section>
 
-        {/* ── 05 · DELIVERING THE INTERFACE ── */}
+        {/* ── 07 · WHY THIS MATTERS ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>05 · Delivering the interface</span>
-            <h2 style={h2}>The Telegram webhook.</h2>
+            <span style={eyebrow}>07 · Why this matters</span>
+            <h2 style={h2}>Most AI agents are built to be useful to everyone — that's why they're useful to no one in particular.</h2>
             <p style={body}>
-              A tool is only useful if it fits into your natural daily habit. I didn't want to log into another custom dashboard or web app just to check data.
-            </p>
-            <p style={body}>
-              I set up an automated webhook connection to pipe the styled markdown briefs directly into a private Telegram channel. By leveraging Telegram's native UI rendering, the final output feels like a custom-designed mobile app feed.
+              Scout is built to be useful to exactly one business — mine — and the entire architecture is the difference.
             </p>
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              Every Wednesday morning, Scout delivers exactly 5 premium, ranked, scannable cards straight to my phone. I can review an entire week's worth of market activity, understand the design context of 5 different companies, and make high-level strategic decisions during a single 30-minute morning routine.
+              The skill isn't getting an agent to retrieve information. The skill is encoding how you think into a system that thinks for you while you're doing something else. That's what makes a tool actually save time instead of just looking like it does.
             </p>
 
-            <ImagePlaceholder
-              caption="Mobile UI mockup — close-up of the Telegram live feed showing Scout's actual ranked briefs. Emphasizes how clean, bulleted, and instantly readable the text looks on a real phone screen."
-            />
-          </div>
-        </section>
-
-        {/* ── 06 · THE TAKEAWAY ── */}
-        <section style={sectionPad}>
-          <div style={sectionInner}>
-            <span style={eyebrow}>06 · The takeaway</span>
-            <h2 style={h2}>Full-stack product thinker.</h2>
-            <p style={body}>
-              Scout proves that a modern product designer shouldn't stop at drawing layouts in Figma. By blending autonomous AI engineering with strict information architecture principles, I built a high-value tool that directly multiplies my operational velocity.
-            </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              I design the workflows. I write the code. I optimize the data experiences end to end.
-            </p>
+            <div style={{
+              marginTop: '40px', padding: '32px',
+              backgroundColor: 'var(--surface)',
+              borderRadius: 'var(--radius)',
+              border: '1px solid var(--border)',
+              borderLeft: '3px solid var(--accent)',
+            }}>
+              <span style={{ ...eyebrow, marginBottom: '12px' }}>What this proves</span>
+              <p style={{
+                fontSize: 'var(--type-body)', color: 'var(--text)',
+                lineHeight: 'var(--leading-body)', margin: 0,
+              }}>
+                Most designers stop at the design. I built the infrastructure underneath my own business, the way I'd build it for a client. Scout is one node in a broader agent system I architected for Hema Designs — proof that the "design → code → ship" pitch isn't theoretical. I run my own operations on it.
+              </p>
+            </div>
           </div>
         </section>
 
