@@ -767,9 +767,11 @@ export default function ZanshinPage() {
             <p style={body}>
               I did the design exploration in volume on paper first — ten dashboard variants, four day-rail patterns, eight daily-state versions — before writing any code. Faster to throw away a sketch than a built component.
             </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              The layout became the spine of the product: <em>LAST WEEK · YOUR WEEK SO FAR · DAYS AHEAD</em>. Every feature after that fit into those three columns instead of spinning up a new screen.
-            </p>
+            <ImageBlock
+              src="/zanshin-design-system.png"
+              alt="Zanshin design system in dark mode — typography, color tokens, and components."
+              caption="Design system foundation — typography, color tokens, and components."
+            />
             <ImagePlaceholder caption="Paper sketches of the dashboard variants." />
           </div>
         </section>
