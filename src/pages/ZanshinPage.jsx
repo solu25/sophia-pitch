@@ -38,12 +38,6 @@ const productFeatures = [
   },
 ];
 
-const truths = [
-  "We've kept the standup ritual going for weeks — longer than any tool we tried before.",
-  'Both of us check it every morning.',
-  'The weekly goal reframes "what am I doing today" into "what does today owe to the week."',
-];
-
 const nextQuestions = [
   'Does the weekly check-in need its own screen, or does it work inline?',
   'Where does real-time sync show up as latency in actual use?',
@@ -798,16 +792,25 @@ export default function ZanshinPage() {
           </div>
         </section>
 
-        {/* ── 05 · WHERE IT IS NOW ── */}
+        {/* ── 05 · WHAT WE'VE LEARNED USING IT ── */}
         <section style={sectionPad}>
           <div style={sectionInner}>
-            <span style={eyebrow}>05 · Where it is now</span>
-            <h2 style={h2}>Two users: me and my co-founder.</h2>
+            <span style={eyebrow}>05 · What we've learned using it</span>
+            <h2 style={h2}>The weekly goal does more than the daily task.</h2>
             <p style={body}>
-              No inflated retention stat, because there's no population to inflate. What's true:
+              Two users so far — me and my co-founder. But weeks in, the most surprising thing isn't that we keep showing up. It's which part of the screen we look at first.
             </p>
-            <BulletList items={truths} />
-            <ImagePlaceholder caption="Full dashboard view of the live app." />
+            <p style={body}>
+              The weekly goal — the one anchor at the top of the dashboard — has done more behavior change than the daily task field. Every morning, the question shifts from "what am I doing today" to "what does today owe to the week."
+            </p>
+            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
+              That's the design insight I'm taking into v2.
+            </p>
+            <ImageBlock
+              src="/zanshin-bold-accent.png"
+              alt="Zanshin in bold accent — the weekly goal anchor at the top of the dashboard."
+              caption="The weekly goal anchor — the line we read first every morning."
+            />
           </div>
         </section>
 
