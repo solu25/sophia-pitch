@@ -38,12 +38,6 @@ const productFeatures = [
   },
 ];
 
-const nextQuestions = [
-  'Does the weekly check-in need its own screen, or does it work inline?',
-  'Where does real-time sync show up as latency in actual use?',
-  "What's the first feature you'd quit over not having?",
-];
-
 const surveyQuestions = [
   {
     id: 'useful',
@@ -822,56 +816,24 @@ export default function ZanshinPage() {
             <span style={eyebrow}>06 · What's next</span>
             <h2 style={h2}>Looking for 3 small teams to try v1.</h2>
             <p style={body}>
-              Tell me where it breaks. Specifically:
-            </p>
-            <BulletList items={nextQuestions} />
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              After that: production auth, then iterate based on what the test teams say.
+              Tell me where it breaks. After that: production auth, then iterate based on what the test teams say.
             </p>
 
-            {/* CTAs */}
-            <div style={{
-              display: 'flex', flexWrap: 'wrap', gap: '12px',
-              marginTop: '32px',
-            }}>
-              <a
-                href="https://zanshin-seven.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  backgroundColor: 'var(--accent)',
-                  color: 'var(--accent-fg)',
-                  fontSize: 'var(--type-body)',
-                  fontWeight: 'var(--weight-medium)',
-                  padding: '12px 22px',
-                  borderRadius: 'var(--radius-btn)',
-                  textDecoration: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                Try it
-                <i className="fa-light fa-arrow-up-right-from-square" />
-              </a>
-              <a
-                href="mailto:lusophia95@gmail.com?subject=Zanshin%20feedback"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  backgroundColor: 'var(--surface)',
-                  color: 'var(--text)',
-                  border: '1px solid var(--border)',
-                  fontSize: 'var(--type-body)',
-                  fontWeight: 'var(--weight-medium)',
-                  padding: '12px 22px',
-                  borderRadius: 'var(--radius-btn)',
-                  textDecoration: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                Send feedback
-                <i className="fa-light fa-envelope" />
-              </a>
-            </div>
+            <a
+              href="https://zanshin-seven.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                color: 'var(--accent)',
+                fontSize: 'var(--type-lead)',
+                fontWeight: 'var(--weight-medium)',
+                textDecoration: 'none',
+                marginTop: '16px',
+              }}
+            >
+              Try it → zanshin-seven.vercel.app
+            </a>
           </div>
         </section>
 
