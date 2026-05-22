@@ -223,6 +223,12 @@
 .hero-subtitle {
   max-width: 100%;
 }
+
+/* Mini Zanshin demo input — placeholder styling */
+.mini-zanshin-input::placeholder {
+  color: rgba(39, 39, 39, 0.4);
+  font-style: italic;
+}
 /* Hero tagline — single line on desktop, wraps on mobile */
 .hero-tagline {
   white-space: nowrap;

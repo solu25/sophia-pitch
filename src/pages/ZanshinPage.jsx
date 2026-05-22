@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -43,6 +44,49 @@ const nextQuestions = [
   "What's the first feature you'd quit over not having?",
 ];
 
+const surveyQuestions = [
+  {
+    id: 'useful',
+    label: 'Which part felt most useful?',
+    options: [
+      'The weekly goal banner',
+      'The "today\'s one thing" focus',
+      'The shipped trail across the week',
+      'The radical minimalism',
+    ],
+  },
+  {
+    id: 'absence',
+    label: 'Which absence feels the most refreshing?',
+    options: [
+      'No projects or kanban columns',
+      'No settings page',
+      'No integrations (Slack, Linear, GitHub)',
+      'No OKR hierarchy',
+    ],
+  },
+  {
+    id: 'craft',
+    label: 'Which UI detail feels most considered?',
+    options: [
+      'Em-dash prefix for active items',
+      'Coral check + strikethrough when done',
+      'Inline day-rail expansion (no modals)',
+      'Chromeless inline-edit goal banner',
+    ],
+  },
+  {
+    id: 'sized',
+    label: 'What signals it was designed for 3 people, not 30?',
+    options: [
+      'Single-screen layout',
+      'Cutting Projects entirely',
+      'One weekly goal (not OKRs)',
+      "One daily 'thing' focus",
+    ],
+  },
+];
+
 // ── shared style fragments ──
 const sectionPad = { padding: '80px 0', borderTop: '1px solid var(--border)' };
 const sectionInner = { maxWidth: '1000px', margin: '0 auto', padding: '0 48px' };
@@ -68,6 +112,32 @@ function MiniZanshin() {
   const coral = '#E55C5C';
   const muted = 'rgba(39, 39, 39, 0.4)';
   const lightBorder = 'rgba(39, 39, 39, 0.08)';
+
+  const [goal, setGoal] = useState('');
+  const [todayInput, setTodayInput] = useState('');
+  const [todayItems, setTodayItems] = useState([]);
+
+  const handleTodayKey = (e) => {
+    if (e.key === 'Enter' && todayInput.trim()) {
+      e.preventDefault();
+      setTodayItems([...todayItems, { text: todayInput.trim(), done: false }]);
+      setTodayInput('');
+    }
+  };
+
+  const toggleItem = (i) => {
+    setTodayItems(todayItems.map((item, idx) =>
+      idx === i ? { ...item, done: !item.done } : item
+    ));
+  };
+
+  const inputStyle = {
+    width: '100%',
+    border: 'none', outline: 'none', background: 'transparent',
+    color: 'var(--text)', fontSize: '12px',
+    fontFamily: 'var(--font-sans)', padding: 0,
+  };
+
   const badgeStyle = {
     fontFamily: 'var(--font-badge)',
     fontSize: '9px',
@@ -116,13 +186,18 @@ function MiniZanshin() {
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: '12px',
       }}>
-        <div style={{ minWidth: 0 }}>
+        <div style={{ minWidth: 0, flex: 1 }}>
           <div style={{ ...badgeStyle, color: coral, marginBottom: '4px' }}>
             This week's goal
           </div>
-          <div style={{ color: muted, fontStyle: 'italic' }}>
-            what's the focus for this week?
-          </div>
+          <input
+            type="text"
+            value={goal}
+            onChange={(e) => setGoal(e.target.value)}
+            placeholder="what's the focus for this week?"
+            className="mini-zanshin-input"
+            style={inputStyle}
+          />
         </div>
         <div style={{ textAlign: 'right', fontSize: '10px', flexShrink: 0 }}>
           <div>day 4 of 5</div>
@@ -187,16 +262,53 @@ function MiniZanshin() {
           }}>
             What's the work for today?
           </div>
+          {/* Today items */}
+          {todayItems.length > 0 && (
+            <div style={{
+              display: 'flex', flexDirection: 'column', gap: '6px',
+              marginBottom: '10px',
+            }}>
+              {todayItems.map((item, i) => (
+                <div
+                  key={i}
+                  onClick={() => toggleItem(i)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '8px',
+                    cursor: 'pointer', userSelect: 'none',
+                  }}
+                >
+                  <span style={{ color: coral, fontFamily: 'var(--font-sans)', flexShrink: 0 }}>
+                    {item.done ? '✓' : '—'}
+                  </span>
+                  <span style={{
+                    color: item.done ? muted : 'var(--text)',
+                    textDecoration: item.done ? 'line-through' : 'none',
+                    fontSize: '12px',
+                  }}>
+                    {item.text}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Today input */}
           <div style={{
             border: `1.5px dashed ${coral}`, borderRadius: '4px',
             padding: '10px 12px',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            display: 'flex', alignItems: 'center', gap: '8px',
           }}>
-            <span style={{ color: muted, fontStyle: 'italic' }}>
-              <span style={{ color: coral, fontStyle: 'normal' }}>+ </span>
-              log your first thing today
-            </span>
-            <span style={{ ...badgeStyle, color: muted }}>⌘ ↵</span>
+            <span style={{ color: coral, flexShrink: 0 }}>+</span>
+            <input
+              type="text"
+              value={todayInput}
+              onChange={(e) => setTodayInput(e.target.value)}
+              onKeyDown={handleTodayKey}
+              placeholder={todayItems.length === 0 ? 'log your first thing today' : 'add another'}
+              className="mini-zanshin-input"
+              style={{ ...inputStyle, flex: 1 }}
+            />
+            <span style={{ ...badgeStyle, color: muted, flexShrink: 0 }}>⌘ ↵</span>
           </div>
         </div>
 
@@ -271,6 +383,114 @@ function BulletList({ items }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function FeedbackSurvey() {
+  const [answers, setAnswers] = useState({});
+  const coral = '#E55C5C';
+  const allAnswered = Object.keys(answers).length === surveyQuestions.length;
+
+  const handleSelect = (qid, option) => {
+    setAnswers({ ...answers, [qid]: option });
+  };
+
+  return (
+    <section style={sectionPad}>
+      <div style={sectionInner}>
+        <span style={eyebrow}>07 · Feedback</span>
+        <h2 style={h2}>What did you think of the mini demo?</h2>
+        <p style={body}>
+          Quick 4 questions, no submit — just a temperature check.
+        </p>
+
+        <div style={{
+          display: 'flex', flexDirection: 'column', gap: '40px',
+          marginTop: '32px',
+        }}>
+          {surveyQuestions.map((q, i) => {
+            const selected = answers[q.id];
+            return (
+              <div key={q.id}>
+                <div style={{
+                  display: 'flex', alignItems: 'baseline', gap: '12px',
+                  marginBottom: '16px',
+                }}>
+                  <span style={{
+                    color: 'var(--accent)', fontSize: 'var(--type-small)',
+                    fontFamily: 'var(--font-badge)', fontWeight: 'var(--weight-medium)',
+                    letterSpacing: 'var(--tracking-badge)',
+                    flexShrink: 0,
+                  }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 style={{
+                    fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h4)',
+                    fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h4)',
+                    letterSpacing: 'var(--tracking-h4)', color: 'var(--text)',
+                    margin: 0,
+                  }}>
+                    {q.label}
+                  </h3>
+                </div>
+                <div style={{
+                  display: 'flex', flexWrap: 'wrap', gap: '8px',
+                  paddingLeft: '32px',
+                }}>
+                  {q.options.map((opt) => {
+                    const isSelected = selected === opt;
+                    return (
+                      <button
+                        key={opt}
+                        type="button"
+                        onClick={() => handleSelect(q.id, opt)}
+                        style={{
+                          padding: '10px 16px',
+                          borderRadius: '999px',
+                          border: `1px solid ${isSelected ? coral : 'var(--border)'}`,
+                          backgroundColor: isSelected ? coral : 'var(--surface)',
+                          color: isSelected ? '#fff' : 'var(--text)',
+                          fontSize: 'var(--type-body)',
+                          fontFamily: 'var(--font-sans)',
+                          fontWeight: 'var(--weight-medium)',
+                          cursor: 'pointer',
+                          transition: 'background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease',
+                        }}
+                      >
+                        {opt}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {allAnswered && (
+          <p style={{
+            marginTop: '48px',
+            textAlign: 'center',
+            fontSize: 'var(--type-body)',
+            color: 'var(--text)',
+            lineHeight: 'var(--leading-body)',
+          }}>
+            Thanks —{' '}
+            <a
+              href="mailto:lusophia95@gmail.com?subject=Zanshin%20feedback"
+              style={{
+                color: 'var(--accent)',
+                textDecoration: 'underline',
+                textUnderlineOffset: '3px',
+              }}
+            >
+              message me directly
+            </a>{' '}
+            with anything else.
+          </p>
+        )}
+      </div>
+    </section>
   );
 }
 
@@ -520,6 +740,9 @@ export default function ZanshinPage() {
             </div>
           </div>
         </section>
+
+        {/* ── 07 · FEEDBACK ── */}
+        <FeedbackSurvey />
 
         {/* ── Bottom back link ── */}
         <section style={{ padding: '64px 0 80px', borderTop: '1px solid var(--border)' }}>
