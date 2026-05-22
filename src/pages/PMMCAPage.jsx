@@ -66,13 +66,6 @@ const pageSections = [
   },
 ];
 
-const outcomes = [
-  '3 high-ticket buyers closed in the first launch wave.',
-  '5,000+ newsletter subscribers added to the funnel.',
-  '[CONFIRM] average engagement on the page — buyers reading deeply, not bouncing.',
-  'Premium pricing held — Career Builder closed at $1,497 without discounting.',
-];
-
 // ── shared style fragments ──
 const sectionPad = { padding: '80px 0', borderTop: '1px solid var(--border)' };
 const sectionInner = { maxWidth: '1000px', margin: '0 auto', padding: '0 48px' };
@@ -452,30 +445,6 @@ export default function PMMCAPage() {
               src="/pmmca-outcomes.png"
               alt="PMMCA outcomes — split title visual summarizing the launch results."
             />
-            <ul style={{
-              listStyle: 'none', padding: 0, margin: '8px 0 32px',
-              maxWidth: '760px',
-            }}>
-              {outcomes.map((o) => (
-                <li key={o} style={{
-                  fontSize: 'var(--type-body)', color: 'var(--text)',
-                  lineHeight: 'var(--leading-body)', marginBottom: '12px',
-                  paddingLeft: '24px', position: 'relative',
-                }}>
-                  <span style={{
-                    position: 'absolute', left: 0, top: '2px',
-                    color: 'var(--accent)', fontFamily: 'var(--font-badge)',
-                    fontSize: 'var(--type-small)', fontWeight: 'var(--weight-medium)',
-                  }}>
-                    ✓
-                  </span>
-                  {o}
-                </li>
-              ))}
-            </ul>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              One page, no separate funnel. Harvey doesn't need a Pricing page, a Curriculum page, a Testimonials page, or an FAQ page. The Overview is the platform — instrumented with GA4 scroll and CTA tracking, tunable in Framer without a designer.
-            </p>
           </div>
         </section>
 
