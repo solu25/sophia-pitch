@@ -23,7 +23,7 @@ const pageSections = [
   {
     label: 'Proof',
     tagline: 'clear the believability gate',
-    body: "Four stats (80% increased recruiter interest, 100% met career goals, 16-week redundancy to re-employment, 100% recommend) and a logo strip — Amazon, Salesforce, Monday, Frontify, Blink, ProjectWorks, k2view. If the buyer doesn't believe it works, nothing else matters. This section has to clear before the page can do anything.",
+    body: "If the buyer doesn't believe it works, nothing else matters. This section has to clear before the page can do anything.",
     image: { src: '/pmmca-proof.png', alt: 'PMMCA Proof section — four percentage stats and a company logo strip.' },
   },
   {
