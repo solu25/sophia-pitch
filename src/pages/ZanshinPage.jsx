@@ -20,12 +20,6 @@ const productFeatures = [
   },
   {
     num: '03',
-    label: 'Bonus',
-    tagline: 'anything else, optional',
-    imageCaption: 'Bonus items expanded inline.',
-  },
-  {
-    num: '04',
     label: 'Ships',
     tagline: 'what actually got finished',
     imageCaption: 'Ships rail with coral check + strikethrough treatment.',
@@ -589,7 +583,7 @@ export default function ZanshinPage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>02 · The product</span>
-            <h2 style={h2}>One screen. Four data points.</h2>
+            <h2 style={h2}>One screen. Three data points.</h2>
 
             <div style={{
               display: 'flex', flexDirection: 'column', gap: '40px',
