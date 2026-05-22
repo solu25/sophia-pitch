@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -10,18 +10,30 @@ const productFeatures = [
     num: '01',
     label: 'One weekly goal',
     tagline: 'what is this week for',
+    image: {
+      src: '/zanshin-weekly-goal.png',
+      alt: 'Zanshin weekly goal banner — annotated horizontal layout.',
+    },
     imageCaption: 'Weekly goal banner — chromeless, inline editable.',
   },
   {
     num: '02',
     label: 'One daily thing',
     tagline: 'the most important task today',
+    image: {
+      src: '/zanshin-daily-thing.gif',
+      alt: 'Zanshin daily thing — animated interaction in the daily timeline.',
+    },
     imageCaption: "Today's one thing in the daily timeline.",
   },
   {
     num: '03',
     label: 'Ships',
     tagline: 'what actually got finished',
+    image: {
+      src: '/zanshin-ships.gif',
+      alt: 'Zanshin ships rail — coral check + strikethrough animation when an item gets shipped.',
+    },
     imageCaption: 'Ships rail with coral check + strikethrough treatment.',
   },
 ];
@@ -332,6 +344,112 @@ function MiniZanshin() {
   );
 }
 
+function ImageBlock({ src, alt, caption }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setIsOpen(false); };
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen]);
+
+  return (
+    <>
+      <figure style={{ margin: '20px 0 8px' }}>
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          aria-label={`Zoom into image: ${alt}`}
+          style={{
+            display: 'block', width: '100%',
+            padding: 0, border: 'none', background: 'none',
+            cursor: 'zoom-in',
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+          }}
+        >
+          <div style={{
+            borderRadius: 'var(--radius)',
+            overflow: 'hidden',
+            border: '1px solid var(--border)',
+          }}>
+            <img
+              src={src}
+              alt={alt}
+              loading="lazy"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          </div>
+        </button>
+        {caption && (
+          <figcaption style={{
+            fontSize: 'var(--type-small)',
+            color: 'var(--muted)',
+            textAlign: 'center',
+            marginTop: '12px',
+            lineHeight: 'var(--leading-body)',
+            fontStyle: 'italic',
+          }}>
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+
+      {isOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setIsOpen(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1000,
+            backgroundColor: 'rgba(0,0,0,0.94)',
+            overflowY: 'auto',
+            cursor: 'zoom-out',
+            padding: '32px 0',
+          }}
+        >
+          <img
+            src={src}
+            alt={alt}
+            style={{
+              display: 'block', margin: '0 auto',
+              width: 'min(96vw, 1800px)',
+              height: 'auto',
+              boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+              borderRadius: 'var(--radius)',
+              cursor: 'zoom-out',
+            }}
+          />
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); setIsOpen(false); }}
+            aria-label="Close zoomed image"
+            style={{
+              position: 'fixed', top: 24, right: 24,
+              width: 44, height: 44, borderRadius: '50%',
+              background: 'rgba(255,255,255,0.14)',
+              border: '1px solid rgba(255,255,255,0.22)',
+              color: '#fff', fontSize: 20,
+              cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
+
 function ImagePlaceholder({ caption }) {
   return (
     <div style={{
@@ -620,7 +738,11 @@ export default function ZanshinPage() {
                       </h3>
                     </div>
                   </div>
-                  <ImagePlaceholder caption={f.imageCaption} />
+                  {f.image ? (
+                    <ImageBlock src={f.image.src} alt={f.image.alt} caption={f.imageCaption} />
+                  ) : (
+                    <ImagePlaceholder caption={f.imageCaption} />
+                  )}
                 </div>
               ))}
             </div>
