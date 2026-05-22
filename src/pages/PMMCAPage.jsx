@@ -254,7 +254,7 @@ export default function PMMCAPage() {
               <i className="fa-light fa-arrow-left" /> Back to portfolio
             </Link>
             <span style={{ ...eyebrow, color: 'var(--accent)' }}>Case study · PMMCA</span>
-            <h1 style={{
+            <h1 className="hero-tagline" style={{
               fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h1)',
               fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h1)',
               letterSpacing: 'var(--tracking-h1)', color: 'var(--text)',
