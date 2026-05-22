@@ -78,7 +78,7 @@ const h2 = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h2)',
   fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h2)',
   letterSpacing: 'var(--tracking-h2)', color: 'var(--text)',
-  margin: '0 0 24px', maxWidth: '760px',
+  margin: '0 0 24px',
 };
 const h3 = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h4)',
@@ -88,7 +88,7 @@ const h3 = {
 };
 const body = {
   fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
-  color: 'var(--text)', margin: '0 0 16px', maxWidth: '760px',
+  color: 'var(--text)', margin: '0 0 16px',
 };
 
 function ImageBlock({ src, alt, caption }) {
@@ -264,13 +264,13 @@ export default function PMMCAPage() {
               fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h1)',
               fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h1)',
               letterSpacing: 'var(--tracking-h1)', color: 'var(--text)',
-              margin: '0 0 20px', maxWidth: '820px',
+              margin: '0 0 20px',
             }}>
               PMMCA: A landing page that converts.
             </h1>
             <p style={{
               fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
-              color: 'var(--muted)', margin: '0 0 28px', maxWidth: '720px',
+              color: 'var(--muted)', margin: '0 0 28px',
             }}>
               PMMCA's Overview page is the landing page — and it's the engine that converts visitors into buyers. 3 high-ticket buyers closed in the first launch wave. 5,000+ subscribers added to the funnel. Premium pricing held without discounting.
             </p>
@@ -330,7 +330,6 @@ export default function PMMCAPage() {
             <ul style={{
               listStyle: 'none', padding: 0, margin: '8px 0 24px',
               borderLeft: '2px solid var(--accent)', paddingLeft: '20px',
-              maxWidth: '760px',
             }}>
               {researchFindings.map((finding) => (
                 <li key={finding} style={{
@@ -402,7 +401,7 @@ export default function PMMCAPage() {
                   </h3>
                   <p style={{
                     fontSize: 'var(--type-body)', lineHeight: 'var(--leading-body)',
-                    color: 'var(--text)', margin: 0, maxWidth: '720px',
+                    color: 'var(--text)', margin: 0,
                   }}>
                     {s.body}
                   </p>
@@ -412,7 +411,7 @@ export default function PMMCAPage() {
                   {s.bodyExtra && (
                     <p style={{
                       fontSize: 'var(--type-body)', lineHeight: 'var(--leading-body)',
-                      color: 'var(--text)', margin: '24px 0 0', maxWidth: '720px',
+                      color: 'var(--text)', margin: '24px 0 0',
                     }}>
                       {s.bodyExtra}
                     </p>
