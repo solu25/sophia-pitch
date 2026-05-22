@@ -119,7 +119,7 @@ export const sophia = {
     {
       id: "zanshin",
       company: "Hema Designs / Zanshin",
-      title: "Zanshin — The Anti-Kanban team execution engine.",
+      title: "Zanshin — async standup for a team of three",
       role: "Founder · Full-Stack Design + Code",
       tags: ["Micro-SaaS", "Anti-Kanban", "Solo Build", "0→1"],
       tools: ["Vibe Code", "Wardian", "Supabase", "Gemini", "ChatGPT", "Perplexity", "Vercel"],
