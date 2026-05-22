@@ -39,12 +39,6 @@ const pageSections = [
     image: { src: '/pmmca-pathways.png', alt: 'PMMCA pathways section — three tier cards: Earn the Promotion, Secure Your Next Role, Sharpen Your Edge.' },
   },
   {
-    label: 'Depth on demand',
-    tagline: null,
-    body: 'The tabbed "Find Your Starting Point" section lets curious buyers dive into the full curriculum without forcing it on everyone. Career Builder opens by default; the other two are one click away. Skim or read — the buyer chooses.',
-    screenshot: 'Screenshot 3 — One Program Three Ways In + Find Your Starting Point tabs.',
-  },
-  {
     label: 'Pricing & Comparison',
     tagline: 'the close + the verifier',
     body: 'Three cards on dark. Career Builder fully filled with the orange accent, the others in white. The full-color treatment isn\'t a "featured" badge — it\'s a visual event. Anchoring at $1,497 makes $997 read as the practical option and $499 read as the easy yes. Founding member bonuses run across all three tiers. The Individual/Teams toggle parks the B2B buyer out of the way of the individual decision.',
