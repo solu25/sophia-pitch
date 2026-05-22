@@ -529,9 +529,15 @@ export default function ZanshinPage() {
             </h1>
             <p style={{
               fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
+              color: 'var(--muted)', margin: '0 0 12px', maxWidth: '720px',
+            }}>
+              I skipped Figma and vibe-coded Zanshin straight from paper to production. A single-screen async standup for our team of three at Hema Designs.
+            </p>
+            <p style={{
+              fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
               color: 'var(--muted)', margin: '0 0 28px', maxWidth: '720px',
             }}>
-              A micro-SaaS I vibe-coded to fix a problem we actually had. Live at{' '}
+              Live at{' '}
               <a
                 href="https://zanshin-seven.vercel.app"
                 target="_blank"
@@ -540,7 +546,7 @@ export default function ZanshinPage() {
               >
                 zanshin-seven.vercel.app
               </a>
-              . Built with Next.js, Supabase, Claude Code, deployed on Vercel.
+              .
             </p>
 
             {/* Tech stack chips */}
