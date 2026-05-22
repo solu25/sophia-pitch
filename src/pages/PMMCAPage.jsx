@@ -50,7 +50,6 @@ const pageSections = [
     body: 'Three cards on dark. Career Builder fully filled with the orange accent, the others in white. The full-color treatment isn\'t a "featured" badge — it\'s a visual event. Anchoring at $1,497 makes $997 read as the practical option and $499 read as the easy yes. Founding member bonuses run across all three tiers. The Individual/Teams toggle parks the B2B buyer out of the way of the individual decision.',
     image: { src: '/pmmca-pricing.png', alt: 'PMMCA pricing cards on dark — Career Builder, Job Seeker, Coaching & Community.' },
     bodyExtra: "For the verifiers, the access rows (1:1 strategy, KPI Toolkit, AMAs, masterclasses, Harvey Bot, community) check across all three tiers. Only the courses themselves differentiate. The honest message: the access is the same — the course content is what you're paying more for.",
-    screenshot: 'Screenshot — Comparison table (coming soon).',
   },
   {
     label: 'Testimonials',
