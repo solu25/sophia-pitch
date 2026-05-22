@@ -1,4 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 import PitchPage from './pages/template/PitchPage';
 import TaxbitPage from './pages/companies/TaxbitPage';
 import RakutenPage from './pages/companies/RakutenPage';
@@ -20,6 +30,7 @@ import ZanshinPage from './pages/ZanshinPage';
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<PitchPage />} />
         <Route path="/taxbit" element={<TaxbitPage />} />
