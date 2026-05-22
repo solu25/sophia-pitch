@@ -790,6 +790,11 @@ export default function ZanshinPage() {
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
               For a small team, this is the actual rhythm. Daily intentions are easy. Weekly delivery is the thing that compounds.
             </p>
+            <ImageBlock
+              src="/zanshin-ships.gif"
+              alt="Zanshin ships rail — animated coral check + strikethrough when a task ships."
+              caption="Shipped is a fact — what that fact looks like, animated."
+            />
           </div>
         </section>
 
