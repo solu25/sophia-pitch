@@ -63,6 +63,169 @@ const body = {
   color: 'var(--text)', margin: '0 0 16px', maxWidth: '760px',
 };
 
+// ── Mini Zanshin dashboard recreation ──
+function MiniZanshin() {
+  const coral = '#E55C5C';
+  const muted = 'rgba(39, 39, 39, 0.4)';
+  const lightBorder = 'rgba(39, 39, 39, 0.08)';
+  const badgeStyle = {
+    fontFamily: 'var(--font-badge)',
+    fontSize: '9px',
+    letterSpacing: '0.96px',
+    textTransform: 'uppercase',
+  };
+  const lastWeek = [
+    { day: 'FRI', date: 'MAY 15' },
+    { day: 'THU', date: 'MAY 14' },
+    { day: 'WED', date: 'MAY 13' },
+    { day: 'TUE', date: 'MAY 12' },
+    { day: 'MON', date: 'MAY 11' },
+  ];
+  const daysAhead = [
+    { day: 'MON', date: 'MAY 25' },
+    { day: 'TUE', date: 'MAY 26' },
+    { day: 'WED', date: 'MAY 27' },
+    { day: 'THU', date: 'MAY 28' },
+  ];
+
+  return (
+    <div style={{
+      backgroundColor: 'var(--surface)',
+      borderRadius: '10px',
+      border: '1px solid var(--border)',
+      padding: '20px',
+      marginTop: '40px',
+      fontFamily: 'var(--font-sans)',
+      fontSize: '12px',
+      color: 'var(--text)',
+      boxShadow: '0 4px 16px rgba(0,0,0,0.04)',
+    }}>
+      {/* Top header */}
+      <div style={{
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        marginBottom: '14px', fontSize: '11px',
+      }}>
+        <span>Today · Thursday, May 21 · day 4 · WEEK 21</span>
+        <span style={{ fontStyle: 'italic', color: muted }}>fresh — pick one to start</span>
+      </div>
+
+      {/* Goal banner */}
+      <div style={{
+        border: `1.5px solid ${coral}`, borderRadius: '6px',
+        padding: '12px 16px', marginBottom: '12px',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        gap: '12px',
+      }}>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ ...badgeStyle, color: coral, marginBottom: '4px' }}>
+            This week's goal
+          </div>
+          <div style={{ color: muted, fontStyle: 'italic' }}>
+            what's the focus for this week?
+          </div>
+        </div>
+        <div style={{ textAlign: 'right', fontSize: '10px', flexShrink: 0 }}>
+          <div>day 4 of 5</div>
+          <div style={{ ...badgeStyle, color: muted, marginTop: '2px' }}>THU, MAY 21</div>
+        </div>
+      </div>
+
+      {/* Last Week */}
+      <div style={{
+        border: `1px solid ${lightBorder}`, borderRadius: '6px',
+        padding: '12px', marginBottom: '12px',
+      }}>
+        <div style={{
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          marginBottom: '8px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ color: muted }}>—</span>
+            <span style={{ ...badgeStyle, color: muted }}>LAST WEEK</span>
+            <span style={{ color: muted, fontStyle: 'italic', fontSize: '10px' }}>
+              · reminder for Monday morning
+            </span>
+          </div>
+          <span style={{ color: muted, fontStyle: 'italic', fontSize: '10px' }}>no trail yet</span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '6px' }}>
+          {lastWeek.map((d) => (
+            <div key={d.date} style={{
+              border: `1px solid ${lightBorder}`, borderRadius: '4px', padding: '8px',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                <span style={{ ...badgeStyle, color: muted }}>{d.day} · {d.date}</span>
+                <span style={{ color: muted }}>—</span>
+              </div>
+              <div style={{ fontStyle: 'italic', color: muted, fontSize: '10px' }}>
+                before you started
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Today + Days Ahead */}
+      <div className="mini-zanshin-bottom" style={{
+        display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '12px',
+      }}>
+        {/* Today card */}
+        <div style={{
+          border: `1.5px solid ${coral}`, borderRadius: '6px', padding: '14px',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: coral }}>—</span>
+              <span style={{ ...badgeStyle, color: coral }}>THU, MAY 21 · TODAY</span>
+            </div>
+            <span style={{ color: muted, fontStyle: 'italic', fontSize: '10px' }}>pick one</span>
+          </div>
+          <div style={{
+            fontSize: '18px', fontWeight: 'var(--weight-medium)',
+            lineHeight: 1.25, letterSpacing: '-0.4px',
+            marginBottom: '12px',
+          }}>
+            What's the work for today?
+          </div>
+          <div style={{
+            border: `1.5px dashed ${coral}`, borderRadius: '4px',
+            padding: '10px 12px',
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          }}>
+            <span style={{ color: muted, fontStyle: 'italic' }}>
+              <span style={{ color: coral, fontStyle: 'normal' }}>+ </span>
+              log your first thing today
+            </span>
+            <span style={{ ...badgeStyle, color: muted }}>⌘ ↵</span>
+          </div>
+        </div>
+
+        {/* Days Ahead */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          {daysAhead.map((d) => (
+            <div key={d.date} style={{
+              border: `1px solid ${lightBorder}`, borderRadius: '4px',
+              padding: '10px 12px',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            }}>
+              <span style={{ ...badgeStyle, color: muted }}>{d.day} · {d.date}</span>
+              <span style={{ color: muted, fontStyle: 'italic', fontSize: '10px' }}>+ add</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tiny caption */}
+      <p style={{
+        ...badgeStyle, color: muted, textAlign: 'center',
+        marginTop: '18px', marginBottom: 0,
+      }}>
+        Live at zanshin-seven.vercel.app — mini recreation
+      </p>
+    </div>
+  );
+}
+
 function ImagePlaceholder({ caption }) {
   return (
     <div style={{
@@ -176,6 +339,9 @@ export default function ZanshinPage() {
                 </span>
               ))}
             </div>
+
+            {/* Mini Zanshin recreation */}
+            <MiniZanshin />
           </div>
         </section>
 
