@@ -12,8 +12,24 @@ const metrics = [
 ];
 
 const jobs = [
-  { num: 'Job 1', label: 'Pay my bills without thinking', detail: 'Get the exact rent paid on time, feel responsible, maintain a good tenant reputation.' },
-  { num: 'Job 2', label: 'Maximize value from an unavoidable expense', detail: 'Earn real rewards, feel smart for finding this, tell friends.' },
+  {
+    num: 'Job 1',
+    label: 'Pay my bills without thinking',
+    dimensions: [
+      { type: 'Functional', text: 'Landlord gets exact $2,500, on time, every month. I get confirmation.' },
+      { type: 'Emotional', text: 'Feel responsible, avoid late fees stress, not worry if "crypto thing" will work.' },
+      { type: 'Social', text: "Maintain good tenant reputation. Don't look foolish if payment fails." },
+    ],
+  },
+  {
+    num: 'Job 2',
+    label: 'Maximize value from an unavoidable expense',
+    dimensions: [
+      { type: 'Functional', text: "Earn $250–500/month in rewards. Track annual savings. Know it's real money." },
+      { type: 'Emotional', text: 'Feel smart for finding this. Sense of "beating the system" legally.' },
+      { type: 'Social', text: 'Tell friends. Be the person who discovered the life hack.' },
+    ],
+  },
 ];
 
 const principles = [
@@ -481,7 +497,69 @@ export default function MegPrimePage() {
 
             {/* Sub: Two JTBD */}
             <h3 style={h3}>Two Jobs to be Done</h3>
-            <NumberedList items={jobs} />
+            <p style={body}>
+              Users "hire" the product to do a job. Understand the job, not just the feature request.
+            </p>
+            <div style={{
+              display: 'flex', flexDirection: 'column',
+              borderTop: '1px solid var(--border)', marginTop: '16px',
+            }}>
+              {jobs.map((job, i) => (
+                <div key={job.num} style={{
+                  padding: '20px 0',
+                  borderBottom: i < jobs.length - 1 ? '1px solid var(--border)' : 'none',
+                }}>
+                  {/* Job header */}
+                  <div style={{
+                    display: 'flex', gap: '20px', alignItems: 'baseline',
+                    marginBottom: '16px',
+                  }}>
+                    <span style={{
+                      color: 'var(--accent)', fontSize: 'var(--type-small)',
+                      fontFamily: 'var(--font-badge)', fontWeight: 'var(--weight-medium)',
+                      letterSpacing: 'var(--tracking-badge)',
+                      flexShrink: 0, minWidth: '40px',
+                    }}>
+                      {job.num}
+                    </span>
+                    <span style={{
+                      fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
+                      color: 'var(--text)',
+                    }}>
+                      {job.label}
+                    </span>
+                  </div>
+                  {/* Dimensions */}
+                  <div style={{
+                    paddingLeft: '60px',
+                    display: 'flex', flexDirection: 'column', gap: '10px',
+                  }}>
+                    {job.dimensions.map((dim) => (
+                      <div key={dim.type} style={{
+                        display: 'flex', gap: '16px', alignItems: 'flex-start',
+                      }}>
+                        <span style={{
+                          color: 'var(--accent)', fontSize: 'var(--type-small)',
+                          fontFamily: 'var(--font-badge)', fontWeight: 'var(--weight-medium)',
+                          letterSpacing: 'var(--tracking-badge)',
+                          textTransform: 'uppercase',
+                          flexShrink: 0, minWidth: '90px',
+                          paddingTop: '2px',
+                        }}>
+                          {dim.type}
+                        </span>
+                        <span style={{
+                          fontSize: 'var(--type-small)', color: 'var(--muted)',
+                          lineHeight: 'var(--leading-body)',
+                        }}>
+                          {dim.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
             <p style={{ ...body, marginTop: '24px', fontWeight: 'var(--weight-medium)' }}>
               The insight: Job 1 has to be solved before Job 2 can sell. If the user is afraid her rent will fail, no reward will get her to try. The onboarding had to lead with reliability, not rewards.
             </p>
