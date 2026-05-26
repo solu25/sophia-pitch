@@ -326,7 +326,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>01 · TL;DR</span>
-            <h2 style={h2}>The short version.</h2>
+            <h2 style={h2}>TL;DR</h2>
             <p style={body}>
               A new crypto-backed bill-pay startup asked me to design the onboarding flow for paying rent and mortgage. Think Bilt Rewards, but powered by the company's own token instead of a credit card.
             </p>
@@ -340,7 +340,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>02 · The product</span>
-            <h2 style={h2}>Rewards built around the biggest recurring payments people make.</h2>
+            <h2 style={h2}>The Product</h2>
             <p style={body}>
               MegPrime Pay is a rewards program built around the biggest recurring payments people make. Rent, mortgage, and eventually home purchases.
             </p>
@@ -364,7 +364,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>03 · The design problem</span>
-            <h2 style={h2}>The rails are new.</h2>
+            <h2 style={h2}>The Design Problem</h2>
             <p style={body}>
               When you use Venmo, you already know how it works. Pick a person, enter an amount, tap send. Same with Bilt — connect a credit card, set your rent amount, done.
             </p>
@@ -404,7 +404,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>04 · Building the foundation</span>
-            <h2 style={h2}>Before I designed a screen, I built the foundation the team did not have.</h2>
+            <h2 style={h2}>Building the Foundation</h2>
             <p style={body}>
               When I joined MegPrime, the team had a business model and a Jira backlog, but no shared foundation. No persona, no principles, no decision framework. Every design conversation could be re-litigated by the loudest voice in the room.
             </p>
@@ -520,7 +520,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>05 · Designing on top of the foundation</span>
-            <h2 style={h2}>From "what's the catch?" to a scheduled payment.</h2>
+            <h2 style={h2}>Designing on Top of the Foundation</h2>
             <p style={body}>
               The bill-pay onboarding had to take a skeptical user from "what's the catch?" to a scheduled payment, without asking her to learn how crypto works. Every step ties back to one of the six principles.
             </p>
@@ -601,7 +601,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>06 · AI as the force multiplier</span>
-            <h2 style={h2}>Strategy depth and shipping speed at the same time.</h2>
+            <h2 style={h2}>AI as the Force Multiplier</h2>
             <p style={body}>
               A 3-month engagement to build the strategic foundation, design the onboarding flow, and explore the ACH path would normally take a product manager, a researcher, and a designer working together. I did it solo. AI is how.
             </p>
@@ -647,7 +647,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>07 · What shipped and what's next</span>
-            <h2 style={h2}>An honest accounting.</h2>
+            <h2 style={h2}>What Shipped and What's Next</h2>
 
             <h3 style={h3}>What shipped</h3>
             <p style={body}>
