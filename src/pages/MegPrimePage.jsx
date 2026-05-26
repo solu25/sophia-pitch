@@ -469,7 +469,7 @@ export default function MegPrimePage() {
             </p>
             <ImagePlaceholder
               slot="3"
-              caption='"Who We\'re Building For" — primary persona designed to receive 100 percent of design attention. Secondary personas got consideration but not optimization.'
+              caption={`"Who We're Building For" — primary persona designed to receive 100 percent of design attention. Secondary personas got consideration but not optimization.`}
             />
 
             {/* Sub: Two JTBD */}
