@@ -368,9 +368,10 @@ export default function MegPrimePage() {
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
               The team was racing toward a super-MVP launch. Everything had to support shipping fast, not perfectly.
             </p>
-            <ImagePlaceholder
-              slot="1"
-              caption='"Current MegPrime Offers" rewards page — the reward structure: 2% on standard rent, up to 20% at partner properties, mortgage rebates, and home purchase rewards.'
+            <ImageBlock
+              src="/megprime-about.png"
+              alt="About MegPrime Pay — product overview."
+              caption="About MegPrime Pay — the product overview page that introduces the rewards program to a first-time visitor."
             />
           </div>
         </section>
@@ -412,6 +413,11 @@ export default function MegPrimePage() {
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
               So the design problem: how do you onboard a skeptical user into a brand new kind of bill-pay product, without making her learn anything complicated before she sees the value? That question shaped every decision over the next three months.
             </p>
+            <ImageBlock
+              src="/megprime-rewards.png"
+              alt="Current MegPrime Offers — the reward structure that triggers user skepticism."
+              caption={`"Current MegPrime Offers" — the reward structure that makes the Value Optimizer pause: 2% on standard rent, up to 20% at partner properties, mortgage rebates, and home-purchase rewards. The same screen that draws her in is the one that makes her ask "what's the catch?"`}
+            />
           </div>
         </section>
 
