@@ -523,7 +523,7 @@ export default function MegPrimePage() {
                       {job.num}
                     </span>
                     <span style={{
-                      fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
+                      fontSize: 'var(--type-lead)', fontWeight: 'var(--weight-medium)',
                       color: 'var(--text)',
                     }}>
                       {job.label}
