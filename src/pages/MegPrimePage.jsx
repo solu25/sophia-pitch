@@ -446,16 +446,26 @@ export default function MegPrimePage() {
             </div>
 
             {/* Sub: Competitor research */}
-            <h3 style={h3}>Competitor research — how Bilt actually works</h3>
+            <h3 style={h3}>Competitor research: what to borrow and what to build new</h3>
             <p style={body}>
-              The closest existing product to MegPrime is Bilt Rewards. I broke down Bilt's three rent payment flows (Venmo/PayPal, Check, Portal) at both the user-facing and backend levels.
+              I focused competitor research on Bilt Rewards — the closest existing analog to MegPrime. Same target user, same recurring payment surface, similar reward promise. The point wasn't to copy Bilt. It was to figure out what to borrow and what we'd have to build new.
+            </p>
+            <p style={body}>
+              I broke down Bilt's three BillPay paths (Portal, Check, Venmo/PayPal) at both the user-facing and backend levels, and reverse-engineered the underlying mechanic: Bilt creates a virtual ACH pass-through, not a wallet. When the landlord's portal pulls from it, Bilt instantly charges the user's linked credit card to cover the debit. The account is always empty.
+            </p>
+            <p style={body}>
+              <strong style={{ fontWeight: 'var(--weight-medium)' }}>What we borrowed:</strong> the virtual account architecture. MegPrime generates a routing + account number the user adds to her landlord's portal once; from then on, the portal pulls automatically. Already proven, didn't need reinventing.
+            </p>
+            <p style={body}>
+              <strong style={{ fontWeight: 'var(--weight-medium)' }}>What we built new:</strong> Bilt's instant-settlement model doesn't survive crypto rails. MegPrime's conversion chain (USD → MP → USDC → USD) takes days, so real funds have to sit in the account before the portal pulls. Three design responses came out of that timing constraint — a funding deadline, an "always target next month" rule for users without enough lead time, and a safety-net pattern where the user's old payment method stays active until MegPrime is fully funded.
             </p>
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              Bilt's portal flow turned out to be the closest analog to what MegPrime needed, but with one critical difference: Bilt uses a credit card, which settles instantly. MegPrime uses crypto, which has to convert through a multi-step chain before the landlord can be paid. We could borrow Bilt's UX patterns for familiarity, but not their timing assumptions.
+              The research saved weeks of trial-and-error on what was reusable, and surfaced the funding-deadline problem as the unique MegPrime design challenge.
             </p>
-            <ImagePlaceholder
-              slot="2"
-              caption="Bilt UX competitor research — three rent payment flows (Venmo/PayPal, Check, Portal) mapped at user-facing and backend levels. The portal flow was the closest analog, but Bilt's credit-card rails do not match MegPrime's crypto-to-fiat timing."
+            <ImageBlock
+              src="/megprime-bilt-ux.png"
+              alt="Bilt UX competitor research — three rent payment paths mapped at user-facing and backend levels."
+              caption="Bilt UX research — three BillPay paths mapped at user-facing and backend levels. The virtual-account pattern was borrowable; the instant-settlement timing was not."
             />
 
             {/* Sub: The Value Optimizer */}
