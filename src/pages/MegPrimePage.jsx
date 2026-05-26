@@ -570,10 +570,6 @@ export default function MegPrimePage() {
               When the team disagreed, we argued principles, not opinions.
             </p>
             <NumberedList items={principles} />
-            <ImagePlaceholder
-              slot="4"
-              caption='"Product & UX Principles" — six rules used to settle design tradeoffs. When the team disagreed, we argued principles, not opinions.'
-            />
 
             {/* Sub: User journey */}
             <h3 style={h3}>The user journey</h3>
@@ -581,12 +577,14 @@ export default function MegPrimePage() {
               The first rent payment moves through five emotional states. Each state has its own design needs.
             </p>
             <NumberedList items={journey} />
-            <ImagePlaceholder
-              slot="5"
-              caption='"End-to-End Core User Journey" — five emotional states from Awareness to Habit.'
+            <ImageBlock
+              src="/megprime-coreusers.png"
+              alt="End-to-end core user journey — five emotional states from Awareness to Habit."
+              caption='"End-to-End Core User Journey" — five emotional states from Awareness to Habit, each with its own design needs.'
             />
-            <ImagePlaceholder
-              slot="6"
+            <ImageBlock
+              src="/megprime-biltusers.png"
+              alt="Bill Pay Rewards user journey — four-phase research artifact with user quotes and success metrics."
               caption='"Bill Pay Rewards User Journey" — deeper four-phase research artifact (Discovery, Consideration, Activation, Retention) with user quotes and success metrics per phase.'
             />
 
