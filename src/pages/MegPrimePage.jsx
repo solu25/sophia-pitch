@@ -468,7 +468,7 @@ export default function MegPrimePage() {
             {/* Sub: The Value Optimizer */}
             <h3 style={h3}>The Value Optimizer</h3>
             <p style={body}>
-              Our primary persona is the Value Optimizer. She is 28 to 42, makes 60 to 120K, lives in a city or suburb, and rents or recently bought a home. She is financially savvy without being rich. She games credit card points. She compares insurance quotes.
+              Our primary persona is the Value Optimizer.
             </p>
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
               When she sees a 10 percent cashback offer on her rent, her first thought is suspicion: <em>"What's the catch?"</em>
