@@ -614,8 +614,9 @@ export default function MegPrimePage() {
             <p style={{ ...body, marginTop: '12px' }}>
               No mention of crypto, tokens, or conversion. She is paying her rent and earning rewards. That is the whole frame.
             </p>
-            <ImagePlaceholder
-              slot="7"
+            <ImageBlock
+              src="/megprime-valueprop.png"
+              alt="Value Prop → Calculate Rewards — onboarding screens that lead with the reward."
               caption='"Value Prop → Calculate Rewards" — the flow opens with the reward, not the sign-up. Property type sets eligibility up front, and the calculator turns an abstract promise into a personal one.'
             />
 
@@ -628,8 +629,9 @@ export default function MegPrimePage() {
             <p style={{ ...body, marginTop: '12px' }}>
               The user does not see the matrix. She sees a three-step add-a-bill flow.
             </p>
-            <ImagePlaceholder
-              slot="8"
+            <ImageBlock
+              src="/megprime-addbills.png"
+              alt="Gather Bill Data — add-a-bill flow screens."
               caption='"Gather Bill Data" — decision matrix mapping the full space of how users actually pay their bills today, with the simple add-a-bill flow that resulted.'
             />
 
@@ -642,9 +644,10 @@ export default function MegPrimePage() {
             <p style={{ ...body, marginTop: '12px' }}>
               Fees, timing, and math are visible before she confirms.
             </p>
-            <ImagePlaceholder
-              slot="9"
-              caption='"Add Mortgage Bill" — four steps to set up a mortgage. The review screen reveals the full fee structure and reward projection before the user commits.'
+            <ImageBlock
+              src="/megprime-addmort.png"
+              alt="Add Mortgage Bill — five-step mortgage setup with review and fee breakdown."
+              caption='"3.1 Add Mortgage Bill" — four steps to set up a mortgage. The review screen reveals the full fee structure and reward projection before the user commits.'
             />
 
             {/* Sub: Add rent */}
@@ -656,9 +659,10 @@ export default function MegPrimePage() {
             <p style={{ ...body, marginTop: '12px' }}>
               One flow that handles both bills correctly beats two parallel flows that drift apart.
             </p>
-            <ImagePlaceholder
-              slot="10"
-              caption='"Add Rent" — rent setup mirrors mortgage. The user is using one product, not two.'
+            <ImageBlock
+              src="/megprime-addrent.png"
+              alt="Add Rent — five-step rent setup mirroring the mortgage flow."
+              caption='"3.2 Add Rent" — rent setup mirrors mortgage. The user is using one product, not two.'
             />
 
             {/* Sub: ACH path */}
@@ -670,8 +674,9 @@ export default function MegPrimePage() {
             <p style={{ ...body, marginTop: '12px' }}>
               The harder path is acknowledged and designed for, not hidden.
             </p>
-            <ImagePlaceholder
-              slot="11"
+            <ImageBlock
+              src="/megprime-ach.png"
+              alt="ACH Path — alternate flow for users whose landlords do not use a payment portal."
               caption='"ACH Path" — alternate path for users without landlord portals. The "How it works" screen opens the flow so the user understands what she is being asked to do before she does it.'
             />
           </div>
