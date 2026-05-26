@@ -342,16 +342,16 @@ export default function MegPrimePage() {
             <span style={eyebrow}>02 · The product</span>
             <h2 style={h2}>Rewards built around the biggest recurring payments people make.</h2>
             <p style={body}>
-              MegPrime Pay is a rewards program built around rent, mortgage, and eventually home purchases. The closest comparison is Bilt Rewards — Bilt lets you pay rent with a credit card and earn points. MegPrime is broader. You pay rent and mortgage using MP tokens (MegPrime's own crypto), and earn cashback-style rewards every month: 2% on standard rent payments, up to 20% at MegPrime partner properties, monthly mortgage rebates, and home purchase rewards.
+              MegPrime Pay is a rewards program built around the biggest recurring payments people make. Rent, mortgage, and eventually home purchases.
             </p>
             <p style={body}>
-              For the user, the promise is simple: pay your housing bills, earn rewards, never miss a due date.
+              The closest comparison is Bilt Rewards. Bilt lets you pay rent with a credit card and earn points. MegPrime is broader. You pay your rent and mortgage using MP tokens (MegPrime's own crypto), and earn cashback-style rewards every month at rates from 2 percent up to 20 percent at partner properties.
             </p>
             <p style={body}>
-              Behind the scenes, more has to happen. The user funds their MegPrime account from their regular bank, the dollars convert into MP tokens, MP tokens convert back into dollars when the landlord or mortgage company gets paid, and the user receives their reward 30 days later in more MP tokens.
+              Behind the scenes, the user funds their MegPrime account from a regular bank, dollars convert into MP tokens, MP tokens convert back into dollars when the landlord or mortgage company gets paid, and the user receives their reward 30 days later. The user never has to think about any of it. They just see "pay rent, earn rewards."
             </p>
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              The user never has to think about the conversion. She just sees "pay rent, earn rewards." Making that simplicity possible is what the design had to figure out.
+              The team was racing toward a super-MVP launch. Everything had to support shipping fast, not perfectly.
             </p>
             <ImagePlaceholder
               slot="1"
