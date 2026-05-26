@@ -13,7 +13,7 @@ const metrics = [
 
 const jobs = [
   {
-    num: 'Job 1',
+    num: '01',
     label: 'Pay my bills without thinking',
     dimensions: [
       { type: 'Functional', text: 'Landlord gets exact $2,500, on time, every month. I get confirmation.' },
@@ -22,7 +22,7 @@ const jobs = [
     ],
   },
   {
-    num: 'Job 2',
+    num: '02',
     label: 'Maximize value from an unavoidable expense',
     dimensions: [
       { type: 'Functional', text: "Earn $250–500/month in rewards. Track annual savings. Know it's real money." },
