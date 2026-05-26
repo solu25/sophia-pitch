@@ -33,12 +33,12 @@ const jobs = [
 ];
 
 const principles = [
-  { num: '01', label: 'Bill Pay First, Crypto Second', detail: 'Crypto is the rails, not the destination.' },
-  { num: '02', label: 'Familiar Beats Novel', detail: 'Match Venmo and Zelle patterns. Introduce crypto only after the core task succeeds.' },
-  { num: '03', label: 'Clarity Over Surprise', detail: 'High rewards trigger skepticism. Over-communicate fees, timing, and constraints.' },
-  { num: '04', label: 'Reliability Beats Features', detail: 'One payment type that works beats five with bugs.' },
-  { num: '05', label: 'Optimize for the Second Payment', detail: 'First payment proves it works. Second proves we earned the habit.' },
-  { num: '06', label: 'Constraints Are Product', detail: 'Surface limits and exclusions early. Explain them. Do not hide them.' },
+  { num: '01', label: 'Bill Pay First, Crypto Second', detail: 'Users come to pay bills. Crypto is the rails, not the destination. USD-first interface always.' },
+  { num: '02', label: 'Familiar Beats Novel',          detail: 'Match Venmo/Zelle patterns. Introduce crypto concepts only after core task succeeds.' },
+  { num: '03', label: 'Clarity Over Surprise',         detail: 'High rewards trigger skepticism. Over-communicate: fees, timing, constraints, upfront.' },
+  { num: '04', label: 'Reliability > Features',        detail: '1 payment type that works >> 5 payment types with bugs. Ship slow, earn trust.' },
+  { num: '05', label: 'Optimize for 2nd Payment',      detail: "First payment proves it works. Second payment proves we've earned their habit." },
+  { num: '06', label: 'Constraints Are Product',       detail: 'NYC/CA exclusion, $5K limits — surface early, explain why, set expectations.' },
 ];
 
 const journey = [
@@ -246,13 +246,13 @@ function NumberedList({ items }) {
           )}
           <div style={{ flex: 1 }}>
             <span style={{
-              fontSize: 'var(--type-body)', fontWeight: 'var(--weight-medium)',
-              color: 'var(--text)', display: 'block', marginBottom: '4px',
+              fontSize: 'var(--type-lead)', fontWeight: 'var(--weight-medium)',
+              color: 'var(--text)', display: 'block', marginBottom: '6px',
             }}>
               {step.label}
             </span>
             <span style={{
-              fontSize: 'var(--type-small)', color: 'var(--muted)',
+              fontSize: 'var(--type-body)', color: 'var(--muted)',
               lineHeight: 'var(--leading-body)',
             }}>
               {step.detail}
@@ -549,7 +549,7 @@ export default function MegPrimePage() {
                           {dim.type}
                         </span>
                         <span style={{
-                          fontSize: 'var(--type-small)', color: 'var(--muted)',
+                          fontSize: 'var(--type-body)', color: 'var(--muted)',
                           lineHeight: 'var(--leading-body)',
                         }}>
                           {dim.text}
