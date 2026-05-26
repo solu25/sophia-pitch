@@ -51,6 +51,38 @@ export const sophia = {
   ],
   selectedProjects: [
     {
+      id: "megprime-pay",
+      company: "MegPrime Pay",
+      title: "Strategy and design for a brand new crypto bill-pay product",
+      role: "Lead Designer + Strategy",
+      tags: ["Fintech", "Crypto", "Strategy", "0→1", "Onboarding"],
+      tools: ["Figma", "Pencil", "Claude", "Claude Code"],
+      caseStudyPage: "/megprime",
+      headline:
+        "A crypto-backed bill-pay startup needed a designer who could do both the strategy and the screens. I built the product foundation — persona, principles, JTBD, conversion mapping — and designed the onboarding flow for rent, mortgage, and ACH, all in three months.",
+      outcome:
+        "Strategy + design shipped in 3 months — turning a Jira backlog into a coherent product with persona, principles, and dual onboarding flows.",
+      metrics: [
+        { value: "12", label: "Strategy deck sections" },
+        { value: "6", label: "Decision principles" },
+        { value: "1", label: "Designer doing strategy + design" },
+      ],
+      caseStudy: {
+        insight: "With no precedent to copy, six principles became the operating system for every design tradeoff.",
+        story: [
+          "MegPrime Pay was a brand new product with no precedent. Think Bilt Rewards, but powered by the company's own crypto token instead of a credit card. The team had a business model and a Jira backlog, but no shared foundation: no persona, no decision rules, no design language for explaining unfamiliar rails to a skeptical user. Every design conversation could be re-litigated.",
+          "I built the foundation first. A strategy deck pulled from Jira, competitive research, and market data, synthesized with Claude. Then designed on top of it — a value-prop-led onboarding, dual flows for rent and mortgage, and an alternate ACH path for users without landlord portals. Each screen ties back to one of six principles.",
+        ],
+        featuresLabel: "KEY INSIGHTS",
+        features: [
+          { icon: "fa-light fa-clipboard-list", label: "Built the foundation the team did not have", detail: "Persona, JTBD, six principles, conversion barriers, retention model, and open questions — synthesized into one decision-making framework." },
+          { icon: "fa-light fa-compass", label: "Principles, not patterns", detail: "With no precedent to copy, six principles became the operating system for every design tradeoff." },
+          { icon: "fa-light fa-bolt", label: "Strategy + design at startup speed", detail: "Used Claude, Pencil, and Claude Code to do work that traditionally takes a PM, a researcher, and a designer." },
+        ],
+        screens: [],
+      },
+    },
+    {
       id: "harvey-pmmca",
       company: "Harvey Lee / PMMCA",
       title: "PMMCA: A platform that converted, a community that grew",
