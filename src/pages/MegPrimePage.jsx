@@ -593,9 +593,6 @@ export default function MegPrimePage() {
             <p style={body}>
               The last section of the foundation was a list of open questions and alignment risks. User research gaps, technical unknowns, business model risks, team alignment risks.
             </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              Naming these out loud was uncomfortable. It would have been easier to pretend we had it all figured out. But the team did not need a confident deck. It needed an honest one. Every confident claim in the foundation was paired with an admission of what was still unknown.
-            </p>
           </div>
         </section>
 
