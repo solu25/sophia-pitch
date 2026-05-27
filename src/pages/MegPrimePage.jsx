@@ -437,10 +437,7 @@ export default function MegPrimePage() {
             <span style={eyebrow}>03 · Building the foundation</span>
             <h2 style={h2}>Building the Foundation</h2>
             <p style={body}>
-              When I joined MegPrime, the team had a business model and a Jira backlog, but no shared foundation. No persona, no principles, no decision framework. Every design conversation could be re-litigated by the loudest voice in the room.
-            </p>
-            <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              So before I designed a single screen, I built the foundation the team would use to make decisions. It took the form of a Product Strategy and UX Foundation deck, pulled from Jira, internal docs, competitor research, and market data, synthesized with Claude. The deck became the reference point for every design decision that followed.
+              The team had a business model and a Jira backlog, but no shared design foundation. No persona, no principles, no decision framework. Without one, every design conversation could be re-litigated by the loudest voice in the room. Under an MVP timeline, that was not affordable. So before I designed any screens, I built it.
             </p>
 
             {/* Foundation metrics */}
