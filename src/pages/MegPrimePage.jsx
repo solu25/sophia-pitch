@@ -390,7 +390,7 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>02 · The design problem</span>
-            <h2 style={h2}>The problem wasn't the screens. It was the trust.</h2>
+            <h2 style={h2}>New Ideas</h2>
             <p style={body}>
               When you use Venmo, you already know how it works. Pick a person, enter an amount, tap send. Same with Bilt — connect a credit card, set your rent amount, done.
             </p>
