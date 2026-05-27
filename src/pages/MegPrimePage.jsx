@@ -341,13 +341,10 @@ export default function MegPrimePage() {
         {/* ── INTRO GIF (right under the hero) ── */}
         <section style={{ padding: '32px 0 0' }}>
           <div style={sectionInner}>
-            <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-              <ImageBlock
-                src="/megprime-intro.gif"
-                alt="MegPrime Pay intro animation."
-                caption="Intro animation — created with LottieFiles."
-              />
-            </div>
+            <ImageBlock
+              src="/megprime-intro.gif"
+              alt="MegPrime Pay intro animation."
+            />
           </div>
         </section>
 
