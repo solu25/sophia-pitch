@@ -751,7 +751,6 @@ export default function MegPrimePage() {
         <section style={sectionPad}>
           <div style={sectionInner}>
             <span style={eyebrow}>06 · What shipped and what's next</span>
-            <h2 style={h2}>What Shipped and What's Next</h2>
 
             <h3 style={h3}>What shipped</h3>
             <p style={body}>
