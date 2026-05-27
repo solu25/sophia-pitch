@@ -411,7 +411,7 @@ export default function MegPrimePage() {
               "This sounds too good to be true. What's the catch?"
             </p>
             <p style={{ ...body, fontWeight: 'var(--weight-medium)' }}>
-              So the design problem: how do you onboard a skeptical user into a brand new kind of bill-pay product, without making her learn anything complicated before she sees the value? That question shaped every decision over the next three months.
+              So the design problem: how do you onboard a skeptical user into a brand new payment model, at MVP speed, without making them learn anything complicated before they see the value? That question shaped every decision over the next three months.
             </p>
             <ImageBlock
               src="/megprime-rewards.png"
@@ -616,9 +616,12 @@ export default function MegPrimePage() {
             <p style={body}>
               The first screen leads with the reward, not account creation. The user picks her property type (owner, renter, partner property), each showing the reward rate up front. Then she calculates her own reward based on her actual rent.
             </p>
-            <span style={principleCallout}>Principle · Bill Pay First, Crypto Second</span>
+            <span style={principleCallout}>Principle · Optimize for the Second Payment</span>
             <p style={{ ...body, marginTop: '12px' }}>
-              No mention of crypto, tokens, or conversion. She is paying her rent and earning rewards. That is the whole frame.
+              The reward calculator turns an abstract promise into a personal number before any commitment. The earlier the reward feels real, the more momentum the user carries into the rest of the onboarding and toward the second payment that builds the habit.
+            </p>
+            <p style={body}>
+              This sequence does trust-building work too. Leading with the user's own reward number, before any commitment, is the cheapest possible first trust deposit. She used the product. Nothing went wrong. The reward is real. She is now slightly less skeptical than she was sixty seconds ago.
             </p>
             <ImageBlock
               src="/megprime-valueprop.png"
@@ -649,6 +652,9 @@ export default function MegPrimePage() {
             <span style={principleCallout}>Principle · Clarity Over Surprise</span>
             <p style={{ ...body, marginTop: '12px' }}>
               Fees, timing, and math are visible before she confirms.
+            </p>
+            <p style={body}>
+              Hidden fees are what made her suspicious in the first place. Visible fees are how she stops being suspicious.
             </p>
             <ImageBlock
               src="/megprime-addmort.png"
