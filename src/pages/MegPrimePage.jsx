@@ -68,7 +68,7 @@ const h2 = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h2)',
   fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h2)',
   letterSpacing: 'var(--tracking-h2)', color: 'var(--text)',
-  margin: '0 0 24px', maxWidth: '760px',
+  margin: '0 0 24px',
 };
 const h3 = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h4)',
@@ -78,7 +78,7 @@ const h3 = {
 };
 const body = {
   fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
-  color: 'var(--text)', margin: '0 0 16px', maxWidth: '760px',
+  color: 'var(--text)', margin: '0 0 16px',
 };
 const principleCallout = {
   display: 'inline-block',
@@ -761,7 +761,6 @@ export default function MegPrimePage() {
             <ul style={{
               listStyle: 'none', padding: 0, margin: '8px 0 16px',
               borderLeft: '2px solid var(--accent)', paddingLeft: '20px',
-              maxWidth: '760px',
             }}>
               {testNext.map((q) => (
                 <li key={q} style={{
