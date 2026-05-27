@@ -621,7 +621,7 @@ export default function MegPrimePage() {
               The reward calculator turns an abstract promise into a personal number before any commitment. The earlier the reward feels real, the more momentum the user carries into the rest of the onboarding and toward the second payment that builds the habit.
             </p>
             <p style={body}>
-              This sequence does trust-building work too. Leading with the user's own reward number, before any commitment, is the cheapest possible first trust deposit. She used the product. Nothing went wrong. The reward is real. She is now slightly less skeptical than she was sixty seconds ago.
+              This sequence does trust-building work too. Leading with the user's own reward number, before any commitment, is the cheapest possible first trust deposit.
             </p>
             <ImageBlock
               src="/megprime-valueprop.png"
