@@ -301,7 +301,7 @@ export default function MegPrimePage() {
               fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
               color: 'var(--muted)', margin: '0 0 16px',
             }}>
-              A new crypto-backed bill-pay startup asked me to design the onboarding flow for paying rent and mortgage. The hard part wasn't the design itself — it was helping a skeptical user feel comfortable with a payment method she had never used before, and building the strategic foundation the team did not yet have.
+              A new crypto-backed bill-pay startup asked me to design the onboarding flow for paying rent and mortgage.
             </p>
 
             {/* Meta line */}
