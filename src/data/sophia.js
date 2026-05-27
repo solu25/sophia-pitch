@@ -57,6 +57,7 @@ export const sophia = {
       role: "Lead Designer + Strategy",
       tags: ["Fintech", "Crypto", "Strategy", "0→1", "Onboarding"],
       tools: ["Figma", "Pencil", "Claude", "Claude Code"],
+      heroImage: "/megprime-intro.gif",
       caseStudyPage: "/megprime",
       headline:
         "A crypto-backed bill-pay startup needed a designer who could do both the strategy and the screens. I built the product foundation — persona, principles, JTBD, conversion mapping — and designed the onboarding flow for rent, mortgage, and ACH, all in three months.",
