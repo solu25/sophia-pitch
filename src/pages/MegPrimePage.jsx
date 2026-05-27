@@ -293,13 +293,13 @@ export default function MegPrimePage() {
               fontFamily: 'var(--font-sans)', fontSize: 'var(--type-h1)',
               fontWeight: 'var(--weight-medium)', lineHeight: 'var(--leading-h1)',
               letterSpacing: 'var(--tracking-h1)', color: 'var(--text)',
-              margin: '0 0 20px', maxWidth: '820px',
+              margin: '0 0 20px',
             }}>
               Designing the onboarding for a crypto bill-pay product.
             </h1>
             <p style={{
               fontSize: 'var(--type-lead)', lineHeight: 'var(--leading-body)',
-              color: 'var(--muted)', margin: '0 0 16px', maxWidth: '720px',
+              color: 'var(--muted)', margin: '0 0 16px',
             }}>
               A new crypto-backed bill-pay startup asked me to design the onboarding flow for paying rent and mortgage. The hard part wasn't the design itself — it was helping a skeptical user feel comfortable with a payment method she had never used before, and building the strategic foundation the team did not yet have.
             </p>
